@@ -44,6 +44,13 @@ export default function Layout() {
             Unofficial Mock Exam Platform for Datadog Fundamentals Certification.
             <br /> Not affiliated with Datadog, Inc.
           </p>
+          <p style={{ marginTop: '1rem', opacity: 0.8, fontSize: '0.85rem' }}>
+            {lang === 'en' ? (
+              <>Found a mistake or have a suggestion? <a href="https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues" target="_blank" rel="noopener noreferrer" style={{color: '#a97cd5', textDecoration: 'underline'}}>Open an Issue on GitHub</a></>
+            ) : (
+              <>問題の不備やご要望をお見かけの際は、<a href="https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues" target="_blank" rel="noopener noreferrer" style={{color: '#a97cd5', textDecoration: 'underline'}}>GitHubのIssue</a>からご報告ください。</>
+            )}
+          </p>
         </div>
       </footer>
     </div>
