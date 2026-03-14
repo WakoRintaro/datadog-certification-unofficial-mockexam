@@ -11,7 +11,7 @@ export default function Home() {
       subtitle: "The ultimate preparation platform for the Datadog Fundamentals Exam. Practice with structured mock exams to ensure you pass on the first try.",
       cta: "Explore Fundamentals Exams",
       features: [
-        { icon: LayoutDashboard, title: "9 Full Exam Sets", desc: "Comprehensive coverage of all Datadog domains." },
+        { icon: LayoutDashboard, title: "7 Full Exam Sets", desc: "Comprehensive coverage of all Datadog domains." },
         { icon: ShieldCheck, title: "Real Exam Feel", desc: "Practice in Quiz Mode with immediate feedback." },
         { icon: Database, title: "Detailed Explanations", desc: "Understand the 'Why' behind every answer." }
       ]
