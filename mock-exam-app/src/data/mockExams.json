@@ -60,7 +60,7 @@
             "id": "A",
             "text": {
               "en": "`sudo datadog-agent status`",
-              "ja": "`sudo datadog-agent ステータス`"
+              "ja": "`sudo datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -76,7 +76,7 @@
             "id": "C",
             "text": {
               "en": "`sudo datadog-agent info`",
-              "ja": "`sudo datadog-agent 情報`"
+              "ja": "`sudo datadog-agent info`"
             },
             "isCorrect": false
           },
@@ -195,7 +195,7 @@
             "id": "A",
             "text": {
               "en": "`{\"series\": [{\"metric\": \"my.metric\", \"points\": [[1625097600, 42]], \"tags\": [\"env:prod\"]}]}`",
-              "ja": "`{\"シリーズ\": [{\"メトリック\": \"my.metric\", \"ポイント\": [[1625097600, 42]], \"タグ\": [\"env:prod\"]}]}`"
+              "ja": "`{\"series\": [{\"metric\": \"my.metric\", \"points\": [[1625097600, 42]], \"tags\": [\"env:prod\"]}]}`"
             },
             "isCorrect": true
           },
@@ -203,7 +203,7 @@
             "id": "B",
             "text": {
               "en": "`metric: my.metric, value: 42, tags: [env:prod]`",
-              "ja": "`メトリック: my.metric、値: 42、タグ: [env:prod]`"
+              "ja": "`metric: my.metric, value: 42, tags: [env:prod]`"
             },
             "isCorrect": false
           },
@@ -211,7 +211,7 @@
             "id": "C",
             "text": {
               "en": "`<metric name=\"my.metric\" value=\"42\" />`",
-              "ja": "`<メトリック名=\"my.metric\" 値=\"42\" />`"
+              "ja": "`<metric name=\"my.metric\" value=\"42\" />`"
             },
             "isCorrect": false
           },
@@ -264,7 +264,7 @@
             "id": "D",
             "text": {
               "en": "`route -n`",
-              "ja": "`ルート -n`"
+              "ja": "`route -n`"
             },
             "isCorrect": false
           }
@@ -330,7 +330,7 @@
             "id": "A",
             "text": {
               "en": "`find datadog-agent`",
-              "ja": "`datadog エージェントを検索`"
+              "ja": "`find datadog-agent`"
             },
             "isCorrect": false
           },
@@ -465,7 +465,7 @@
             "id": "A",
             "text": {
               "en": "`sudo service datadog-agent start`",
-              "ja": "`sudo サービス datadog-agent start`"
+              "ja": "`sudo service datadog-agent start`"
             },
             "isCorrect": false
           },
@@ -473,7 +473,7 @@
             "id": "B",
             "text": {
               "en": "`sudo datadog-agent status`",
-              "ja": "`sudo datadog-agent ステータス`"
+              "ja": "`sudo datadog-agent status`"
             },
             "isCorrect": true
           },
@@ -690,7 +690,7 @@
             "id": "A",
             "text": {
               "en": "`sudo datadog-agent support`",
-              "ja": "`sudo datadog-agent サポート`"
+              "ja": "`sudo datadog-agent support`"
             },
             "isCorrect": false
           },
@@ -698,7 +698,7 @@
             "id": "B",
             "text": {
               "en": "`sudo datadog-agent flare`",
-              "ja": "`sudo datadog-agentフレア`"
+              "ja": "`sudo datadog-agent flare`"
             },
             "isCorrect": true
           },
@@ -706,7 +706,7 @@
             "id": "C",
             "text": {
               "en": "`sudo datadog-agent debug`",
-              "ja": "`sudo datadog-agent デバッグ`"
+              "ja": "`sudo datadog-agent debug`"
             },
             "isCorrect": false
           },
@@ -780,7 +780,7 @@
             "id": "A",
             "text": {
               "en": "`sudo datadog-agent status`",
-              "ja": "`sudo datadog-agent ステータス`"
+              "ja": "`sudo datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -788,7 +788,7 @@
             "id": "B",
             "text": {
               "en": "`sudo datadog-agent check process`",
-              "ja": "`sudo datadog-agent チェックプロセス`"
+              "ja": "`sudo datadog-agent check process`"
             },
             "isCorrect": true
           },
@@ -1254,7 +1254,7 @@
             "id": "D",
             "text": {
               "en": "`datadog-agent logs --view`",
-              "ja": "`datadog-agent ログ --view`"
+              "ja": "`datadog-agent logs --view`"
             },
             "isCorrect": false
           }
@@ -1688,7 +1688,7 @@
             "id": "B",
             "text": {
               "en": "`netstat -an | grep 8125`",
-              "ja": "`netstat -an |grep 8125`"
+              "ja": "`netstat -an | grep 8125`"
             },
             "isCorrect": false
           },
@@ -2175,7 +2175,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -2191,7 +2191,7 @@
             "id": "C",
             "text": {
               "en": "`datadog-agent stream`",
-              "ja": "`datadog-agent ストリーム`"
+              "ja": "`datadog-agent stream`"
             },
             "isCorrect": false
           },
@@ -2978,7 +2978,7 @@
         "id": "67",
         "question": {
           "en": "In a widget query `avg:system.cpu.idle{env:prod} by {host}`, what does `{env:prod}` do?",
-          "ja": "{host}` によるウィジェット クエリ `avg:system.cpu.idle{env:prod} では、`{env:prod}` は何をしますか?"
+          "ja": "ウィジェット クエリ `avg:system.cpu.idle{env:prod} by {host}` では、`{env:prod}` は何をしますか?"
         },
         "options": [
           {
@@ -3390,7 +3390,7 @@
             "id": "A",
             "text": {
               "en": "`ls -lt | head -10`",
-              "ja": "`ls -lt |ヘッド -10`"
+              "ja": "`ls -lt | head -10`"
             },
             "isCorrect": true
           },
@@ -3406,7 +3406,7 @@
             "id": "C",
             "text": {
               "en": "`find . -newer today`",
-              "ja": "` を見つけてください。-今日の新しい`"
+              "ja": "`find . -newer today`"
             },
             "isCorrect": false
           },
@@ -3414,7 +3414,7 @@
             "id": "D",
             "text": {
               "en": "`top -n 10`",
-              "ja": "`トップ -n 10`"
+              "ja": "`top -n 10`"
             },
             "isCorrect": false
           }
@@ -3578,7 +3578,7 @@
             "id": "B",
             "text": {
               "en": "`free -h`",
-              "ja": "`フリー -h`"
+              "ja": "`free -h`"
             },
             "isCorrect": false
           },
@@ -4673,7 +4673,7 @@
             "id": "C",
             "text": {
               "en": "`sudo datadog-agent version`",
-              "ja": "`sudo datadog-agent バージョン`"
+              "ja": "`sudo datadog-agent version`"
             },
             "isCorrect": true
           },
@@ -4943,7 +4943,7 @@
             "id": "C",
             "text": {
               "en": "`sudo datadog-agent status`",
-              "ja": "`sudo datadog-agent ステータス`"
+              "ja": "`sudo datadog-agent status`"
             },
             "isCorrect": true
           },
@@ -5213,7 +5213,7 @@
             "id": "C",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -5925,7 +5925,7 @@
             "id": "B",
             "text": {
               "en": "`event:title|text`",
-              "ja": "`イベント:タイトル|テキスト`"
+              "ja": "`event:title|text`"
             },
             "isCorrect": false
           },
@@ -5933,7 +5933,7 @@
             "id": "C",
             "text": {
               "en": "`_e:title|text`",
-              "ja": "`_e:タイトル|テキスト`"
+              "ja": "`_e:title|text`"
             },
             "isCorrect": false
           },
@@ -5941,7 +5941,7 @@
             "id": "D",
             "text": {
               "en": "`[EVENT] title | text`",
-              "ja": "`[イベント] タイトル |テキスト`"
+              "ja": "`[EVENT] title | text`"
             },
             "isCorrect": false
           }
@@ -6232,7 +6232,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent flare --local`",
-              "ja": "`datadog-agent Flare --local`"
+              "ja": "`datadog-agent flare --local`"
             },
             "isCorrect": false
           },
@@ -6240,7 +6240,7 @@
             "id": "B",
             "text": {
               "en": "`datadog-agent flare` (and then say 'no' to upload)",
-              "ja": "`datadog-agent Flare` (アップロードするには「いいえ」と言う)"
+              "ja": "`datadog-agent flare` (アップロードするには「いいえ」と言う)"
             },
             "isCorrect": true
           },
@@ -6248,7 +6248,7 @@
             "id": "C",
             "text": {
               "en": "`datadog-agent archive`",
-              "ja": "`datadog-agent アーカイブ`"
+              "ja": "`datadog-agent archive`"
             },
             "isCorrect": false
           },
@@ -6256,7 +6256,7 @@
             "id": "D",
             "text": {
               "en": "`datadog-agent collect-logs`",
-              "ja": "`datadog-agent 収集ログ`"
+              "ja": "`datadog-agent collect-logs`"
             },
             "isCorrect": false
           }
@@ -6322,7 +6322,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent debug`",
-              "ja": "`datadog-agent デバッグ`"
+              "ja": "`datadog-agent debug`"
             },
             "isCorrect": false
           },
@@ -6608,7 +6608,7 @@
             "id": "C",
             "text": {
               "en": "`avg:system.cpu.idle{service:*} `",
-              "ja": "`avg:system.cpu.idle{サービス:*} `"
+              "ja": "`avg:system.cpu.idle{service:*} `"
             },
             "isCorrect": false
           },
@@ -7260,7 +7260,7 @@
         "id": "72",
         "question": {
           "en": "In a widget query, what does the `*` symbol represent inside a filter `{}`?",
-          "ja": "ウィジェット クエリで、フィルタ `{}` 内の `*` 記号は何を表しますか?"
+          "ja": "ウィジェット クエリで、フィルタ `*` 内の `{}` 記号は何を表しますか?"
         },
         "options": [
           {
@@ -7852,7 +7852,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent reload`",
-              "ja": "`datadog-agent リロード`"
+              "ja": "`datadog-agent reload`"
             },
             "isCorrect": true
           },
@@ -8129,7 +8129,7 @@
             "id": "A",
             "text": {
               "en": "`ss -ant | grep 8126`",
-              "ja": "`ss -ant |grep 8126`"
+              "ja": "`ss -ant | grep 8126`"
             },
             "isCorrect": true
           },
@@ -8137,7 +8137,7 @@
             "id": "B",
             "text": {
               "en": "`sudo datadog-agent status`",
-              "ja": "`sudo datadog-agent ステータス`"
+              "ja": "`sudo datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -8153,14 +8153,14 @@
             "id": "D",
             "text": {
               "en": "`ping localhost:8126`",
-              "ja": "`ping ローカルホスト:8126`"
+              "ja": "`ping localhost:8126`"
             },
             "isCorrect": false
           }
         ],
         "explanation": {
           "en": "`ss -ant | grep 8126` (or `netstat`) confirms that the port is open and listening for TCP connections, which is what the Trace Agent uses.",
-          "ja": "`ss -ant |grep 8126` (または `netstat`) は、ポートが開いていて、Trace Agent が使用する TCP 接続をリッスンしていることを確認します。"
+          "ja": "`ss -ant | grep 8126` (または `netstat`) は、ポートが開いていて、Trace Agent が使用する TCP 接続をリッスンしていることを確認します。"
         }
       },
       {
@@ -8759,7 +8759,7 @@
             "id": "A",
             "text": {
               "en": "`key: value`",
-              "ja": "`キー: 値`"
+              "ja": "`key: value`"
             },
             "isCorrect": false
           },
@@ -8767,7 +8767,7 @@
             "id": "B",
             "text": {
               "en": "`key: [val1, val2]`",
-              "ja": "`キー: [val1, val2]`"
+              "ja": "`key: [val1, val2]`"
             },
             "isCorrect": true
           },
@@ -8783,7 +8783,7 @@
             "id": "D",
             "text": {
               "en": "`key = value`",
-              "ja": "`キー = 値`"
+              "ja": "`key = value`"
             },
             "isCorrect": false
           }
@@ -8865,7 +8865,7 @@
             "id": "C",
             "text": {
               "en": "`process_config: enabled: true`",
-              "ja": "`process_config: 有効: true`"
+              "ja": "`process_config: enabled: true`"
             },
             "isCorrect": true
           },
@@ -8873,7 +8873,7 @@
             "id": "D",
             "text": {
               "en": "`live_data: on`",
-              "ja": "`ライブデータ: オン`"
+              "ja": "`live_data: on`"
             },
             "isCorrect": false
           }
@@ -8984,7 +8984,7 @@
             "id": "A",
             "text": {
               "en": "`sudo datadog-agent remove <name>`",
-              "ja": "`sudo datadog-agent delete <名前>`"
+              "ja": "`sudo datadog-agent remove <name>`"
             },
             "isCorrect": false
           },
@@ -10199,7 +10199,7 @@
             "id": "A",
             "text": {
               "en": "`sudo datadog-agent logs start`",
-              "ja": "`sudo datadog-agent ログの開始`"
+              "ja": "`sudo datadog-agent logs start`"
             },
             "isCorrect": false
           },
@@ -10289,7 +10289,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": true
           },
@@ -11835,7 +11835,7 @@
             "id": "C",
             "text": {
               "en": "`filter(web.requests, 404)`",
-              "ja": "`フィルター(web.requests, 404)`"
+              "ja": "`filter(web.requests, 404)`"
             },
             "isCorrect": false
           },
@@ -11843,7 +11843,7 @@
             "id": "D",
             "text": {
               "en": "`web.requests | 404`",
-              "ja": "`web.requests |404`"
+              "ja": "`web.requests | 404`"
             },
             "isCorrect": false
           }
@@ -12170,7 +12170,7 @@
             "id": "A",
             "text": {
               "en": "`ip addr show (or ifconfig)`",
-              "ja": "`ip addr show (または ifconfig)`"
+              "ja": "`ip addr show (or ifconfig)`"
             },
             "isCorrect": true
           },
@@ -12178,7 +12178,7 @@
             "id": "B",
             "text": {
               "en": "`route -n`",
-              "ja": "`ルート -n`"
+              "ja": "`route -n`"
             },
             "isCorrect": false
           },
@@ -12642,7 +12642,7 @@
         "id": "12",
         "question": {
           "en": "To collect logs from a specific file, you must create a `logs` section in an integration's `conf.yaml`. Which parameter defines the path to the file?",
-          "ja": "特定のファイルからログを収集するには、統合の `conf.yaml` に `logs` セクションを作成する必要があります。ファイルへのパスを定義するパラメータはどれですか?"
+          "ja": "特定のファイルからログを収集するには、統合の `logs` に `conf.yaml` セクションを作成する必要があります。ファイルへのパスを定義するパラメータはどれですか?"
         },
         "options": [
           {
@@ -12731,7 +12731,7 @@
             "id": "B",
             "text": {
               "en": "`sudo restart-agent`",
-              "ja": "`sudo 再起動エージェント`"
+              "ja": "`sudo restart-agent`"
             },
             "isCorrect": false
           },
@@ -12797,7 +12797,7 @@
             "id": "B",
             "text": {
               "en": "`copy /y latest-agent.exe`",
-              "ja": "`コピー /y 最新-エージェント.exe`"
+              "ja": "`copy /y latest-agent.exe`"
             },
             "isCorrect": false
           },
@@ -12826,7 +12826,7 @@
             "id": "B",
             "text": {
               "en": "`network_monitoring: on`",
-              "ja": "`ネットワーク監視: オン`"
+              "ja": "`network_monitoring: on`"
             },
             "isCorrect": false
           },
@@ -12842,7 +12842,7 @@
             "id": "D",
             "text": {
               "en": "`network_config: enabled: true`",
-              "ja": "`network_config: 有効: true`"
+              "ja": "`network_config: enabled: true`"
             },
             "isCorrect": true
           }
@@ -13929,7 +13929,7 @@
         ],
         "explanation": {
           "en": "`DD_USE_DOGSTATSD=false` is the correct environment variable to disable the DogStatsD server in the Datadog Agent (equivalent to setting `use_dogstatsd: false` in `datadog.yaml`). The variable `DD_DOGSTATSD_ENABLED` does not exist in the official Agent configuration.",
-          "ja": "`DD_USE_DOGSTATSD=false` は、Datadog Agent で DogStatsD サーバーを無効にするための正しい環境変数です (`datadog.yaml` で `use_dogstatsd: false` を設定するのと同等)。変数 `DD_DOGSTATSD_ENABLED` は、公式のエージェント設定には存在しません。"
+          "ja": "`DD_USE_DOGSTATSD=false` は、Datadog Agent で DogStatsD サーバーを無効にするための正しい環境変数です (`use_dogstatsd: false` で `datadog.yaml` を設定するのと同等)。変数 `DD_DOGSTATSD_ENABLED` は、公式のエージェント設定には存在しません。"
         }
       },
       {
@@ -14221,7 +14221,7 @@
             "id": "B",
             "text": {
               "en": "Increase the `ulimit` for the `dd-agent` user or in the systemd service file.",
-              "ja": "`dd-agent` ユーザーまたは systemd サービス ファイルの `ulimit` を増やします。"
+              "ja": "`ulimit` ユーザーまたは systemd サービス ファイルの `dd-agent` を増やします。"
             },
             "isCorrect": true
           },
@@ -14438,7 +14438,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": true
           },
@@ -14446,7 +14446,7 @@
             "id": "B",
             "text": {
               "en": "`datadog-agent hostname`",
-              "ja": "`datadog-agent ホスト名`"
+              "ja": "`datadog-agent hostname`"
             },
             "isCorrect": false
           },
@@ -14462,7 +14462,7 @@
             "id": "D",
             "text": {
               "en": "`datadog-agent flare --local`",
-              "ja": "`datadog-agent Flare --local`"
+              "ja": "`datadog-agent flare --local`"
             },
             "isCorrect": false
           }
@@ -14634,7 +14634,7 @@
             "id": "C",
             "text": {
               "en": "`sum:system.cpu.idle{*} group_by service`",
-              "ja": "`sum:system.cpu.idle{*} group_by サービス`"
+              "ja": "`sum:system.cpu.idle{*} group_by service`"
             },
             "isCorrect": false
           },
@@ -14642,7 +14642,7 @@
             "id": "D",
             "text": {
               "en": "`stack(avg:system.cpu.idle{*}, service)`",
-              "ja": "`stack(avg:system.cpu.idle{*}, サービス)`"
+              "ja": "`stack(avg:system.cpu.idle{*}, service)`"
             },
             "isCorrect": false
           }
@@ -15497,7 +15497,7 @@
             "id": "D",
             "text": {
               "en": "At least one log collection source must be configured (e.g., a `logs:` block in an integration's `conf.yaml`).",
-              "ja": "少なくとも 1 つのログ収集ソースを設定する必要があります (統合の `conf.yaml` 内の `logs:` ブロックなど)。"
+              "ja": "少なくとも 1 つのログ収集ソースを設定する必要があります (統合の `logs:` 内の `conf.yaml` ブロックなど)。"
             },
             "isCorrect": true
           }
@@ -16147,7 +16147,7 @@
             "id": "A",
             "text": {
               "en": "`top (P) or ps (sort)`",
-              "ja": "`top (P) または ps (ソート)`"
+              "ja": "`top (P) or ps (sort)`"
             },
             "isCorrect": true
           },
@@ -16790,7 +16790,7 @@
             "id": "B",
             "text": {
               "en": "`datadog-agent summary`",
-              "ja": "`datadog-agent の概要`"
+              "ja": "`datadog-agent summary`"
             },
             "isCorrect": false
           },
@@ -16798,7 +16798,7 @@
             "id": "C",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": true
           }
@@ -17208,7 +17208,7 @@
             "id": "B",
             "text": {
               "en": "`agent.exe stop`",
-              "ja": "`agent.exe 停止`"
+              "ja": "`agent.exe stop`"
             },
             "isCorrect": false
           },
@@ -17999,7 +17999,7 @@
             "id": "A",
             "text": {
               "en": "`echo \"test.metric:1|c\" | nc -u -w0 localhost 8125`",
-              "ja": "`echo \"test.metric:1|c\" |nc -u -w0 ローカルホスト 8125`"
+              "ja": "`echo \"test.metric:1|c\" | nc -u -w0 localhost 8125`"
             },
             "isCorrect": true
           },
@@ -18007,7 +18007,7 @@
             "id": "B",
             "text": {
               "en": "`ping localhost:8125`",
-              "ja": "`ping ローカルホスト:8125`"
+              "ja": "`ping localhost:8125`"
             },
             "isCorrect": false
           },
@@ -18015,7 +18015,7 @@
             "id": "C",
             "text": {
               "en": "`curl localhost:8125`",
-              "ja": "`カールローカルホスト:8125`"
+              "ja": "`curl localhost:8125`"
             },
             "isCorrect": false
           },
@@ -18179,7 +18179,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -18359,7 +18359,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent hostname`",
-              "ja": "`datadog-agent ホスト名`"
+              "ja": "`datadog-agent hostname`"
             },
             "isCorrect": true
           },
@@ -18367,7 +18367,7 @@
             "id": "B",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -18563,7 +18563,7 @@
             "id": "D",
             "text": {
               "en": "`my.metric{*} | service | env`",
-              "ja": "`my.metric{*} |サービス |環境`"
+              "ja": "`my.metric{*} | service | env`"
             },
             "isCorrect": false
           }
@@ -20076,7 +20076,7 @@
             "id": "A",
             "text": {
               "en": "`ip -s link (modern)`",
-              "ja": "`ip -s リンク (モダン)`"
+              "ja": "`ip -s link (modern)`"
             },
             "isCorrect": true
           },
@@ -20092,7 +20092,7 @@
             "id": "C",
             "text": {
               "en": "`netstat -i (detailed)`",
-              "ja": "`netstat -i (詳細)`"
+              "ja": "`netstat -i (detailed)`"
             },
             "isCorrect": false
           },
@@ -20539,7 +20539,7 @@
             "id": "D",
             "text": {
               "en": "`project_id: <id>`",
-              "ja": "`プロジェクトID: <id>`"
+              "ja": "`project_id: <id>`"
             },
             "isCorrect": false
           }
@@ -20703,7 +20703,7 @@
             "id": "B",
             "text": {
               "en": "`sudo service datadog-agent status`",
-              "ja": "`sudo サービス datadog-agent ステータス`"
+              "ja": "`sudo service datadog-agent status`"
             },
             "isCorrect": true
           },
@@ -20711,7 +20711,7 @@
             "id": "C",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -20719,7 +20719,7 @@
             "id": "D",
             "text": {
               "en": "`ps aux | grep agent`",
-              "ja": "`ps 補助 |grepエージェント`"
+              "ja": "`ps aux | grep agent`"
             },
             "isCorrect": false
           }
@@ -20912,7 +20912,7 @@
             "id": "C",
             "text": {
               "en": "In the `instances` list of `/etc/datadog-agent/conf.d/postgres.d/conf.yaml`.",
-              "ja": "`/etc/datadog-agent/conf.d/postgres.d/conf.yaml` の `instances` リスト内。"
+              "ja": "`instances` の `/etc/datadog-agent/conf.d/postgres.d/conf.yaml` リスト内。"
             },
             "isCorrect": true
           }
@@ -21105,7 +21105,7 @@
             "id": "C",
             "text": {
               "en": "`sudo service datadog-agent start`",
-              "ja": "`sudo サービス datadog-agent start`"
+              "ja": "`sudo service datadog-agent start`"
             },
             "isCorrect": false
           },
@@ -21589,7 +21589,7 @@
             "id": "B",
             "text": {
               "en": "`memory.used | total`",
-              "ja": "`メモリ.使用済み |合計`"
+              "ja": "`memory.used | total`"
             },
             "isCorrect": false
           },
@@ -22060,7 +22060,7 @@
             "id": "B",
             "text": {
               "en": "`cat datadog.yaml`",
-              "ja": "`猫のデータドッグ.yaml`"
+              "ja": "`cat datadog.yaml`"
             },
             "isCorrect": false
           },
@@ -22068,7 +22068,7 @@
             "id": "C",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -22105,7 +22105,7 @@
             "id": "B",
             "text": {
               "en": "`dmesg | grep -i oom`",
-              "ja": "`dmesg |grep -i oom`"
+              "ja": "`dmesg | grep -i oom`"
             },
             "isCorrect": true
           },
@@ -22232,7 +22232,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           },
@@ -22240,7 +22240,7 @@
             "id": "B",
             "text": {
               "en": "`datadog-agent hostname`",
-              "ja": "`datadog-agent ホスト名`"
+              "ja": "`datadog-agent hostname`"
             },
             "isCorrect": true
           },
@@ -22436,7 +22436,7 @@
             "id": "D",
             "text": {
               "en": "`my.metric | region`",
-              "ja": "`my.metric |地域`"
+              "ja": "`my.metric | region`"
             },
             "isCorrect": false
           }
@@ -23283,7 +23283,7 @@
             "id": "C",
             "text": {
               "en": "`cp remote:/path/to/file ./`",
-              "ja": "`cp リモート:/パス/ファイルへの ./`"
+              "ja": "`cp remote:/path/to/file ./`"
             },
             "isCorrect": false
           },
@@ -23762,7 +23762,7 @@
             "id": "A",
             "text": {
               "en": "`tags: [\"env:prod\", \"team:sre\"]`",
-              "ja": "`タグ: [\"env:prod\"、\"チーム:sre\"]`"
+              "ja": "`tags: [\"env:prod\", \"team:sre\"]`"
             },
             "isCorrect": false
           },
@@ -23778,7 +23778,7 @@
             "id": "C",
             "text": {
               "en": "`tags:\\n  - env:prod\\n  - team:sre`",
-              "ja": "`タグ:\\n - env:prod\\n - チーム:sre`"
+              "ja": "`tags:\\n  - env:prod\\n  - team:sre`"
             },
             "isCorrect": false
           },
@@ -23786,7 +23786,7 @@
             "id": "D",
             "text": {
               "en": "`tags: env:prod, team:sre`",
-              "ja": "`タグ: env:prod、チーム:sre`"
+              "ja": "`tags: env:prod, team:sre`"
             },
             "isCorrect": false
           }
@@ -24010,7 +24010,7 @@
             "id": "C",
             "text": {
               "en": "`route -n`",
-              "ja": "`ルート -n`"
+              "ja": "`route -n`"
             },
             "isCorrect": false
           },
@@ -24025,7 +24025,7 @@
         ],
         "explanation": {
           "en": "Both `ip route show` (modern) and `netstat -r` (legacy) display the kernel's routing table.",
-          "ja": "`ip Route show` (モダン) と `netstat -r` (レガシー) は両方とも、カーネルのルーティング テーブルを表示します。"
+          "ja": "`ip route show` (モダン) と `netstat -r` (レガシー) は両方とも、カーネルのルーティング テーブルを表示します。"
         }
       },
       {
@@ -24378,7 +24378,7 @@
             "id": "D",
             "text": {
               "en": "`df --percent`",
-              "ja": "`df --パーセント`"
+              "ja": "`df --percent`"
             },
             "isCorrect": false
           }
@@ -24558,7 +24558,7 @@
             "id": "D",
             "text": {
               "en": "Use environment variables `HTTPS_PROXY` with endpoint-specific overrides in `datadog.yaml`.",
-              "ja": "`datadog.yaml` でエンドポイント固有のオーバーライドを伴う環境変数 `HTTPS_PROXY` を使用します。"
+              "ja": "`HTTPS_PROXY` でエンドポイント固有のオーバーライドを伴う環境変数 `datadog.yaml` を使用します。"
             },
             "isCorrect": true
           }
@@ -25246,7 +25246,7 @@
             "id": "A",
             "text": {
               "en": "`stop datadog-agent`",
-              "ja": "`datadog-agent を停止します`"
+              "ja": "`stop datadog-agent`"
             },
             "isCorrect": false
           },
@@ -25262,7 +25262,7 @@
             "id": "C",
             "text": {
               "en": "`sudo service datadog-agent stop`",
-              "ja": "`sudo サービス datadog-agent stop`"
+              "ja": "`sudo service datadog-agent stop`"
             },
             "isCorrect": false
           },
@@ -25606,7 +25606,7 @@
             "id": "B",
             "text": {
               "en": "`total payment.errors`",
-              "ja": "`支払総額.エラー`"
+              "ja": "`total payment.errors`"
             },
             "isCorrect": false
           },
@@ -25659,7 +25659,7 @@
             "id": "C",
             "text": {
               "en": "`|event`",
-              "ja": "`|イベント`"
+              "ja": "`|event`"
             },
             "isCorrect": false
           },
@@ -25770,7 +25770,7 @@
             "id": "A",
             "text": {
               "en": "`temperature:98.6|c`",
-              "ja": "`温度:98.6|℃`"
+              "ja": "`temperature:98.6|c`"
             },
             "isCorrect": false
           },
@@ -25778,7 +25778,7 @@
             "id": "B",
             "text": {
               "en": "`gauge temperature 98.6`",
-              "ja": "`ゲージ温度 98.6`"
+              "ja": "`gauge temperature 98.6`"
             },
             "isCorrect": false
           },
@@ -25786,7 +25786,7 @@
             "id": "C",
             "text": {
               "en": "`temperature|98.6|g`",
-              "ja": "`温度|98.6|g`"
+              "ja": "`temperature|98.6|g`"
             },
             "isCorrect": false
           },
@@ -25794,7 +25794,7 @@
             "id": "D",
             "text": {
               "en": "`temperature:98.6|g`",
-              "ja": "`温度:98.6|g`"
+              "ja": "`temperature:98.6|g`"
             },
             "isCorrect": true
           }
@@ -27247,7 +27247,7 @@
             "id": "A",
             "text": {
               "en": "`source:nginx AND error`",
-              "ja": "`ソース:nginx AND エラー`"
+              "ja": "`source:nginx AND error`"
             },
             "isCorrect": true
           },
@@ -27323,7 +27323,7 @@
         ],
         "explanation": {
           "en": "Setting `DD_APM_ENABLED=true` (or `apm_config.enabled: true` in `datadog.yaml`) starts the Trace Agent listener.",
-          "ja": "`DD_APM_ENABLED=true` (または `datadog.yaml` の `apm_config.enabled: true`) を設定すると、Trace Agent リスナーが開始されます。"
+          "ja": "`DD_APM_ENABLED=true` (または `apm_config.enabled: true` の `datadog.yaml`) を設定すると、Trace Agent リスナーが開始されます。"
         }
       },
       {
@@ -27877,7 +27877,7 @@
             "id": "A",
             "text": {
               "en": "`datadog-agent check`",
-              "ja": "`datadog-agent チェック`"
+              "ja": "`datadog-agent check`"
             },
             "isCorrect": false
           },
@@ -27901,7 +27901,7 @@
             "id": "D",
             "text": {
               "en": "`datadog-agent status`",
-              "ja": "`datadog-agent ステータス`"
+              "ja": "`datadog-agent status`"
             },
             "isCorrect": false
           }
