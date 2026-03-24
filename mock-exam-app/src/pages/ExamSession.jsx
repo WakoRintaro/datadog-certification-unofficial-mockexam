@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage, getSavedProgress, saveProgress } from '../utils/context';
 import mockExams from '../data/mockExams.json';
-import { ChevronLeft, Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers } from 'lucide-react';
+import { ChevronLeft, Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award } from 'lucide-react';
 
 export default function ExamSession() {
   const { setId } = useParams();
@@ -21,14 +21,26 @@ export default function ExamSession() {
   }
 
   const t = {
-    en: { back: "Back", study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous", exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Finish Exam", reset: "Reset Progress" },
-    ja: { back: "戻る", study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ", exp: "解説", correct: "正解！", incorrect: "不正解", finish: "試験を完了する", reset: "進捗をリセット" }
+    en: { 
+      back: "Back", study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous", 
+      exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Finish Exam", reset: "Reset Progress",
+      results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam"
+    },
+    ja: { 
+      back: "戻る", study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ", 
+      exp: "解説", correct: "正解！", incorrect: "不正解", finish: "試験を完了する", reset: "進捗をリセット",
+      results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する"
+    }
   }[lang];
 
   const [mode, setMode] = useState('quiz'); // 'quiz' | 'study'
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [answers, setAnswers] = useState({}); // { qId: { selectedId: string, isCorrect: boolean } }
   const [completed, setCompleted] = useState(false);
+  
+  const correctCount = useMemo(() => {
+    return Object.values(answers).filter(a => a.isCorrect).length;
+  }, [answers]);
 
   // Load progress
   useEffect(() => {
@@ -160,6 +172,48 @@ export default function ExamSession() {
                 </div>
             )}
         </div>
+
+        {/* Results Summary Card */}
+        {completed && mode === 'quiz' && (
+            <div className="card" style={{ marginBottom: '2rem', border: '2px solid var(--color-success)', backgroundColor: 'var(--color-success-light)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'var(--color-success)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Award size={28} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>{t.results}</h2>
+                        <div style={{ color: 'var(--color-success)', fontWeight: 600 }}>{t.finish}</div>
+                    </div>
+                </div>
+                
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+                    <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
+                        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t.score}</div>
+                        <div style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-primary)' }}>{correctCount} / {exam.questions.length}</div>
+                    </div>
+                    <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
+                        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t.pct}</div>
+                        <div style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-primary)' }}>{Math.round(correctCount / exam.questions.length * 100)}%</div>
+                    </div>
+                </div>
+
+                <div className="flex gap-4">
+                    <button 
+                        className="btn btn-primary" 
+                        style={{ flex: 1 }}
+                        onClick={() => setMode('study')}
+                    >
+                        <Layers size={18} /> {t.reviewStudy}
+                    </button>
+                    <button 
+                        className="btn btn-secondary"
+                        onClick={handleReset}
+                    >
+                        <RefreshCw size={18} /> {t.restart}
+                    </button>
+                </div>
+            </div>
+        )}
 
         {/* Content */}
         {mode === 'study' ? (
