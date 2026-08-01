@@ -22,15 +22,17 @@ export default function ExamSession() {
   }
 
   const t = {
-    en: { 
-      back: "Back", study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous", 
+    en: {
+      back: "Back", study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous",
       exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Finish Exam", reset: "Reset Progress",
-      results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam"
+      results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam",
+      metaDescription: `Practice ${exam.questions.length} questions for the Datadog Fundamentals certification with study and quiz modes.`
     },
-    ja: { 
-      back: "戻る", study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ", 
+    ja: {
+      back: "戻る", study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ",
       exp: "解説", correct: "正解！", incorrect: "不正解", finish: "試験を完了する", reset: "進捗をリセット",
-      results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する"
+      results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する",
+      metaDescription: `Datadog Fundamentals認定試験対策の模擬試験。全${exam.questions.length}問を学習モード・クイズモードで演習できます。`
     }
   }[lang];
 
@@ -122,9 +124,9 @@ export default function ExamSession() {
 
     return (
       <div key={q.id} className="card" style={{ marginBottom: isStudyMode ? '2rem' : 0 }}>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-primary-dark)' }}>
+        <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-primary-dark)' }}>
           {t.q} {index + 1}
-        </h3>
+        </h2>
         
         <div style={{ marginBottom: '1.5rem', fontSize: '1.1rem', whiteSpace: 'pre-wrap' }}>
             {q.question[lang]}
@@ -170,6 +172,9 @@ export default function ExamSession() {
 
   return (
     <div className="container" style={{ maxWidth: '800px' }}>
+        <title>{`${exam.title} | Datadog Fundamentals Mock Exams`}</title>
+        <meta name="description" content={t.metaDescription} />
+
         {/* Header toolbar */}
         <div className="flex items-center justify-between mb-8 pb-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
             <Link to="/fundamentals" className="flex items-center gap-2" style={{ color: 'var(--color-text-muted)', fontWeight: 500 }}>

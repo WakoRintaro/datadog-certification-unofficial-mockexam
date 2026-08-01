@@ -8,11 +8,20 @@ export const useLanguage = () => useContext(LanguageContext);
 export const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState('en');
 
-  // Load selected language from storage if available
+  // Load selected language from storage, otherwise fall back to browser language
   useEffect(() => {
     const savedL = localStorage.getItem('dd-mock-lang');
-    if (savedL) setLang(savedL);
+    if (savedL) {
+      setLang(savedL);
+    } else if (navigator.language?.toLowerCase().startsWith('ja')) {
+      setLang('ja');
+    }
   }, []);
+
+  // Keep the declared document language in sync with what's actually shown
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const toggleLanguage = () => {
     setLang(prev => {

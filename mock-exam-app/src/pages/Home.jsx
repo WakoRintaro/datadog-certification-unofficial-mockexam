@@ -10,6 +10,8 @@ export default function Home() {
     en: {
       title: "Master Datadog Certification",
       subtitle: "The ultimate preparation platform for the Datadog Fundamentals Exam. Practice with structured mock exams to ensure you pass on the first try.",
+      metaTitle: "Datadog Fundamentals Mock Exams | Free Certification Prep",
+      metaDescription: "Free mock exams for the Datadog Fundamentals certification. 7 sets, 90 questions with study mode and detailed explanations.",
       cta: "Explore Fundamentals Exams",
       features: [
         { icon: LayoutDashboard, title: "7 Full Exam Sets", desc: "Comprehensive coverage of all Datadog domains." },
@@ -20,6 +22,8 @@ export default function Home() {
     ja: {
       title: "Datadog認定試験をマスターする",
       subtitle: "Datadog Fundamentals試験に向けた究極の学習プラットフォーム。構造化された模擬試験で一発合格を目指しましょう。",
+      metaTitle: "Datadog Fundamentals 模擬試験 | 無料の認定試験対策",
+      metaDescription: "Datadog Fundamentals認定試験対策のための無料模擬試験。7セット・全90問を学習モード/クイズモードで演習、詳細な解説付き。",
       cta: "Fundamentals試験一覧を見る",
       features: [
         { icon: LayoutDashboard, title: "全9セットの模擬試験", desc: "Datadogの全ドメインを網羅的に学習。" },
@@ -33,6 +37,9 @@ export default function Home() {
 
   return (
     <div className="container">
+      <title>{t.metaTitle}</title>
+      <meta name="description" content={t.metaDescription} />
+
       {/* Hero Section */}
       <section style={{
         padding: '4rem 2rem',
@@ -84,7 +91,7 @@ export default function Home() {
               }}>
                 <Icon size={24} />
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.5rem' }}>{f.title}</h3>
+              <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.5rem' }}>{f.title}</h2>
               <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.5 }}>{f.desc}</p>
             </div>
           );

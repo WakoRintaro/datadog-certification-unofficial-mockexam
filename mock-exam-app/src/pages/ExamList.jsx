@@ -8,13 +8,24 @@ export default function ExamList() {
   const { lang } = useLanguage();
 
   const labels = {
-    en: { title: "Fundamentals Exams", subtitle: "Select a mock exam to begin your practice.", questions: "questions", start: "Start Exam" },
-    ja: { title: "模擬試験 一覧", subtitle: "練習を始める試験セットを選択してください。", questions: "問", start: "試験を開始" }
+    en: {
+      title: "Fundamentals Exams", subtitle: "Select a mock exam to begin your practice.", questions: "questions", start: "Start Exam",
+      metaTitle: "Fundamentals Mock Exam List | Datadog Fundamentals Mock Exams",
+      metaDescription: "Choose from 7 Datadog Fundamentals mock exam sets, 90 questions total, and start practicing for free."
+    },
+    ja: {
+      title: "模擬試験 一覧", subtitle: "練習を始める試験セットを選択してください。", questions: "問", start: "試験を開始",
+      metaTitle: "模擬試験一覧 | Datadog Fundamentals 模擬試験",
+      metaDescription: "Datadog Fundamentals模擬試験の全7セット・計90問から選んで、無料で練習を始めましょう。"
+    }
   };
   const t = labels[lang];
 
   return (
     <div className="container" style={{ maxWidth: '800px' }}>
+      <title>{t.metaTitle}</title>
+      <meta name="description" content={t.metaDescription} />
+
       <h1 className="page-title">{t.title}</h1>
       <p className="page-subtitle">{t.subtitle}</p>
 
@@ -55,9 +66,9 @@ export default function ExamList() {
                     {isComplete ? <Award size={24} /> : <PlayCircle size={24} />}
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--color-text)', marginBottom: '0.25rem' }}>
+                    <h2 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--color-text)', marginBottom: '0.25rem' }}>
                       {exam.title.replace('Datadog Fundamentals Mock Exam -', 'Mock Exam')}
-                    </h3>
+                    </h2>
                     <div className="flex items-center gap-2" style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
                       <span>{totalQs} {t.questions}</span>
                       {hasStarted && (
