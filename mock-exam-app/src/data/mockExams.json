@@ -97,8 +97,8 @@
       {
         "id": "3",
         "question": {
-          "en": "In a `datadog.yaml` file, you see a setting `use_fqdn: true`. What does this affect?",
-          "ja": "「datadog.yaml」ファイルには、「use_fqdn: true」設定が表示されます。これは何に影響しますか?"
+          "en": "In a `datadog.yaml` file, you see a setting `hostname_fqdn: true`. What does this affect?",
+          "ja": "「datadog.yaml」ファイルには、「hostname_fqdn: true」設定が表示されます。これは何に影響しますか?"
         },
         "options": [
           {
@@ -135,8 +135,8 @@
           }
         ],
         "explanation": {
-          "en": "`use_fqdn` (Fully Qualified Domain Name) tells the Agent to use the FQDN as the hostname in Datadog, which is useful in environments where hostnames might overlap.",
-          "ja": "「use_fqdn」（完全修飾ドメイン名）は、Datadog のホスト名として FQDN を使用するようにエージェントに指示します。これは、ホスト名が重複する可能性のある環境で役立ちます。"
+          "en": "`hostname_fqdn` (Fully Qualified Domain Name) tells the Agent to use the FQDN as the hostname in Datadog, which is useful in environments where hostnames might overlap.",
+          "ja": "「hostname_fqdn」（完全修飾ドメイン名）は、Datadog のホスト名として FQDN を使用するようにエージェントに指示します。これは、ホスト名が重複する可能性のある環境で役立ちます。"
         }
       },
       {
@@ -975,8 +975,8 @@
           {
             "id": "C",
             "text": {
-              "en": "The Datadog Container Agent (often run as a sidecar or DaemonSet).",
-              "ja": "Datadog Container Agent (多くの場合、サイドカーまたは DaemonSet として実行されます)。"
+              "en": "The Docker Agent (the Datadog Agent container image running on Docker, containerd, or Podman, often as a DaemonSet).",
+              "ja": "Docker Agent (Docker、containerd、または Podman 上で実行される Datadog Agent のコンテナイメージ。多くの場合 DaemonSet として実行される)。"
             },
             "isCorrect": true
           },
@@ -990,8 +990,8 @@
           }
         ],
         "explanation": {
-          "en": "While the standard Agent can monitor Docker, the Containerized Agent is optimized for container environments.",
-          "ja": "標準エージェントは Docker を監視できますが、コンテナ化エージェントはコンテナ環境用に最適化されています。"
+          "en": "The Datadog Agent container image (the \"Docker Agent\") supports Docker, containerd, and Podman runtimes and is typically deployed as a DaemonSet in Kubernetes or a sidecar/standalone container elsewhere. This is distinct from the Cluster Agent, which handles cluster-level orchestration and metadata for Kubernetes rather than being the primary container runtime collector.",
+          "ja": "Datadog Agent のコンテナイメージ (「Docker Agent」) は Docker、containerd、Podman ランタイムをサポートし、通常 Kubernetes では DaemonSet として、それ以外ではサイドカーやスタンドアロンのコンテナとしてデプロイされます。これは、コンテナランタイムの主な収集役ではなく、Kubernetes におけるクラスターレベルのオーケストレーションとメタデータ処理を担う Cluster Agent とは異なります。"
         }
       },
       {
@@ -1980,8 +1980,8 @@
           }
         ],
         "explanation": {
-          "en": "Datadog has limits on how far in the past or future timestamps can be.",
-          "ja": "Datadog には、過去または未来のタイムスタンプをどれだけ遡ることができるかという制限があります。"
+          "en": "Datadog has limits on how far in the past or future timestamps can be; by default, metrics with timestamps more than about 1 hour in the past may be rejected (this window can be extended with Historical Metrics Ingestion), so a timestamp 24 hours old would fall outside the default acceptance window.",
+          "ja": "Datadog には、過去または未来のタイムスタンプをどれだけ遡ることができるかという制限があります。デフォルトでは、約1時間以上前のタイムスタンプを持つメトリクスは拒否される可能性があります(この期間は Historical Metrics Ingestion を使うことで延長できます)。そのため、24時間前のタイムスタンプはデフォルトの受け入れ範囲を超えることになります。"
         }
       },
       {
@@ -3045,8 +3045,8 @@
           {
             "id": "C",
             "text": {
-              "en": "`per_second()` or `dt()`",
-              "ja": "`per_second()` または `dt()`"
+              "en": "`per_second()`",
+              "ja": "`per_second()`"
             },
             "isCorrect": true
           },
@@ -3060,8 +3060,8 @@
           }
         ],
         "explanation": {
-          "en": "Counter metrics are often more useful when viewed as a rate (delta over time).",
-          "ja": "多くの場合、カウンター メトリックは、レート (時間の経過に伴うデルタ) として見るとより便利です。"
+          "en": "Counter metrics are often more useful when viewed as a rate (delta over time), which `per_second()` computes. Note that `dt()` is a different function that graphs the time interval in seconds between submitted points, not a rate of the metric's value.",
+          "ja": "多くの場合、カウンター メトリックは、レート (時間の経過に伴うデルタ) として見るとより便利であり、これを計算するのが `per_second()` です。なお `dt()` は別の関数で、送信されたデータポイント間の時間間隔(秒)をグラフ化するものであり、メトリック値のレートを計算するものではありません。"
         }
       },
       {
@@ -3562,8 +3562,8 @@
       {
         "id": "80",
         "question": {
-          "en": "Which Linux command shows the current memory pressure in real time, including per-process memory?",
-          "ja": "プロセスごとのメモリを含む、現在のメモリ負荷をリアルタイムで表示する Linux コマンドはどれですか?"
+          "en": "Which set of Linux commands is commonly used together to investigate memory pressure, and what does each one contribute?",
+          "ja": "メモリ負荷を調査する際に一般的に併用される Linux コマンドの組み合わせはどれで、それぞれ何を提供しますか?"
         },
         "options": [
           {
@@ -3974,16 +3974,16 @@
           {
             "id": "A",
             "text": {
-              "en": "`HTTPS_PROXY` (env var).",
-              "ja": "`HTTPS_PROXY` (環境変数)。"
+              "en": "`HTTPS_PROXY` or `DD_PROXY_HTTPS` (env var) only.",
+              "ja": "`HTTPS_PROXY` または `DD_PROXY_HTTPS` (環境変数) のみ。"
             },
             "isCorrect": false
           },
           {
             "id": "B",
             "text": {
-              "en": "Both `proxy: https:` in `datadog.yaml` and `HTTPS_PROXY` (env var).",
-              "ja": "「datadog.yaml」の「proxy: https:」と「HTTPS_PROXY」（環境変数）の両方。"
+              "en": "Both `proxy: https:` in `datadog.yaml` and an HTTPS proxy env var (`HTTPS_PROXY`, or the Datadog-specific `DD_PROXY_HTTPS` which takes precedence).",
+              "ja": "「datadog.yaml」の「proxy: https:」と、HTTPS プロキシ用の環境変数(`HTTPS_PROXY`、または優先される Datadog 固有の `DD_PROXY_HTTPS`)の両方。"
             },
             "isCorrect": true
           },
@@ -4005,8 +4005,8 @@
           }
         ],
         "explanation": {
-          "en": "Both the `proxy:` section in `datadog.yaml` and the standard `HTTPS_PROXY` environment variable are supported.",
-          "ja": "「datadog.yaml」の「proxy:」セクションと標準の「HTTPS_PROXY」環境変数の両方がサポートされています。"
+          "en": "Both the `proxy:` section in `datadog.yaml` and an HTTPS proxy environment variable are supported. The Agent checks the Datadog-specific `DD_PROXY_HTTPS` first, and falls back to the standard `HTTPS_PROXY` if `DD_PROXY_HTTPS` is not set.",
+          "ja": "「datadog.yaml」の「proxy:」セクションと、HTTPS プロキシ用の環境変数の両方がサポートされています。Agent はまず Datadog 固有の「DD_PROXY_HTTPS」を確認し、それが設定されていない場合は標準の「HTTPS_PROXY」にフォールバックします。"
         }
       },
       {
