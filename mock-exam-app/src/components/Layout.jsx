@@ -1,11 +1,17 @@
+import { useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { useLanguage } from '../utils/context';
 import { Globe, BookOpen } from 'lucide-react';
 import useGoogleAnalytics from '../utils/useGoogleAnalytics';
+import { setUserProperties } from '../utils/analytics';
 
 export default function Layout() {
   const { lang, toggleLanguage } = useLanguage();
   useGoogleAnalytics();
+
+  useEffect(() => {
+    setUserProperties({ interface_language: lang });
+  }, [lang]);
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>

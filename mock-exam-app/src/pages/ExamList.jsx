@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage, getSavedProgress } from '../utils/context';
 import mockExams from '../data/mockExams.json';
 import { PlayCircle, Award, CheckCircle } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 export default function ExamList() {
   const { lang } = useLanguage();
@@ -32,7 +33,17 @@ export default function ExamList() {
           }
 
           return (
-            <Link to={`/fundamentals/set/${exam.setId}`} key={exam.setId} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link
+              to={`/fundamentals/set/${exam.setId}`}
+              key={exam.setId}
+              style={{ textDecoration: 'none', color: 'inherit' }}
+              onClick={() => trackEvent('exam_start', {
+                exam_set_id: exam.setId,
+                exam_title: exam.title,
+                total_questions: totalQs,
+                resumed: hasStarted
+              })}
+            >
               <div className="card card-hover" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <div style={{ 

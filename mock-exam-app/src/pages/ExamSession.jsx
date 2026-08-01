@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage, getSavedProgress, saveProgress } from '../utils/context';
 import mockExams from '../data/mockExams.json';
 import { ChevronLeft, Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 export default function ExamSession() {
   const { setId } = useParams();
@@ -58,23 +59,61 @@ export default function ExamSession() {
 
   const handleSelectOption = (qId, optionId, isCorrect) => {
     if (answers[qId]) return; // Already answered
-    
+
     const newAnswers = { ...answers, [qId]: { selectedId: optionId, isCorrect } };
     setAnswers(newAnswers);
-    
+
+    trackEvent('answer_question', {
+      exam_set_id: setId,
+      question_id: qId,
+      question_index: currentQIndex,
+      is_correct: isCorrect,
+      mode
+    });
+
     const isNowComplete = Object.keys(newAnswers).length === exam.questions.length;
-    if (isNowComplete) setCompleted(true);
+    if (isNowComplete) {
+      setCompleted(true);
+      const score = Object.values(newAnswers).filter(a => a.isCorrect).length;
+      trackEvent('exam_complete', {
+        exam_set_id: setId,
+        exam_title: exam.title,
+        score,
+        total_questions: exam.questions.length,
+        score_percent: Math.round(score / exam.questions.length * 100)
+      });
+    }
 
     saveProgress(setId, { answers: newAnswers, completed: isNowComplete });
   };
 
   const handleReset = () => {
     if (window.confirm("Are you sure you want to reset your progress for this exam?")) {
+        trackEvent('exam_reset', {
+          exam_set_id: setId,
+          questions_answered_before_reset: Object.keys(answers).length
+        });
         setAnswers({});
         setCompleted(false);
         setCurrentQIndex(0);
         saveProgress(setId, { answers: {}, completed: false });
     }
+  };
+
+  const handleModeChange = (toMode) => {
+    if (toMode === mode) return;
+    trackEvent('mode_change', { exam_set_id: setId, from_mode: mode, to_mode: toMode });
+    setMode(toMode);
+  };
+
+  const handleQuestionNavigate = (direction, toIndex) => {
+    trackEvent('question_navigate', {
+      exam_set_id: setId,
+      direction,
+      from_index: currentQIndex,
+      to_index: toIndex
+    });
+    setCurrentQIndex(toIndex);
   };
 
   const renderQuestion = (q, index, isStudyMode) => {
@@ -145,14 +184,14 @@ export default function ExamSession() {
                     <button 
                         className="btn" 
                         style={{ padding: '0.4rem 1rem', border: 'none', backgroundColor: mode === 'quiz' ? 'var(--color-surface)' : 'transparent', color: mode === 'quiz' ? 'var(--color-primary)' : 'var(--color-text-muted)', boxShadow: mode === 'quiz' ? 'var(--box-shadow)' : 'none' }}
-                        onClick={() => setMode('quiz')}
+                        onClick={() => handleModeChange('quiz')}
                     >
                         {t.quiz}
                     </button>
                     <button 
                         className="btn" 
                         style={{ padding: '0.4rem 1rem', border: 'none', backgroundColor: mode === 'study' ? 'var(--color-surface)' : 'transparent', color: mode === 'study' ? 'var(--color-primary)' : 'var(--color-text-muted)', boxShadow: mode === 'study' ? 'var(--box-shadow)' : 'none' }}
-                        onClick={() => setMode('study')}
+                        onClick={() => handleModeChange('study')}
                     >
                         <Layers size={16} style={{marginRight: '0.25rem'}} /> {t.study}
                     </button>
@@ -199,9 +238,9 @@ export default function ExamSession() {
 
                 <div className="flex gap-4">
                     <button 
-                        className="btn btn-primary" 
+                        className="btn btn-primary"
                         style={{ flex: 1 }}
-                        onClick={() => setMode('study')}
+                        onClick={() => handleModeChange('study')}
                     >
                         <Layers size={18} /> {t.reviewStudy}
                     </button>
@@ -237,7 +276,7 @@ export default function ExamSession() {
                         return (
                             <button
                                 key={q.id}
-                                onClick={() => setCurrentQIndex(i)}
+                                onClick={() => handleQuestionNavigate('jump', i)}
                                 style={{
                                     width: '32px', height: '32px', borderRadius: '4px', border: 'none',
                                     backgroundColor: bg, color: col, fontWeight: 600, cursor: 'pointer',
@@ -254,15 +293,15 @@ export default function ExamSession() {
                 
                 <div className="flex items-center justify-between mt-8">
                     <button 
-                       className="btn btn-secondary" 
-                       onClick={() => setCurrentQIndex(Math.max(0, currentQIndex - 1))}
+                       className="btn btn-secondary"
+                       onClick={() => handleQuestionNavigate('prev', Math.max(0, currentQIndex - 1))}
                        disabled={currentQIndex === 0}
                     >
                         <ArrowLeft size={20} /> {t.prev}
                     </button>
-                    <button 
-                       className="btn btn-primary" 
-                       onClick={() => setCurrentQIndex(Math.min(exam.questions.length - 1, currentQIndex + 1))}
+                    <button
+                       className="btn btn-primary"
+                       onClick={() => handleQuestionNavigate('next', Math.min(exam.questions.length - 1, currentQIndex + 1))}
                        disabled={currentQIndex === exam.questions.length - 1}
                     >
                         {t.next} <ArrowRight size={20} />

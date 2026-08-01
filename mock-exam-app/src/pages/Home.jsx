@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../utils/context';
 import { Award, ArrowRight, ShieldCheck, Database, LayoutDashboard } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
 export default function Home() {
   const { lang } = useLanguage();
@@ -60,7 +61,12 @@ export default function Home() {
           {t.subtitle}
         </p>
 
-        <Link to="/fundamentals" className="btn btn-primary" style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}>
+        <Link
+          to="/fundamentals"
+          className="btn btn-primary"
+          style={{ fontSize: '1.1rem', padding: '1rem 2rem' }}
+          onClick={() => trackEvent('home_cta_click', { destination: '/fundamentals' })}
+        >
           {t.cta}
           <ArrowRight size={20} />
         </Link>
