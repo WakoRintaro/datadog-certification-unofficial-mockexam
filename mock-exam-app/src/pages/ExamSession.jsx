@@ -7,6 +7,7 @@ import { Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award, ChevronDown,
 import { buildFeedbackUrl } from '../utils/feedback';
 import { trackEvent } from '../utils/analytics';
 import Breadcrumb from '../components/Breadcrumb';
+import InlineMarkdown from '../components/InlineMarkdown';
 import NotFound from './NotFound';
 
 // mode comes from the URL: /fundamentals/set/:setId/ is quiz mode, .../study/ is study mode.
@@ -152,7 +153,7 @@ function ExamSession({ exam, mode }) {
         </h2>
 
         <div className="question__text">
-            {pick(q.question, lang)}
+            <InlineMarkdown text={pick(q.question, lang)} />
         </div>
 
         <div className="options">
@@ -173,7 +174,7 @@ function ExamSession({ exam, mode }) {
                 onClick={() => handleSelectOption(q.id, opt.id, opt.isCorrect)}
               >
                 <span className="option__label">{opt.id}</span>
-                <span className="option__text">{pick(opt.text, lang)}</span>
+                <span className="option__text"><InlineMarkdown text={pick(opt.text, lang)} /></span>
                 {(stateClass || isSelected) && (
                   <span className="option__status">
                     {stateClass === 'is-correct' && <Check size={18} aria-hidden="true" />}
@@ -193,7 +194,7 @@ function ExamSession({ exam, mode }) {
                 {userAnswer.isCorrect ? t.correct : t.incorrect}
              </p>
              <p className="explanation__heading">{t.exp}</p>
-             <div className="explanation__body" dangerouslySetInnerHTML={{ __html: pick(q.explanation, lang) }} />
+             <div className="explanation__body"><InlineMarkdown text={pick(q.explanation, lang)} /></div>
              {renderReportLink(q)}
           </div>
         )}
@@ -209,10 +210,10 @@ function ExamSession({ exam, mode }) {
             <div className="answer-reveal__body">
               <p className="explanation__heading">{t.correctAnswer}</p>
               {q.options.filter(opt => opt.isCorrect).map(opt => (
-                <p key={opt.id}>{opt.id}. {pick(opt.text, lang)}</p>
+                <p key={opt.id}>{opt.id}. <InlineMarkdown text={pick(opt.text, lang)} /></p>
               ))}
               <p className="explanation__heading">{t.exp}</p>
-              <div className="explanation__body" dangerouslySetInnerHTML={{ __html: pick(q.explanation, lang) }} />
+              <div className="explanation__body"><InlineMarkdown text={pick(q.explanation, lang)} /></div>
               {renderReportLink(q)}
             </div>
           </details>

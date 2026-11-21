@@ -1278,3 +1278,8 @@ pre code {
 .section__footer {
   margin-top: 1rem;
 }
+
+/* ---------- Emphasis in questions and explanations ---------- */
+.emphasis {
+  font-weight: var(--font-weight-700);
+}
