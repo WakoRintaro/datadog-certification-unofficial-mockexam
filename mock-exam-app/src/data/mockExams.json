@@ -391,7 +391,7 @@
             "id": "C",
             "text": {
               "en": "In the integration's `.d/conf.yaml` file.",
-              "ja": "統合の `.d/conf.yaml` ファイル内。"
+              "ja": "インテグレーションの `.d/conf.yaml` ファイル内。"
             },
             "isCorrect": false
           },
@@ -548,7 +548,7 @@
         "id": "13",
         "question": {
           "en": "Where are the individual integration configuration files (e.g., for Nginx or MySQL) located on a Linux system?",
-          "ja": "個々の統合構成ファイル (Nginx または MySQL など) は Linux システム上のどこにありますか?"
+          "ja": "個々のインテグレーション構成ファイル (Nginx または MySQL など) は Linux システム上のどこにありますか?"
         },
         "options": [
           {
@@ -586,7 +586,7 @@
         ],
         "explanation": {
           "en": "Integrations are configured in subdirectories within `/etc/datadog-agent/conf.d/`.",
-          "ja": "統合は`/etc/datadog-agent/conf.d/`内のサブディレクトリで設定されます。"
+          "ja": "インテグレーションは`/etc/datadog-agent/conf.d/`内のサブディレクトリで設定されます。"
         }
       },
       {
@@ -645,7 +645,7 @@
             "id": "A",
             "text": {
               "en": "In each integration's YAML file.",
-              "ja": "各統合の YAML ファイル内。"
+              "ja": "各インテグレーションの YAML ファイル内。"
             },
             "isCorrect": false
           },
@@ -735,7 +735,7 @@
             "id": "A",
             "text": {
               "en": "LocalSystem",
-              "ja": "ローカルシステム"
+              "ja": "LocalSystem"
             },
             "isCorrect": false
           },
@@ -759,7 +759,7 @@
             "id": "D",
             "text": {
               "en": "NetworkService",
-              "ja": "ネットワークサービス"
+              "ja": "NetworkService"
             },
             "isCorrect": false
           }
@@ -773,7 +773,7 @@
         "id": "18",
         "question": {
           "en": "You notice that an integration like 'Process' isn't showing data. Which command helps you see if that specific check is failing?",
-          "ja": "「プロセス」のような統合にデータが表示されていないことに気づきました。特定のチェックが失敗しているかどうかを確認するのに役立つコマンドはどれですか?"
+          "ja": "「プロセス」のようなインテグレーションにデータが表示されていないことに気づきました。特定のチェックが失敗しているかどうかを確認するのに役立つコマンドはどれですか?"
         },
         "options": [
           {
@@ -863,7 +863,7 @@
         "id": "20",
         "question": {
           "en": "In the `conf.d/python.d/` directory, you see a `conf.yaml.example` file. To enable the integration, what should you do?",
-          "ja": "`conf.d/python.d/`ディレクトリに`conf.yaml.example`ファイルがあります。統合を有効にするには、何をする必要がありますか?"
+          "ja": "`conf.d/python.d/`ディレクトリに`conf.yaml.example`ファイルがあります。インテグレーションを有効にするには、何をする必要がありますか?"
         },
         "options": [
           {
@@ -1133,7 +1133,7 @@
         "id": "26",
         "question": {
           "en": "How do you disable a specific integration without deleting its configuration?",
-          "ja": "設定を削除せずに特定の統合を無効にするにはどうすればよいですか?"
+          "ja": "設定を削除せずに特定のインテグレーションを無効にするにはどうすればよいですか?"
         },
         "options": [
           {
@@ -1268,7 +1268,7 @@
         "id": "29",
         "question": {
           "en": "You see \"Connection Refused\" in the Agent logs when trying to send data. What is a likely cause?",
-          "ja": "データを送信しようとすると、エージェント ログに「接続が拒否されました」と表示されます。考えられる原因は何ですか?"
+          "ja": "データを送信しようとすると、Agent のログに \"Connection Refused\" と表示されます。考えられる原因は何ですか?"
         },
         "options": [
           {
@@ -1306,7 +1306,7 @@
         ],
         "explanation": {
           "en": "\"Connection Refused\" usually indicates a network-level blockage (firewall, proxy, or no internet access).",
-          "ja": "「接続が拒否されました」は通常、ネットワーク レベルのブロック (ファイアウォール、プロキシ、またはインターネット アクセスなし) を示します。"
+          "ja": "\"Connection Refused\" (接続拒否) は通常、ネットワーク レベルでのブロック (ファイアウォール、プロキシ、インターネットに出られないなど) を示します。"
         }
       },
       {
@@ -1884,7 +1884,7 @@
             "id": "D",
             "text": {
               "en": "No, tags are only for integrations.",
-              "ja": "いいえ、タグは統合専用です。"
+              "ja": "いいえ、タグはインテグレーション専用です。"
             },
             "isCorrect": false
           }
@@ -2033,14 +2033,14 @@
         "id": "46",
         "question": {
           "en": "An integration is configured but no data appears. The `datadog-agent status` command shows the check but says \"Error: could not connect to database\". What is the first troubleshooting step?",
-          "ja": "統合は構成されていますが、データが表示されません。`datadog-agent status`コマンドはチェックを表示しますが、「エラー: データベースに接続できませんでした」と表示されます。トラブルシューティングの最初のステップは何ですか?"
+          "ja": "インテグレーションは構成されていますが、データが表示されません。`datadog-agent status` コマンドにチェックは表示されますが、\"Error: could not connect to database\" と出ています。トラブルシューティングの最初のステップは何ですか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "Verify the credentials and host/port in the integration's `conf.yaml`.",
-              "ja": "統合の`conf.yaml`内の認証情報とホスト/ポートを確認します。"
+              "ja": "インテグレーションの`conf.yaml`内の認証情報とホスト/ポートを確認します。"
             },
             "isCorrect": true
           },
@@ -2071,14 +2071,14 @@
         ],
         "explanation": {
           "en": "Most integration errors are due to incorrect connection details or permissions in the configuration file.",
-          "ja": "統合エラーのほとんどは、構成ファイル内の接続の詳細または権限が間違っていることが原因です。"
+          "ja": "インテグレーションエラーのほとんどは、構成ファイル内の接続の詳細または権限が間違っていることが原因です。"
         }
       },
       {
         "id": "47",
         "question": {
           "en": "You see many \"Payload too large\" errors in the Agent logs. What does this usually mean?",
-          "ja": "エージェント ログに「ペイロードが大きすぎます」エラーが多数表示されます。これは通常何を意味しますか?"
+          "ja": "Agent のログに \"Payload too large\" エラーが多数表示されます。これは通常何を意味しますか?"
         },
         "options": [
           {
@@ -2258,14 +2258,14 @@
         "id": "51",
         "question": {
           "en": "While running `datadog-agent status`, you see \"Collector: status: FAIL\" for an integration. What does this indicate?",
-          "ja": "`datadog-agent status`の実行中に、統合に対して「Collector: status: FAIL」が表示されます。これは何を示しているのでしょうか?"
+          "ja": "`datadog-agent status`の実行中に、インテグレーションに対して「Collector: status: FAIL」が表示されます。これは何を示しているのでしょうか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The specific integration has encountered an error during execution.",
-              "ja": "特定の統合の実行中にエラーが発生しました。"
+              "ja": "特定のインテグレーションの実行中にエラーが発生しました。"
             },
             "isCorrect": true
           },
@@ -2296,7 +2296,7 @@
         ],
         "explanation": {
           "en": "This indicates a problem specifically with that integration check.",
-          "ja": "これは、特に統合チェックに問題があることを示しています。"
+          "ja": "これは、特にインテグレーションチェックに問題があることを示しています。"
         }
       },
       {
@@ -3263,7 +3263,7 @@
             "id": "B",
             "text": {
               "en": "It routes the alert notification to a specific Slack integration channel.",
-              "ja": "アラート通知を特定の Slack 統合チャネルにルーティングします。"
+              "ja": "アラート通知を特定の Slack インテグレーションチャネルにルーティングします。"
             },
             "isCorrect": true
           },
@@ -4155,7 +4155,7 @@
         "id": "3",
         "question": {
           "en": "You are troubleshooting a \"Connection Refused\" error for an Agent on a Windows machine. Which command allows you to check if the Datadog intake URL is reachable on port 443?",
-          "ja": "Windows マシン上のエージェントの「接続が拒否されました」エラーのトラブルシューティングを行っています。Datadog インテーク URL がポート 443 で到達可能かどうかを確認できるコマンドはどれですか?"
+          "ja": "Windows マシン上の Agent で発生している \"Connection Refused\" エラーをトラブルシューティングしています。Datadog のインテーク URL にポート 443 で到達できるかを確認できるコマンドはどれですか?"
         },
         "options": [
           {
@@ -4297,7 +4297,7 @@
             "id": "A",
             "text": {
               "en": "Not Found",
-              "ja": "見つかりません"
+              "ja": "Not Found (見つからない)"
             },
             "isCorrect": false
           },
@@ -4305,7 +4305,7 @@
             "id": "B",
             "text": {
               "en": "Unauthorized",
-              "ja": "無許可"
+              "ja": "Unauthorized (認証されていない)"
             },
             "isCorrect": false
           },
@@ -4313,7 +4313,7 @@
             "id": "C",
             "text": {
               "en": "Service Unavailable",
-              "ja": "サービスが利用できません"
+              "ja": "Service Unavailable (サービス利用不可)"
             },
             "isCorrect": true
           },
@@ -4321,7 +4321,7 @@
             "id": "D",
             "text": {
               "en": "Dynamic Content Error",
-              "ja": "動的コンテンツエラー"
+              "ja": "Dynamic Content Error (動的コンテンツのエラー)"
             },
             "isCorrect": false
           }
@@ -4418,7 +4418,7 @@
         ],
         "explanation": {
           "en": "The Core Agent (specifically the \"Collector\" component) handles the execution of checks that gather system and integration metrics.",
-          "ja": "コア エージェント (具体的には「コレクター」コンポーネント) は、システムおよび統合メトリックを収集するチェックの実行を処理します。"
+          "ja": "コア エージェント (具体的には「コレクター」コンポーネント) は、システムおよびインテグレーションメトリックを収集するチェックの実行を処理します。"
         }
       },
       {
@@ -4605,7 +4605,7 @@
         "id": "13",
         "question": {
           "en": "You are modifying a YAML configuration file for the SQL Server integration. Which character must be used for indentation?",
-          "ja": "SQL Server 統合用の YAML 構成ファイルを変更しています。インデントにはどの文字を使用する必要がありますか?"
+          "ja": "SQL Server インテグレーション用の YAML 構成ファイルを変更しています。インデントにはどの文字を使用する必要がありますか?"
         },
         "options": [
           {
@@ -4830,7 +4830,7 @@
         "id": "18",
         "question": {
           "en": "After adding a new integration configuration, the `status` command shows \"Configuration file is invalid\". What is the most likely cause?",
-          "ja": "新しい統合構成を追加した後、`status`コマンドに「構成ファイルが無効です」と表示されます。最も考えられる原因は何ですか?"
+          "ja": "新しいインテグレーション構成を追加した後、`status`コマンドに「構成ファイルが無効です」と表示されます。最も考えられる原因は何ですか?"
         },
         "options": [
           {
@@ -4920,7 +4920,7 @@
         "id": "20",
         "question": {
           "en": "Which command would you use to list all enabled integrations on a Linux host?",
-          "ja": "Linux ホスト上で有効になっているすべての統合を一覧表示するには、どのコマンドを使用しますか?"
+          "ja": "Linux ホスト上で有効になっているすべてのインテグレーションを一覧表示するには、どのコマンドを使用しますか?"
         },
         "options": [
           {
@@ -5033,7 +5033,7 @@
             "id": "C",
             "text": {
               "en": "A manual execution of the integration that prints collected metrics to the console.",
-              "ja": "収集されたメトリクスをコンソールに出力する統合の手動実行。"
+              "ja": "収集されたメトリクスをコンソールに出力するインテグレーションの手動実行。"
             },
             "isCorrect": true
           },
@@ -5048,7 +5048,7 @@
         ],
         "explanation": {
           "en": "The `check` command is a debugging tool that runs the integration wrapper once and prints the metrics/service checks it *would* have sent.",
-          "ja": "`check`コマンドは、統合ラッパーを 1 回実行し、それが送信するであろうメトリクス/サービス チェックを出力するデバッグ ツールです。"
+          "ja": "`check`コマンドは、インテグレーションラッパーを 1 回実行し、それが送信するであろうメトリクス/サービス チェックを出力するデバッグ ツールです。"
         }
       },
       {
@@ -5176,14 +5176,14 @@
             "id": "D",
             "text": {
               "en": "To store configuration files for specific integrations (checks).",
-              "ja": "特定の統合 (チェック) の構成ファイルを保存するため。"
+              "ja": "特定のインテグレーション (チェック) の構成ファイルを保存するため。"
             },
             "isCorrect": true
           }
         ],
         "explanation": {
           "en": "The `conf.d` directory is where the Agent looks for subdirectories containing `conf.yaml` files for each integration.",
-          "ja": "`conf.d`ディレクトリは、エージェントが統合ごとに`conf.yaml`ファイルを含むサブディレクトリを探す場所です。"
+          "ja": "`conf.d`ディレクトリは、エージェントがインテグレーションごとに`conf.yaml`ファイルを含むサブディレクトリを探す場所です。"
         }
       },
       {
@@ -5235,7 +5235,7 @@
         "id": "27",
         "question": {
           "en": "You want to collect Windows Event Logs. Which integration should you use?",
-          "ja": "Windows イベント ログを収集したいと考えています。どの統合を使用する必要がありますか?"
+          "ja": "Windows イベント ログを収集したいと考えています。どのインテグレーションを使用する必要がありますか?"
         },
         "options": [
           {
@@ -5273,14 +5273,14 @@
         ],
         "explanation": {
           "en": "`win32_event_log` is the core integration for collecting events from the Windows Event Viewer.",
-          "ja": "`win32_event_log`は、Windows イベント ビューアからイベントを収集するためのコア統合です。"
+          "ja": "`win32_event_log`は、Windows イベント ビューアからイベントを収集するためのコアインテグレーションです。"
         }
       },
       {
         "id": "28",
         "question": {
           "en": "In a containerized environment, what is \"Autodiscovery\"?",
-          "ja": "コンテナ化された環境における「自動検出」とは何ですか?"
+          "ja": "コンテナ化された環境における「オートディスカバリー」とは何ですか?"
         },
         "options": [
           {
@@ -5318,7 +5318,7 @@
         ],
         "explanation": {
           "en": "Autodiscovery allows the Agent to automatically detect services (like Redis or Nginx) running in containers and apply the correct configuration based on labels.",
-          "ja": "自動検出により、エージェントはコンテナ内で実行されているサービス (Redis や Nginx など) を自動的に検出し、ラベルに基づいて正しい構成を適用できます。"
+          "ja": "オートディスカバリーにより、エージェントはコンテナ内で実行されているサービス (Redis や Nginx など) を自動的に検出し、ラベルに基づいて正しい構成を適用できます。"
         }
       },
       {
@@ -6090,7 +6090,7 @@
         "id": "46",
         "question": {
           "en": "You see \"API Key Invalid\" in your logs. Where is the first place you should check the key?",
-          "ja": "ログに「API キーが無効です」と表示されます。まずキーを確認する場所はどこですか?"
+          "ja": "ログに \"API Key Invalid\" と表示されます。まずキーを確認すべき場所はどこですか?"
         },
         "options": [
           {
@@ -6270,7 +6270,7 @@
         "id": "50",
         "question": {
           "en": "The `status` command shows \"Metadata: ERROR\". What is the most likely cause?",
-          "ja": "`status`コマンドは「メタデータ: エラー」と表示します。最も考えられる原因は何ですか?"
+          "ja": "`status` コマンドに \"Metadata: ERROR\" と表示されます。最も考えられる原因は何ですか?"
         },
         "options": [
           {
@@ -6360,7 +6360,7 @@
         "id": "52",
         "question": {
           "en": "You are troubleshooting an integration. The `check` command works, but no data shows up in the UI. What could be the problem?",
-          "ja": "統合のトラブルシューティングを行っています。`check`コマンドは機能しますが、UI にデータが表示されません。何が問題なのでしょうか?"
+          "ja": "インテグレーションのトラブルシューティングを行っています。`check`コマンドは機能しますが、UI にデータが表示されません。何が問題なのでしょうか?"
         },
         "options": [
           {
@@ -6391,7 +6391,7 @@
             "id": "D",
             "text": {
               "en": "The integration is not supported on Windows.",
-              "ja": "この統合は Windows ではサポートされていません。"
+              "ja": "このインテグレーションは Windows ではサポートされていません。"
             },
             "isCorrect": false
           }
@@ -7575,7 +7575,7 @@
         "id": "79",
         "question": {
           "en": "You have multiple instances of Redis on the same host (e.g., on ports 6379 and 6380). How do you monitor both with the Datadog Redis integration?",
-          "ja": "同じホスト上に Redis の複数のインスタンスがあります (ポート 6379 と 6380 など)。Datadog Redis 統合を使用して両方を監視するにはどうすればよいですか?"
+          "ja": "同じホスト上に Redis の複数のインスタンスがあります (ポート 6379 と 6380 など)。Datadog Redis インテグレーションを使用して両方を監視するにはどうすればよいですか?"
         },
         "options": [
           {
@@ -7703,21 +7703,21 @@
         ],
         "explanation": {
           "en": "Pod Annotations are the recommended Kubernetes-native way to configure Autodiscovery, keeping configuration close to the workload it applies to.",
-          "ja": "ポッド アノテーションは、自動検出を構成するための推奨される Kubernetes ネイティブの方法であり、適用されるワークロードに近い構成を維持します。"
+          "ja": "ポッド アノテーションは、オートディスカバリーを構成するための推奨される Kubernetes ネイティブの方法であり、適用されるワークロードに近い構成を維持します。"
         }
       },
       {
         "id": "82",
         "question": {
           "en": "You want to collect AWS CloudWatch metrics. Which Datadog integration do you need to configure?",
-          "ja": "AWS CloudWatch メトリクスを収集したいと考えています。どの Datadog 統合を構成する必要がありますか?"
+          "ja": "AWS CloudWatch メトリクスを収集したいと考えています。どの Datadog インテグレーションを構成する必要がありますか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The Agent-based AWS integration.",
-              "ja": "エージェントベースの AWS 統合。"
+              "ja": "エージェントベースの AWS インテグレーション。"
             },
             "isCorrect": false
           },
@@ -7733,7 +7733,7 @@
             "id": "C",
             "text": {
               "en": "The Datadog AWS cloud integration (configured in the Datadog UI's Integrations page, not via the Agent).",
-              "ja": "Datadog AWS クラウド統合 (エージェント経由ではなく、Datadog UI の統合ページで構成)。"
+              "ja": "Datadog AWS クラウドインテグレーション (エージェント経由ではなく、Datadog UI のインテグレーションページで構成)。"
             },
             "isCorrect": true
           },
@@ -7741,14 +7741,14 @@
             "id": "D",
             "text": {
               "en": "A Logs integration.",
-              "ja": "ログの統合。"
+              "ja": "ログのインテグレーション。"
             },
             "isCorrect": false
           }
         ],
         "explanation": {
           "en": "The AWS cloud integration is set up via IAM roles and configured in the Datadog UI. It polls CloudWatch for metrics, without requiring the Agent on each EC2 instance.",
-          "ja": "AWS クラウド統合は、IAM ロールを介して設定され、Datadog UI で構成されます。各 EC2 インスタンスにエージェントを必要とせずに、CloudWatch にポーリングしてメトリクスを取得します。"
+          "ja": "AWS クラウドインテグレーションは、IAM ロールを介して設定され、Datadog UI で構成されます。各 EC2 インスタンスにエージェントを必要とせずに、CloudWatch にポーリングしてメトリクスを取得します。"
         }
       },
       {
@@ -7950,7 +7950,7 @@
             "id": "B",
             "text": {
               "en": "`docker_listener:` or the Docker integration config.",
-              "ja": "`docker_listener:` または Docker 統合設定。"
+              "ja": "`docker_listener:` または Docker インテグレーション設定。"
             },
             "isCorrect": false
           },
@@ -8070,7 +8070,7 @@
         "id": "90",
         "question": {
           "en": "You have configured the Nginx integration, but `datadog-agent status` shows \"nginx - ERROR (timeout)\". What should you check?",
-          "ja": "Nginx 統合を設定しましたが、`datadog-agent status`に「nginx - ERROR (timeout)」と表示されます。何を確認する必要がありますか?"
+          "ja": "Nginx インテグレーションを設定しましたが、`datadog-agent status`に「nginx - ERROR (timeout)」と表示されます。何を確認する必要がありますか?"
         },
         "options": [
           {
@@ -8108,7 +8108,7 @@
         ],
         "explanation": {
           "en": "The Nginx integration polls the Nginx status page (stub_status). If the URL is wrong, an unreachable port, or blocked, the check will time out.",
-          "ja": "Nginx 統合は、Nginx ステータス ページ (stub_status) をポーリングします。URL が間違っている場合、ポートが到達できない場合、またはブロックされている場合、チェックはタイムアウトになります。"
+          "ja": "Nginx インテグレーションは、Nginx ステータス ページ (stub_status) をポーリングします。URL が間違っている場合、ポートが到達できない場合、またはブロックされている場合、チェックはタイムアウトになります。"
         }
       }
     ]
@@ -8475,7 +8475,7 @@
         ],
         "explanation": {
           "en": "The Cluster Agent provides a streamlined, centralized approach to collecting cluster-level data (like Kubernetes events) and helps with Autodiscovery at scale.",
-          "ja": "クラスター エージェントは、クラスター レベルのデータ (Kubernetes イベントなど) を収集するための合理化された一元的なアプローチを提供し、大規模な自動検出を支援します。"
+          "ja": "クラスター エージェントは、クラスター レベルのデータ (Kubernetes イベントなど) を収集するための合理化された一元的なアプローチを提供し、大規模なオートディスカバリーを支援します。"
         }
       },
       {
@@ -8595,7 +8595,7 @@
             "id": "C",
             "text": {
               "en": "These tags are collected automatically by the Datadog-AWS integration (Crawler).",
-              "ja": "これらのタグは、Datadog-AWS 統合 (Crawler) によって自動的に収集されます。"
+              "ja": "これらのタグは、Datadog-AWS インテグレーション (Crawler) によって自動的に収集されます。"
             },
             "isCorrect": true
           },
@@ -8610,7 +8610,7 @@
         ],
         "explanation": {
           "en": "Datadog's cloud integrations (like AWS) can crawl metadata and automatically attach tags like `instance-id` and `availability-zone` to the host in Datadog.",
-          "ja": "Datadog のクラウド統合 (AWS など) はメタデータをクロールし、`instance-id`や`availability-zone`などのタグを Datadog のホストに自動的に添付できます。"
+          "ja": "Datadog のクラウドインテグレーション (AWS など) はメタデータをクロールし、`instance-id`や`availability-zone`などのタグを Datadog のホストに自動的に添付できます。"
         }
       },
       {
@@ -8939,7 +8939,7 @@
             "id": "A",
             "text": {
               "en": "It provides global defaults for all integrations.",
-              "ja": "すべての統合にグローバルなデフォルトを提供します。"
+              "ja": "すべてのインテグレーションにグローバルなデフォルトを提供します。"
             },
             "isCorrect": false
           },
@@ -8955,7 +8955,7 @@
             "id": "C",
             "text": {
               "en": "It doesn't exist; individual integrations have their own files.",
-              "ja": "それは存在しません。個々の統合には独自のファイルがあります。"
+              "ja": "それは存在しません。個々のインテグレーションには独自のファイルがあります。"
             },
             "isCorrect": true
           },
@@ -8963,21 +8963,21 @@
             "id": "D",
             "text": {
               "en": "It's used for the \"default\" integration.",
-              "ja": "これは「デフォルト」統合に使用されます。"
+              "ja": "これは「デフォルト」インテグレーションに使用されます。"
             },
             "isCorrect": false
           }
         ],
         "explanation": {
           "en": "There is no `default.yaml`; integrations use individual files (e.g., `nginx.d/conf.yaml`).",
-          "ja": "`default.yaml`はありません。統合では個別のファイル (例: `nginx.d/conf.yaml`) を使用します。"
+          "ja": "`default.yaml`はありません。インテグレーションでは個別のファイル (例: `nginx.d/conf.yaml`) を使用します。"
         }
       },
       {
         "id": "20",
         "question": {
           "en": "Which command would you use to remove an integration from a Linux host?",
-          "ja": "Linux ホストから統合を削除するにはどのコマンドを使用しますか?"
+          "ja": "Linux ホストからインテグレーションを削除するにはどのコマンドを使用しますか?"
         },
         "options": [
           {
@@ -9015,7 +9015,7 @@
         ],
         "explanation": {
           "en": "Integrations are \"enabled\" by the presence of a valid `conf.yaml` in their directory. Removing or renaming the file disables it.",
-          "ja": "統合は、ディレクトリ内に有効な `conf.yaml` が存在することによって「有効」になります。ファイルを削除または名前変更すると無効になります。"
+          "ja": "インテグレーションは、ディレクトリ内に有効な `conf.yaml` が存在することによって「有効」になります。ファイルを削除または名前変更すると無効になります。"
         }
       },
       {
@@ -9067,14 +9067,14 @@
         "id": "22",
         "question": {
           "en": "What happens if you run `datadog-agent check` without specifying an integration name?",
-          "ja": "統合名を指定せずに`datadog-agent check`を実行するとどうなりますか?"
+          "ja": "インテグレーション名を指定せずに`datadog-agent check`を実行するとどうなりますか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "It checks all integrations.",
-              "ja": "すべての統合をチェックします。"
+              "ja": "すべてのインテグレーションをチェックします。"
             },
             "isCorrect": false
           },
@@ -9105,7 +9105,7 @@
         ],
         "explanation": {
           "en": "The `check` command requires a target integration name as an argument.",
-          "ja": "`check`コマンドには、引数としてターゲット統合名が必要です。"
+          "ja": "`check`コマンドには、引数としてターゲットインテグレーション名が必要です。"
         }
       },
       {
@@ -9292,7 +9292,7 @@
         "id": "27",
         "question": {
           "en": "You want to collect metrics from a specific JMX application. Which integration should you use?",
-          "ja": "特定の JMX アプリケーションからメトリクスを収集したいと考えています。どの統合を使用する必要がありますか?"
+          "ja": "特定の JMX アプリケーションからメトリクスを収集したいと考えています。どのインテグレーションを使用する必要がありますか?"
         },
         "options": [
           {
@@ -9330,7 +9330,7 @@
         ],
         "explanation": {
           "en": "The JMX (Java Management Extensions) integration is the standard way to collect metrics from Java applications.",
-          "ja": "JMX (Java Management Extensions) 統合は、Java アプリケーションからメトリクスを収集する標準的な方法です。"
+          "ja": "JMX (Java Management Extensions) インテグレーションは、Java アプリケーションからメトリクスを収集する標準的な方法です。"
         }
       },
       {
@@ -9427,7 +9427,7 @@
         "id": "30",
         "question": {
           "en": "Which status is shown in `datadog-agent status` if an integration is correctly configured but hasn't collected data yet?",
-          "ja": "統合が正しく構成されているがデータがまだ収集されていない場合、`datadog-agent status`にはどのステータスが表示されますか?"
+          "ja": "インテグレーションが正しく構成されているがデータがまだ収集されていない場合、`datadog-agent status`にはどのステータスが表示されますか?"
         },
         "options": [
           {
@@ -10192,7 +10192,7 @@
         "id": "47",
         "question": {
           "en": "The `status` command shows \"Logs Agent: NOT RUNNING\". How do you enable it?",
-          "ja": "`status`コマンドには「ログ エージェント: 実行されていません」と表示されます。どうやって有効にするのですか？"
+          "ja": "`status` コマンドに \"Logs Agent: NOT RUNNING\" と表示されます。どうすれば有効にできますか?"
         },
         "options": [
           {
@@ -10372,7 +10372,7 @@
         "id": "51",
         "question": {
           "en": "How can you find why a specific integration's configuration is not being loaded?",
-          "ja": "特定の統合の構成が読み込まれない理由を見つけるにはどうすればよいでしょうか?"
+          "ja": "特定のインテグレーションの構成が読み込まれない理由を見つけるにはどうすればよいでしょうか?"
         },
         "options": [
           {
@@ -10522,7 +10522,7 @@
             "id": "B",
             "text": {
               "en": "Autodiscovery / AD",
-              "ja": "自動検出/AD"
+              "ja": "オートディスカバリー/AD"
             },
             "isCorrect": true
           },
@@ -10545,7 +10545,7 @@
         ],
         "explanation": {
           "en": "Autodiscovery (AD) is the component that detects containers and applies integration configs.",
-          "ja": "自動検出 (AD) は、コンテナーを検出し、統合構成を適用するコンポーネントです。"
+          "ja": "オートディスカバリー (AD) は、コンテナーを検出し、インテグレーション構成を適用するコンポーネントです。"
         }
       },
       {
@@ -12269,7 +12269,7 @@
         "id": "3",
         "question": {
           "en": "You are troubleshooting a \"Connection Timed Out\" error. Unlike \"Connection Refused,\" what does a timeout usually suggest?",
-          "ja": "「接続がタイムアウトしました」エラーのトラブルシューティングを行っています。「接続が拒否されました」とは異なり、タイムアウトは通常何を示唆していますか?"
+          "ja": "\"Connection Timed Out\" エラーをトラブルシューティングしています。\"Connection Refused\" と違い、タイムアウトは通常何を示していますか?"
         },
         "options": [
           {
@@ -12307,7 +12307,7 @@
         ],
         "explanation": {
           "en": "While \"Connection Refused\" means the port is reachable but nothing is listening (or a firewall is rejecting), \"Timed Out\" means the packet never reached the destination or the response never made it back (often due to a transparent firewall or routing issue).",
-          "ja": "「接続が拒否されました」は、ポートに到達可能であるが何もリッスンしていない (またはファイアウォールが拒否している) ことを意味しますが、「タイムアウト」は、パケットが宛先に到達しないか、応答が戻ってこないことを意味します (多くの場合、透過的なファイアウォールまたはルーティングの問題が原因です)。"
+          "ja": "\"Connection Refused\" は、宛先には到達できたものの、そのポートで何も待ち受けていない (またはファイアウォールが拒否した) ことを意味します。一方 \"Timed Out\" は、パケットが宛先に届かないか、応答が返ってこないことを意味します (多くの場合、パケットを黙って破棄するファイアウォールやルーティングの問題が原因です)。"
         }
       },
       {
@@ -12674,7 +12674,7 @@
         "id": "12",
         "question": {
           "en": "To collect logs from a specific file, you must create a `logs` section in an integration's `conf.yaml`. Which parameter defines the path to the file?",
-          "ja": "特定のファイルからログを収集するには、統合の `logs` に `conf.yaml` セクションを作成する必要があります。ファイルへのパスを定義するパラメータはどれですか?"
+          "ja": "特定のファイルからログを収集するには、インテグレーションの `logs` に `conf.yaml` セクションを作成する必要があります。ファイルへのパスを定義するパラメータはどれですか?"
         },
         "options": [
           {
@@ -12712,7 +12712,7 @@
         ],
         "explanation": {
           "en": "You define a `path` parameter under a `logs` item in an integration's configuration file.",
-          "ja": "統合の設定ファイルの`logs`項目の下に`path`パラメータを定義します。"
+          "ja": "インテグレーションの設定ファイルの`logs`項目の下に`path`パラメータを定義します。"
         }
       },
       {
@@ -12742,7 +12742,7 @@
             "id": "C",
             "text": {
               "en": "It tells Datadog which integration (e.g., `nginx`, `python`) the logs are coming from to apply the correct processing pipeline.",
-              "ja": "これは、正しい処理パイプラインを適用するためにログがどの統合 (例: `nginx`、`python`) から取得されているかを Datadog に伝えます。"
+              "ja": "これは、正しい処理パイプラインを適用するためにログがどのインテグレーション (例: `nginx`、`python`) から取得されているかを Datadog に伝えます。"
             },
             "isCorrect": true
           },
@@ -12809,7 +12809,7 @@
         "id": "15",
         "question": {
           "en": "In a containerized environment, you can use \"Docker Labels\" to configure integrations. If a label starts with `com.datadoghq.ad.check_names`, what does it define?",
-          "ja": "コンテナ化された環境では、「Docker ラベル」を使用して統合を構成できます。ラベルが`com.datadoghq.ad.check_names`で始まる場合、それは何を定義しますか?"
+          "ja": "コンテナ化された環境では、「Docker ラベル」を使用してインテグレーションを構成できます。ラベルが`com.datadoghq.ad.check_names`で始まる場合、それは何を定義しますか?"
         },
         "options": [
           {
@@ -12832,7 +12832,7 @@
             "id": "C",
             "text": {
               "en": "The list of integrations to run for that container.",
-              "ja": "そのコンテナに対して実行する統合のリスト。"
+              "ja": "そのコンテナに対して実行するインテグレーションのリスト。"
             },
             "isCorrect": true
           },
@@ -12847,7 +12847,7 @@
         ],
         "explanation": {
           "en": "`check_names` defines which Datadog integrations (like `redis`, `http_check`) should be triggered for that container.",
-          "ja": "`check_names` は、そのコンテナに対してどの Datadog 統合 (`redis`、`http_check` など) をトリガーするかを定義します。"
+          "ja": "`check_names` は、そのコンテナに対してどの Datadog インテグレーション (`redis`、`http_check` など) をトリガーするかを定義します。"
         }
       },
       {
@@ -13034,7 +13034,7 @@
         "id": "20",
         "question": {
           "en": "Which directory on Windows contains the integration configuration examples?",
-          "ja": "統合構成サンプルは Windows 上のどのディレクトリに含まれていますか?"
+          "ja": "インテグレーション構成サンプルは Windows 上のどのディレクトリに含まれていますか?"
         },
         "options": [
           {
@@ -13117,7 +13117,7 @@
         ],
         "explanation": {
           "en": "Datadog integrations in v6/v7 use a directory-based approach: `conf.d/<integration>.d/conf.yaml`.",
-          "ja": "v6/v7 の Datadog 統合では、ディレクトリベースのアプローチ`conf.d/<integration>.d/conf.yaml`が使用されます。"
+          "ja": "v6/v7 の Datadog インテグレーションでは、ディレクトリベースのアプローチ`conf.d/<integration>.d/conf.yaml`が使用されます。"
         }
       },
       {
@@ -13297,7 +13297,7 @@
         ],
         "explanation": {
           "en": "The Agent and its integrations (like the HTTP check) perform health checks every 15 seconds by default.",
-          "ja": "エージェントとその統合 (HTTP チェックなど) は、デフォルトで 15 秒ごとにヘルスチェックを実行します。"
+          "ja": "エージェントとそのインテグレーション (HTTP チェックなど) は、デフォルトで 15 秒ごとにヘルスチェックを実行します。"
         }
       },
       {
@@ -13394,7 +13394,7 @@
         "id": "28",
         "question": {
           "en": "Which tag is automatically added by the \"Docker\" integration to identify the container image?",
-          "ja": "コンテナー イメージを識別するために、「Docker」統合によって自動的に追加されるタグはどれですか?"
+          "ja": "コンテナー イメージを識別するために、「Docker」インテグレーションによって自動的に追加されるタグはどれですか?"
         },
         "options": [
           {
@@ -13484,14 +13484,14 @@
         "id": "30",
         "question": {
           "en": "In `datadog-agent status`, you see an integration listed under \"Config Errors.\" What does this mean?",
-          "ja": "`datadog-agent status`の「Config Errors」の下に統合がリストされていることがわかります。これはどういう意味ですか？"
+          "ja": "`datadog-agent status`の「Config Errors」の下にインテグレーションがリストされていることがわかります。これはどういう意味ですか？"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The integration is working but has some warnings.",
-              "ja": "統合は機能していますが、いくつかの警告があります。"
+              "ja": "インテグレーションは機能していますが、いくつかの警告があります。"
             },
             "isCorrect": false
           },
@@ -14204,7 +14204,7 @@
         "id": "46",
         "question": {
           "en": "You see \"Connection refused to 127.0.0.1:8125\". What does this mean?",
-          "ja": "「127.0.0.1:8125 への接続が拒否されました」と表示されます。これはどういう意味ですか？"
+          "ja": "\"Connection refused to 127.0.0.1:8125\" と表示されます。これはどういう意味ですか?"
         },
         "options": [
           {
@@ -14242,7 +14242,7 @@
         ],
         "explanation": {
           "en": "Port 8125 is the default port for DogStatsD. \"Connection refused\" to `127.0.0.1:8125` means the application cannot reach the DogStatsD server — either the Agent is not running, or the DogStatsD server is listening on a different address or port than the application is trying to connect to.",
-          "ja": "ポート 8125 は DogStatsD のデフォルトのポートです。`127.0.0.1:8125`に対する「接続が拒否されました」は、アプリケーションが DogStatsD サーバーに到達できないことを意味します。エージェントが実行されていないか、アプリケーションが接続しようとしているものとは異なるアドレスまたはポートで DogStatsD サーバーがリッスンしています。"
+          "ja": "ポート 8125 は DogStatsD のデフォルトのポートです。`127.0.0.1:8125` への \"Connection refused\" は、アプリケーションが DogStatsD サーバーに到達できないことを意味します。Agent が実行されていないか、アプリケーションの接続先とは異なるアドレスまたはポートで DogStatsD サーバーが待ち受けています。"
         }
       },
       {
@@ -14294,7 +14294,7 @@
         "id": "48",
         "question": {
           "en": "On Linux, the Agent logs show \"Too many open files\". What should you do?",
-          "ja": "Linux では、エージェント ログに「開いているファイルが多すぎます」と表示されます。どうすればいいでしょうか？"
+          "ja": "Linux で、Agent のログに \"Too many open files\" と表示されます。どうすればよいですか?"
         },
         "options": [
           {
@@ -14384,7 +14384,7 @@
         "id": "50",
         "question": {
           "en": "You suspect an integration is crashing periodically. Where is the best place to find why it crashed?",
-          "ja": "統合が定期的にクラッシュしているのではないかと思われます。クラッシュした理由を見つけるのに最適な場所はどこですか?"
+          "ja": "インテグレーションが定期的にクラッシュしているのではないかと思われます。クラッシュした理由を見つけるのに最適な場所はどこですか?"
         },
         "options": [
           {
@@ -14564,7 +14564,7 @@
         "id": "54",
         "question": {
           "en": "You are seeing \"No metrics received\" for a Docker container. Where should you look for Autodiscovery errors?",
-          "ja": "Docker コンテナに対して「メトリクスを受信しませんでした」と表示されます。自動検出エラーはどこで探す必要がありますか?"
+          "ja": "Docker コンテナについて \"No metrics received\" と表示されます。オートディスカバリーのエラーはどこで確認すればよいですか?"
         },
         "options": [
           {
@@ -14789,7 +14789,7 @@
         "id": "59",
         "question": {
           "en": "You want to be alerted if a specific log message (e.g., \"Critical Database Error\") appears more than 5 times in 1 minute. Which monitor type should you use?",
-          "ja": "特定のログ メッセージ (「重大なデータベース エラー」など) が 1 分間に 5 回以上表示された場合にアラートを受け取りたいとします。どのタイプのモニターを使用する必要がありますか?"
+          "ja": "特定のログ メッセージ (たとえば \"Critical Database Error\") が 1 分間に 5 回以上出たらアラートを受け取りたいとします。どのタイプのモニターを使用する必要がありますか?"
         },
         "options": [
           {
@@ -15585,14 +15585,14 @@
             "id": "D",
             "text": {
               "en": "At least one log collection source must be configured (e.g., a `logs:` block in an integration's `conf.yaml`).",
-              "ja": "少なくとも 1 つのログ収集ソースを設定する必要があります (統合の `logs:` 内の `conf.yaml` ブロックなど)。"
+              "ja": "少なくとも 1 つのログ収集ソースを設定する必要があります (インテグレーションの `logs:` 内の `conf.yaml` ブロックなど)。"
             },
             "isCorrect": true
           }
         ],
         "explanation": {
           "en": "The `logs_enabled` flag enables the log collection engine in the Agent, but the engine needs at least one source to collect from (a log path defined in an integration's `conf.yaml`).",
-          "ja": "`logs_enabled`フラグはエージェントのログ収集エンジンを有効にしますが、エンジンには収集元のソースが少なくとも 1 つ必要です (統合の`conf.yaml`で定義されたログ パス)。"
+          "ja": "`logs_enabled`フラグはエージェントのログ収集エンジンを有効にしますが、エンジンには収集元のソースが少なくとも 1 つ必要です (インテグレーションの`conf.yaml`で定義されたログ パス)。"
         }
       },
       {
@@ -15869,14 +15869,14 @@
         "id": "83",
         "question": {
           "en": "You see a \"Check discarded from log\" message in the Agent logs for an integration. What does this likely mean?",
-          "ja": "統合のエージェント ログに「ログからチェックが破棄されました」というメッセージが表示されます。これはおそらく何を意味しますか?"
+          "ja": "インテグレーションのエージェント ログに「ログからチェックが破棄されました」というメッセージが表示されます。これはおそらく何を意味しますか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The integration is disabled.",
-              "ja": "統合は無効になっています。"
+              "ja": "インテグレーションは無効になっています。"
             },
             "isCorrect": false
           },
@@ -15900,7 +15900,7 @@
             "id": "D",
             "text": {
               "en": "The integration check failed too many times and was disabled or skipped to prevent cascading failures.",
-              "ja": "統合チェックは何度も失敗したため、連鎖的な失敗を防ぐために無効化またはスキップされました。"
+              "ja": "インテグレーションチェックは何度も失敗したため、連鎖的な失敗を防ぐために無効化またはスキップされました。"
             },
             "isCorrect": true
           }
@@ -15937,7 +15937,7 @@
             "id": "C",
             "text": {
               "en": "No, sensitive values like `api_key` and `app_key` are automatically redacted (masked) in the flare.",
-              "ja": "いいえ、`api_key`や`app_key`などの機密値はフレア内で自動的に編集 (マスク) されます。"
+              "ja": "いいえ。`api_key` や `app_key` などの機密情報は、フレア内で自動的にマスクされます。"
             },
             "isCorrect": true
           },
@@ -16139,7 +16139,7 @@
         "id": "89",
         "question": {
           "en": "What is an \"Integration Dashboard\"?",
-          "ja": "「統合ダッシュボード」とは何ですか?"
+          "ja": "「インテグレーションダッシュボード」とは何ですか?"
         },
         "options": [
           {
@@ -16154,7 +16154,7 @@
             "id": "B",
             "text": {
               "en": "A pre-built, out-of-the-box dashboard automatically installed when you configure an integration (e.g., the Nginx Overview dashboard).",
-              "ja": "統合を構成するときに、すぐに使用できる事前構築済みのダッシュボード (Nginx 概要ダッシュボードなど) が自動的にインストールされます。"
+              "ja": "インテグレーションを構成するときに、すぐに使用できる事前構築済みのダッシュボード (Nginx 概要ダッシュボードなど) が自動的にインストールされます。"
             },
             "isCorrect": true
           },
@@ -16162,7 +16162,7 @@
             "id": "C",
             "text": {
               "en": "A dashboard for managing integrations.",
-              "ja": "統合を管理するためのダッシュボード。"
+              "ja": "インテグレーションを管理するためのダッシュボード。"
             },
             "isCorrect": false
           },
@@ -16177,7 +16177,7 @@
         ],
         "explanation": {
           "en": "Integration Dashboards are major value-adds of Datadog integrations. They provide instant deep visibility out of the box.",
-          "ja": "統合ダッシュボードは、Datadog 統合の主要な付加価値です。箱から出してすぐに詳細な可視性を即座に提供します。"
+          "ja": "インテグレーションダッシュボードは、Datadog インテグレーションの主要な付加価値です。箱から出してすぐに詳細な可視性を即座に提供します。"
         }
       },
       {
@@ -16191,7 +16191,7 @@
             "id": "A",
             "text": {
               "en": "Log Pipelines.",
-              "ja": "パイプラインのログを記録します。"
+              "ja": "ログ パイプライン (Log Pipelines)。"
             },
             "isCorrect": false
           },
@@ -16949,7 +16949,7 @@
         ],
         "explanation": {
           "en": "The \"Check Summary\" in the `status` output shows which integrations are currently collecting data and their status.",
-          "ja": "`status`出力の「Check Summary」には、現在データを収集している統合とそのステータスが表示されます。"
+          "ja": "`status`出力の「Check Summary」には、現在データを収集しているインテグレーションとそのステータスが表示されます。"
         }
       },
       {
@@ -17174,7 +17174,7 @@
         ],
         "explanation": {
           "en": "Standard integration directory structure: `/etc/datadog-agent/conf.d/<name>.d/conf.yaml`.",
-          "ja": "標準統合ディレクトリ構造: `/etc/datadog-agent/conf.d/<name>.d/conf.yaml`。"
+          "ja": "標準インテグレーションディレクトリ構造: `/etc/datadog-agent/conf.d/<name>.d/conf.yaml`。"
         }
       },
       {
@@ -17444,7 +17444,7 @@
         ],
         "explanation": {
           "en": "Sensitive connection details like passwords are part of the specific integration's instance configuration.",
-          "ja": "パスワードなどの機密性の高い接続の詳細は、特定の統合のインスタンス構成の一部です。"
+          "ja": "パスワードなどの機密性の高い接続の詳細は、特定のインテグレーションのインスタンス構成の一部です。"
         }
       },
       {
@@ -18261,14 +18261,14 @@
         "id": "46",
         "question": {
           "en": "You see \"Context deadline exceeded\" in the Agent logs when trying to perform a check. What does this mean?",
-          "ja": "チェックを実行しようとすると、エージェント ログに「コンテキストの期限を超えました」と表示されます。これはどういう意味ですか？"
+          "ja": "チェックを実行しようとすると、Agent のログに \"Context deadline exceeded\" と表示されます。これはどういう意味ですか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The integration check took too long to run and was timed out by the Agent.",
-              "ja": "統合チェックの実行に時間がかかりすぎたため、エージェントによってタイムアウトされました。"
+              "ja": "インテグレーションチェックの実行に時間がかかりすぎたため、エージェントによってタイムアウトされました。"
             },
             "isCorrect": true
           },
@@ -18299,7 +18299,7 @@
         ],
         "explanation": {
           "en": "This means the integration check took too long to complete and was stopped by the Agent's internal scheduler.",
-          "ja": "これは、統合チェックが完了するまでに時間がかかりすぎたため、エージェントの内部スケジューラによって停止されたことを意味します。"
+          "ja": "これは、インテグレーションチェックが完了するまでに時間がかかりすぎたため、エージェントの内部スケジューラによって停止されたことを意味します。"
         }
       },
       {
@@ -18351,7 +18351,7 @@
         "id": "48",
         "question": {
           "en": "On Windows, the Agent logs show \"WMI service not responding.\" How do you fix this?",
-          "ja": "Windows では、エージェント ログに「WMI サービスが応答していません」と表示されます。これをどうやって修正しますか?"
+          "ja": "Windows で、Agent のログに \"WMI service not responding.\" と表示されます。どうすれば直せますか?"
         },
         "options": [
           {
@@ -18621,7 +18621,7 @@
         "id": "54",
         "question": {
           "en": "You are seeing \"No data\" for a specific integration. You run `datadog-agent check <name>` and it prints metrics correctly. What is the most likely issue?",
-          "ja": "特定の統合に対して「データなし」と表示されます。`datadog-agent check <name>`を実行すると、メトリクスが正しく出力されます。最も可能性の高い問題は何ですか?"
+          "ja": "特定のインテグレーションに対して「データなし」と表示されます。`datadog-agent check <name>`を実行すると、メトリクスが正しく出力されます。最も可能性の高い問題は何ですか?"
         },
         "options": [
           {
@@ -18652,7 +18652,7 @@
             "id": "D",
             "text": {
               "en": "The integration only works on Fridays.",
-              "ja": "統合は金曜日にのみ機能します。"
+              "ja": "インテグレーションは金曜日にのみ機能します。"
             },
             "isCorrect": false
           }
@@ -18861,7 +18861,7 @@
             "id": "B",
             "text": {
               "en": "Yes, the AWS integration pulls in billing metrics (e.g., `aws.billing.estimated_charges`).",
-              "ja": "はい、AWS 統合により、請求メトリクス (例: `aws.billing.estimated_charges`) が取り込まれます。"
+              "ja": "はい、AWS インテグレーションにより、請求メトリクス (例: `aws.billing.estimated_charges`) が取り込まれます。"
             },
             "isCorrect": true
           },
@@ -18884,7 +18884,7 @@
         ],
         "explanation": {
           "en": "Datadog's cloud integrations pull in technical AND billing metrics.",
-          "ja": "Datadog のクラウド統合は、技術的指標と請求指標を取り込みます。"
+          "ja": "Datadog のクラウドインテグレーションは、技術的指標と請求指標を取り込みます。"
         }
       },
       {
@@ -20061,7 +20061,7 @@
         "id": "86",
         "question": {
           "en": "You've created a monitor that sends alerts to a Slack channel. Later, the Slack integration's webhook URL changes. Where in Datadog do you update this?",
-          "ja": "Slack チャネルにアラートを送信するモニターを作成しました。その後、Slack 統合の Webhook URL が変更されます。Datadog のどこでこれを更新しますか?"
+          "ja": "Slack チャネルにアラートを送信するモニターを作成しました。その後、Slack インテグレーションの Webhook URL が変更されます。Datadog のどこでこれを更新しますか?"
         },
         "options": [
           {
@@ -20076,7 +20076,7 @@
             "id": "B",
             "text": {
               "en": "In the Slack integration settings on the Integrations page (update the webhook once, and all monitors using that channel will use the new URL).",
-              "ja": "[統合] ページの Slack 統合設定 (Webhook を一度更新すると、そのチャネルを使用するすべてのモニターで新しい URL が使用されます)。"
+              "ja": "[インテグレーション] ページの Slack インテグレーション設定 (Webhook を一度更新すると、そのチャネルを使用するすべてのモニターで新しい URL が使用されます)。"
             },
             "isCorrect": true
           },
@@ -20099,7 +20099,7 @@
         ],
         "explanation": {
           "en": "The Slack integration manages the channel configuration centrally. Individual monitors only reference the channel name/handle.",
-          "ja": "Slack 統合では、チャネル構成を一元管理します。個々のモニターはチャンネル名/ハンドルのみを参照します。"
+          "ja": "Slack インテグレーションでは、チャネル構成を一元管理します。個々のモニターはチャンネル名/ハンドルのみを参照します。"
         }
       },
       {
@@ -20174,7 +20174,7 @@
             "id": "C",
             "text": {
               "en": "A marketplace for Datadog integrations.",
-              "ja": "Datadog 統合のためのマーケットプレイス。"
+              "ja": "Datadog インテグレーションのためのマーケットプレイス。"
             },
             "isCorrect": false
           },
@@ -21058,7 +21058,7 @@
         "id": "18",
         "question": {
           "en": "You see \"No such file or directory\" in the logs when the Agent tries to read a config file. What should you check?",
-          "ja": "エージェントが構成ファイルを読み取ろうとすると、ログに「そのようなファイルまたはディレクトリはありません」と表示されます。何を確認する必要がありますか?"
+          "ja": "Agent が設定ファイルを読み取ろうとすると、ログに \"No such file or directory\" と表示されます。何を確認する必要がありますか?"
         },
         "options": [
           {
@@ -21148,7 +21148,7 @@
         "id": "20",
         "question": {
           "en": "Where are the integration configuration files located on Windows?",
-          "ja": "統合構成ファイルは Windows のどこにありますか?"
+          "ja": "インテグレーション構成ファイルは Windows のどこにありますか?"
         },
         "options": [
           {
@@ -21231,7 +21231,7 @@
         ],
         "explanation": {
           "en": "Integration configs in v6/v7 are stored in subdirectories of `conf.d`.",
-          "ja": "v6/v7 の統合構成は`conf.d`のサブディレクトリに保存されます。"
+          "ja": "v6/v7 のインテグレーション構成は`conf.d`のサブディレクトリに保存されます。"
         }
       },
       {
@@ -21576,7 +21576,7 @@
             "id": "C",
             "text": {
               "en": "Cloud-provider integration (AWS Crawler) or Agent access to Instance Metadata (IMDS).",
-              "ja": "クラウドプロバイダーの統合 (AWS Crawler) またはインスタンスメタデータへのエージェントアクセス (IMDS)。"
+              "ja": "クラウドプロバイダーのインテグレーション (AWS Crawler) またはインスタンスメタデータへのエージェントアクセス (IMDS)。"
             },
             "isCorrect": true
           },
@@ -21591,7 +21591,7 @@
         ],
         "explanation": {
           "en": "The Cloud Crawler integration retrieves metadata via AWS APIs, or the Agent retrieves it locally via IMDS.",
-          "ja": "Cloud Crawler 統合は AWS API 経由でメタデータを取得するか、エージェントは IMDS 経由でメタデータをローカルに取得します。"
+          "ja": "Cloud Crawler インテグレーションは AWS API 経由でメタデータを取得するか、エージェントは IMDS 経由でメタデータをローカルに取得します。"
         }
       },
       {
@@ -22318,7 +22318,7 @@
         "id": "46",
         "question": {
           "en": "You see \"Error 403 Forbidden\" in the Agent logs. What is the most likely cause?",
-          "ja": "エージェント ログに「エラー 403 禁止」が表示されます。最も考えられる原因は何ですか?"
+          "ja": "Agent のログに \"Error 403 Forbidden\" と表示されます。最も考えられる原因は何ですか?"
         },
         "options": [
           {
@@ -22363,14 +22363,14 @@
         "id": "47",
         "question": {
           "en": "The `status` command shows \"Collector: status: OK\" for an integration, but the logs show \"Database connection timed out.\" What does this mean?",
-          "ja": "`status`コマンドでは、統合に対して「Collector: status: OK」と表示されますが、ログには「データベース接続がタイムアウトしました」と表示されます。これはどういう意味ですか？"
+          "ja": "`status` コマンドではインテグレーションが \"Collector: status: OK\" と表示されていますが、ログには \"Database connection timed out.\" と出ています。これはどういう意味ですか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The integration is working perfectly.",
-              "ja": "統合は完璧に機能しています。"
+              "ja": "インテグレーションは完璧に機能しています。"
             },
             "isCorrect": false
           },
@@ -22408,7 +22408,7 @@
         "id": "48",
         "question": {
           "en": "On Windows, the Agent won't start and says \"Service specifically rejected the request.\" What should you check?",
-          "ja": "Windows では、エージェントが起動せず、「サービスが要求を明確に拒否しました。」と表示されます。何を確認する必要がありますか?"
+          "ja": "Windows で Agent が起動せず、\"Service specifically rejected the request.\" と表示されます。何を確認する必要がありますか?"
         },
         "options": [
           {
@@ -22678,14 +22678,14 @@
         "id": "54",
         "question": {
           "en": "You are seeing \"No data\" for a Container integration. You run `datadog-agent status` and \"Docker\" is not listed. What is the issue?",
-          "ja": "コンテナ統合に対して「データなし」と表示されます。`datadog-agent status`を実行しても、「Docker」がリストに表示されません。問題は何ですか?"
+          "ja": "コンテナインテグレーションに対して「データなし」と表示されます。`datadog-agent status`を実行しても、「Docker」がリストに表示されません。問題は何ですか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The Docker integration is not enabled or the Agent cannot access the Docker socket.",
-              "ja": "Docker 統合が有効になっていないか、エージェントが Docker ソケットにアクセスできません。"
+              "ja": "Docker インテグレーションが有効になっていないか、エージェントが Docker ソケットにアクセスできません。"
             },
             "isCorrect": true
           },
@@ -24118,7 +24118,7 @@
         "id": "86",
         "question": {
           "en": "You want to monitor a Windows IIS web server with Datadog. Which integration should you use?",
-          "ja": "Datadog を使用して Windows IIS Web サーバーを監視したいと考えています。どの統合を使用する必要がありますか?"
+          "ja": "Datadog を使用して Windows IIS Web サーバーを監視したいと考えています。どのインテグレーションを使用する必要がありますか?"
         },
         "options": [
           {
@@ -24156,7 +24156,7 @@
         ],
         "explanation": {
           "en": "The `iis` integration collects metrics from the Windows Internet Information Services (IIS) web server, including request rate, bytes sent/received, and worker processes.",
-          "ja": "`iis`統合は、要求レート、送受信バイト数、ワーカー プロセスなどのメトリクスを Windows インターネット インフォメーション サービス (IIS) Web サーバーから収集します。"
+          "ja": "`iis`インテグレーションは、要求レート、送受信バイト数、ワーカー プロセスなどのメトリクスを Windows インターネット インフォメーション サービス (IIS) Web サーバーから収集します。"
         }
       },
       {
@@ -24223,7 +24223,7 @@
             "id": "B",
             "text": {
               "en": "Use Datadog's API directly or Synthetics/CI Visibility integrations designed for pipelines.",
-              "ja": "Datadog の API を直接使用するか、パイプライン用に設計された Synthetics/CI Visibility 統合を使用します。"
+              "ja": "Datadog の API を直接使用するか、パイプライン用に設計された Synthetics/CI Visibility インテグレーションを使用します。"
             },
             "isCorrect": true
           },
@@ -24246,7 +24246,7 @@
         ],
         "explanation": {
           "en": "For CI/CD pipelines, Datadog offers CI Visibility, Synthetics, and direct API usage. Installing a full Agent on ephemeral runners is possible but the specialized solutions are more appropriate.",
-          "ja": "CI/CD パイプラインの場合、Datadog は CI の可視化、合成、API の直接使用を提供します。完全なエージェントを一時ランナーにインストールすることは可能ですが、特殊なソリューションの方が適切です。"
+          "ja": "CI/CD パイプライン向けに、Datadog は CI Visibility、Synthetic モニタリング (Synthetics)、API の直接利用を提供しています。一時的なランナーに Agent 一式をインストールすることもできますが、専用のソリューションのほうが適しています。"
         }
       },
       {
@@ -24868,7 +24868,7 @@
             "id": "C",
             "text": {
               "en": "The JMXFetch integration (configured via a `jmx` integration like `tomcat.d/conf.yaml`).",
-              "ja": "JMXFetch 統合 (`tomcat.d/conf.yaml`のような`jmx`統合を介して構成)。"
+              "ja": "JMXFetch インテグレーション (`tomcat.d/conf.yaml`のような`jmx`インテグレーションを介して構成)。"
             },
             "isCorrect": true
           },
@@ -25070,7 +25070,7 @@
         "id": "17",
         "question": {
           "en": "Which configuration parameter in `datadog.yaml` controls how frequently (in seconds) the Agent collects integration metrics?",
-          "ja": "`datadog.yaml`のどの設定パラメータが、エージェントが統合メトリクスを収集する頻度 (秒単位) を制御しますか?"
+          "ja": "`datadog.yaml`のどの設定パラメータが、エージェントがインテグレーションメトリクスを収集する頻度 (秒単位) を制御しますか?"
         },
         "options": [
           {
@@ -25093,7 +25093,7 @@
             "id": "C",
             "text": {
               "en": "`min_collection_interval` (set per integration in `conf.yaml`)",
-              "ja": "`min_collection_interval` (`conf.yaml` で統合ごとに設定)"
+              "ja": "`min_collection_interval` (`conf.yaml` でインテグレーションごとに設定)"
             },
             "isCorrect": true
           },
@@ -25108,7 +25108,7 @@
         ],
         "explanation": {
           "en": "The `min_collection_interval` is set in individual integration `conf.yaml` files to control how frequently that specific check runs.",
-          "ja": "`min_collection_interval`は、特定のチェックを実行する頻度を制御するために、個々の統合`conf.yaml`ファイルで設定されます。"
+          "ja": "`min_collection_interval`は、特定のチェックを実行する頻度を制御するために、個々のインテグレーション`conf.yaml`ファイルで設定されます。"
         }
       },
       {
@@ -25160,7 +25160,7 @@
         "id": "19",
         "question": {
           "en": "To enable the `docker` integration, which additional permission does the `dd-agent` user typically need on Linux?",
-          "ja": "`docker`統合を有効にするには、Linux 上で`dd-agent`ユーザーに通常どのような追加の権限が必要ですか?"
+          "ja": "`docker`インテグレーションを有効にするには、Linux 上で`dd-agent`ユーザーに通常どのような追加の権限が必要ですか?"
         },
         "options": [
           {
@@ -25250,7 +25250,7 @@
         "id": "21",
         "question": {
           "en": "What is the `init_config` section in an integration's `conf.yaml` used for?",
-          "ja": "統合の`conf.yaml`内の`init_config`セクションは何に使用されますか?"
+          "ja": "インテグレーションの`conf.yaml`内の`init_config`セクションは何に使用されますか?"
         },
         "options": [
           {
@@ -25340,7 +25340,7 @@
         "id": "23",
         "question": {
           "en": "In Autodiscovery, what is a \"Container Identifier\" used for?",
-          "ja": "自動検出では、「コンテナ識別子」は何に使用されますか?"
+          "ja": "オートディスカバリーでは、「コンテナ識別子」は何に使用されますか?"
         },
         "options": [
           {
@@ -25355,7 +25355,7 @@
             "id": "B",
             "text": {
               "en": "To match an Autodiscovery template to the correct container (e.g., by image name or container name).",
-              "ja": "自動検出テンプレートを正しいコンテナーと照合するため (イメージ名またはコンテナー名などで)。"
+              "ja": "オートディスカバリーテンプレートを正しいコンテナーと照合するため (イメージ名またはコンテナー名などで)。"
             },
             "isCorrect": true
           },
@@ -25378,14 +25378,14 @@
         ],
         "explanation": {
           "en": "Autodiscovery uses container identifiers (image name, container name, labels) to know which configuration template to apply to which running container.",
-          "ja": "自動検出は、コンテナー識別子 (イメージ名、コンテナー名、ラベル) を使用して、どの構成テンプレートをどの実行中のコンテナーに適用するかを認識します。"
+          "ja": "オートディスカバリーは、コンテナー識別子 (イメージ名、コンテナー名、ラベル) を使用して、どの構成テンプレートをどの実行中のコンテナーに適用するかを認識します。"
         }
       },
       {
         "id": "24",
         "question": {
           "en": "Which file extension is used for Datadog integration configuration example files?",
-          "ja": "Datadog 統合構成サンプル ファイルにはどのファイル拡張子が使用されますか?"
+          "ja": "Datadog インテグレーション構成サンプル ファイルにはどのファイル拡張子が使用されますか?"
         },
         "options": [
           {
@@ -25468,7 +25468,7 @@
         ],
         "explanation": {
           "en": "The `tcp_check` integration monitors the reachability of a specific TCP port, reporting it as a service check (OK/CRITICAL).",
-          "ja": "`tcp_check`統合は、特定の TCP ポートの到達可能性を監視し、それをサービス チェック (OK/CRITICAL) として報告します。"
+          "ja": "`tcp_check`インテグレーションは、特定の TCP ポートの到達可能性を監視し、それをサービス チェック (OK/CRITICAL) として報告します。"
         }
       },
       {
@@ -25932,7 +25932,7 @@
             "id": "A",
             "text": {
               "en": "Log Pipelines.",
-              "ja": "パイプラインのログを記録します。"
+              "ja": "ログ パイプライン (Log Pipelines)。"
             },
             "isCorrect": false
           },
@@ -26375,14 +26375,14 @@
         "id": "46",
         "question": {
           "en": "The Agent logs show \"WARN Failed to get auto-config, not scheduled\". What does this mean in an Autodiscovery context?",
-          "ja": "エージェント ログには、「警告 自動構成の取得に失敗しました。スケジュールされていません」と表示されます。これは自動検出のコンテキストでは何を意味しますか?"
+          "ja": "Agent のログに \"WARN Failed to get auto-config, not scheduled\" と表示されます。オートディスカバリーの観点では、これは何を意味しますか?"
         },
         "options": [
           {
             "id": "A",
             "text": {
               "en": "The Agent cannot find a matching Autodiscovery template for a running container.",
-              "ja": "エージェントは、実行中のコンテナに一致する自動検出テンプレートを見つけることができません。"
+              "ja": "エージェントは、実行中のコンテナに一致するオートディスカバリーテンプレートを見つけることができません。"
             },
             "isCorrect": true
           },
@@ -26413,7 +26413,7 @@
         ],
         "explanation": {
           "en": "This warning means the Agent found a running container but couldn't find an Autodiscovery template that matches it based on image name or labels.",
-          "ja": "この警告は、エージェントが実行中のコンテナを見つけましたが、イメージ名またはラベルに基づいてそれに一致する自動検出テンプレートを見つけることができなかったことを意味します。"
+          "ja": "この警告は、エージェントが実行中のコンテナを見つけましたが、イメージ名またはラベルに基づいてそれに一致するオートディスカバリーテンプレートを見つけることができなかったことを意味します。"
         }
       },
       {
@@ -26555,7 +26555,7 @@
         "id": "50",
         "question": {
           "en": "You are seeing \"Error 413 Request Entity Too Large\". What is the most appropriate action?",
-          "ja": "「エラー 413 リクエスト エンティティが大きすぎます」が表示されます。最も適切な行動は何でしょうか?"
+          "ja": "\"Error 413 Request Entity Too Large\" と表示されます。最も適切な対応は何ですか?"
         },
         "options": [
           {
@@ -26690,7 +26690,7 @@
         "id": "53",
         "question": {
           "en": "You are troubleshooting high Agent memory usage. Which Agent module is most likely responsible for high memory if you have many integrations running?",
-          "ja": "エージェントのメモリ使用量が多い場合のトラブルシューティングを行っています。多くの統合を実行している場合、どのエージェント モジュールが高メモリの原因となる可能性が最も高いですか?"
+          "ja": "エージェントのメモリ使用量が多い場合のトラブルシューティングを行っています。多くのインテグレーションを実行している場合、どのエージェント モジュールが高メモリの原因となる可能性が最も高いですか?"
         },
         "options": [
           {
@@ -26728,7 +26728,7 @@
         ],
         "explanation": {
           "en": "The main Collector process runs all integration checks. A large number of checks or slow integrations can cause the collector to use more CPU and memory.",
-          "ja": "メインの Collector プロセスは、すべての統合チェックを実行します。チェックの数が多かったり、統合が遅かったりすると、コレクターがより多くの CPU とメモリを使用する可能性があります。"
+          "ja": "メインの Collector プロセスは、すべてのインテグレーションチェックを実行します。チェックの数が多かったり、インテグレーションが遅かったりすると、コレクターがより多くの CPU とメモリを使用する可能性があります。"
         }
       },
       {
@@ -27118,7 +27118,7 @@
             "id": "C",
             "text": {
               "en": "The \"Query\" widget (if connected to a supported data source like an RDS instance via an integration).",
-              "ja": "「クエリ」ウィジェット (統合を介して RDS インスタンスなどのサポートされているデータ ソースに接続されている場合)。"
+              "ja": "「クエリ」ウィジェット (インテグレーションを介して RDS インスタンスなどのサポートされているデータ ソースに接続されている場合)。"
             },
             "isCorrect": true
           },
@@ -27133,7 +27133,7 @@
         ],
         "explanation": {
           "en": "Certain native integrations expose a query capability in the dashboard. This is database/product-specific.",
-          "ja": "特定のネイティブ統合では、ダッシュボードにクエリ機能が公開されます。これはデータベース/製品固有です。"
+          "ja": "特定のネイティブインテグレーションでは、ダッシュボードにクエリ機能が公開されます。これはデータベース/製品固有です。"
         }
       },
       {
@@ -27905,7 +27905,7 @@
         "id": "80",
         "question": {
           "en": "To configure log collection from the Windows Event Log, which integration should you use?",
-          "ja": "Windows イベント ログからのログ収集を構成するには、どの統合を使用する必要がありますか?"
+          "ja": "Windows イベント ログからのログ収集を構成するには、どのインテグレーションを使用する必要がありますか?"
         },
         "options": [
           {
@@ -27943,14 +27943,14 @@
         ],
         "explanation": {
           "en": "The `win32_event_log` integration collects events from the Windows Event Log (Application, System, Security channels).",
-          "ja": "`win32_event_log`統合は、Windows イベント ログ (アプリケーション、システム、セキュリティ チャネル) からイベントを収集します。"
+          "ja": "`win32_event_log`インテグレーションは、Windows イベント ログ (アプリケーション、システム、セキュリティ チャネル) からイベントを収集します。"
         }
       },
       {
         "id": "81",
         "question": {
           "en": "In an integration `conf.yaml`, what is the purpose of the `tags` key within an `instances` block?",
-          "ja": "統合`conf.yaml`では、`instances`ブロック内の`tags`キーの目的は何ですか?"
+          "ja": "インテグレーション`conf.yaml`では、`instances`ブロック内の`tags`キーの目的は何ですか?"
         },
         "options": [
           {
@@ -27973,7 +27973,7 @@
             "id": "C",
             "text": {
               "en": "Tags added specifically to all metrics and service checks produced by that integration instance.",
-              "ja": "その統合インスタンスによって生成されるすべてのメトリクスとサービス チェックに特別に追加されるタグ。"
+              "ja": "そのインテグレーションインスタンスによって生成されるすべてのメトリクスとサービス チェックに特別に追加されるタグ。"
             },
             "isCorrect": true
           },
@@ -27995,7 +27995,7 @@
         "id": "82",
         "question": {
           "en": "You want to monitor the health of a website URL. Which Datadog integration fits this purpose?",
-          "ja": "Web サイトの URL の健全性を監視したいと考えています。この目的に適した Datadog 統合はどれですか?"
+          "ja": "Web サイトの URL の健全性を監視したいと考えています。この目的に適した Datadog インテグレーションはどれですか?"
         },
         "options": [
           {
@@ -28033,7 +28033,7 @@
         ],
         "explanation": {
           "en": "The `http_check` integration performs an HTTP GET to a URL and reports a service check (OK/CRITICAL) based on the response code and optionally content.",
-          "ja": "`http_check`統合は、URL への HTTP GET を実行し、応答コードとオプションで内容に基づいてサービス チェック (OK/CRITICAL) を報告します。"
+          "ja": "`http_check`インテグレーションは、URL への HTTP GET を実行し、応答コードとオプションで内容に基づいてサービス チェック (OK/CRITICAL) を報告します。"
         }
       },
       {
