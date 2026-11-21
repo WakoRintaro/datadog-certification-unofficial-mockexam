@@ -1,15 +1,241 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/1/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/1/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/2/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/2/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/3/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/3/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/4/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/4/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/5/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/5/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/6/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/6/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/7/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/7/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/study/" />
   </url>
   <url>
     <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/updates/</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/updates/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/updates/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/updates/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/1/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/1/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/1/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/1/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/1/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/2/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/2/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/2/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/2/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/2/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/3/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/3/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/3/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/3/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/3/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/4/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/4/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/4/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/4/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/4/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/5/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/5/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/5/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/5/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/5/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/6/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/6/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/6/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/6/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/6/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/7/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/7/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/7/study/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/study/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/fundamentals/set/7/study/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/fundamentals/set/7/study/" />
+  </url>
+  <url>
+    <loc>https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/updates/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/updates/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/ja/updates/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wakorintaro.github.io/datadog-certification-unofficial-mockexam/updates/" />
   </url>
 </urlset>
