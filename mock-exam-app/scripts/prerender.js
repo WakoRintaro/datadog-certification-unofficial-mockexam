@@ -20,7 +20,7 @@ for (const marker of ['<!--app-head-->', '<!--app-html-->', '<html lang="en">', 
 function renderPage(appPath) {
   const meta = getPageMeta(appPath);
   return template
-    .replace('<html lang="en">', `<html lang="${meta.lang}">`)
+    .replace('<html lang="en">', `<html lang="${meta.htmlLang ?? meta.lang}">`)
     .replace('<!--app-head-->', renderHeadTags(meta))
     // main.jsx hydrates only when this matches the URL it's loaded at.
     .replace('<div id="root">', `<div id="root" data-path="${appPath}">`)
@@ -42,12 +42,11 @@ await write(join(dist, '404.html'), renderPage('/404/'));
 
 const lastmod = (updates.lastUpdated ?? new Date().toISOString()).slice(0, 10);
 const urls = paths.map((appPath) => {
-  const { alternates } = getPageMeta(appPath);
+  const { alternates, hreflangs } = getPageMeta(appPath);
   return `  <url>
     <loc>${absoluteUrl(appPath)}</loc>
     <lastmod>${lastmod}</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="${alternates.en}" />
-    <xhtml:link rel="alternate" hreflang="ja" href="${alternates.ja}" />
+${Object.entries(alternates).map(([l, href]) => `    <xhtml:link rel="alternate" hreflang="${hreflangs[l]}" href="${href}" />`).join('\n')}
     <xhtml:link rel="alternate" hreflang="x-default" href="${alternates.en}" />
   </url>`;
 });

@@ -6,7 +6,7 @@ import { useLanguage } from '../utils/i18n';
 export default function Breadcrumb({ items }) {
   const { lang, localize } = useLanguage();
   return (
-    <nav className="breadcrumb" aria-label={lang === 'ja' ? 'パンくずリスト' : 'Breadcrumb'}>
+    <nav className="breadcrumb" aria-label={{ en: 'Breadcrumb', ja: 'パンくずリスト', pt: 'Trilha de navegação' }[lang]}>
       <ol className="breadcrumb__list">
         {items.map((item, i) => (
           <li key={i} className="breadcrumb__item">

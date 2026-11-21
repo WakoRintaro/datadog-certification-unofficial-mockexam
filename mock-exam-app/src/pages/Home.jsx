@@ -54,6 +54,28 @@ export default function Home() {
       updatesTitle: "最近の更新",
       updatesAll: "すべての更新履歴",
       lastUpdated: "最終更新日"
+    },
+    pt: {
+      label: "Datadog Fundamentals",
+      title: "Simulados da certificação Datadog Fundamentals",
+      subtitle: "Questões de prática para o exame Datadog Fundamentals, com explicação para cada resposta. Grátis e sem cadastro. Seu progresso fica salvo neste navegador.",
+      cta: "Ver a lista de simulados",
+      factsLabel: "Visão geral",
+      facts: [
+        ["Sets", "7 sets"],
+        ["Questões", "90 por set"],
+        ["Modos", "Quiz mode / Study mode"],
+        ["Preço", "Grátis, sem cadastro"]
+      ],
+      featuresTitle: "Como usar",
+      features: [
+        { title: "Quiz mode", desc: "Responda uma questão por vez. O resultado e a explicação aparecem logo depois que você escolhe." },
+        { title: "Study mode", desc: "Leia as 90 questões de um set em uma única página e revise as explicações de que precisar." },
+        { title: "Explicações", desc: "Cada explicação diz por que a resposta está correta. Os erros reportados no GitHub são corrigidos e listados abaixo." }
+      ],
+      updatesTitle: "Atualizações recentes",
+      updatesAll: "Todas as atualizações",
+      lastUpdated: "Última atualização"
     }
   };
 

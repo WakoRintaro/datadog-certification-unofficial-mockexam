@@ -237,6 +237,11 @@ a.lang-button:any-link {
   .site-nav a.lang-button:any-link {
     padding: 0 0.5rem;
   }
+
+  /* Two language links share the header on phones; the text is enough. */
+  .lang-button svg {
+    display: none;
+  }
 }
 
 a.lang-button:any-link {

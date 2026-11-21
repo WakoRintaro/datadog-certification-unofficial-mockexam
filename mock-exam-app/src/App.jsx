@@ -8,7 +8,7 @@ import ExamSession from './pages/ExamSession';
 import Updates from './pages/Updates';
 import NotFound from './pages/NotFound';
 
-// The same pages exist in both languages: English at the root, Japanese under /ja/.
+// The same pages exist in both languages: English at the root, Japanese under /ja/, Brazilian Portuguese under /pt/.
 // The router (BrowserRouter in main.jsx, StaticRouter in entry-server.jsx) wraps this.
 function pageRoutes() {
   return (
@@ -35,6 +35,7 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/ja" element={<LangLayout lang="ja" />}>{pageRoutes()}</Route>
+      <Route path="/pt" element={<LangLayout lang="pt" />}>{pageRoutes()}</Route>
       <Route path="/" element={<LangLayout lang="en" />}>{pageRoutes()}</Route>
     </Routes>
   );

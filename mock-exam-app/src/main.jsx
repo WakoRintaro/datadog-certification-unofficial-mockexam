@@ -3,7 +3,7 @@ import { createRoot, hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import AppRoutes from './App.jsx'
-import { getLangPreference, localizePath, splitLang } from './utils/i18n'
+import { getLangPreference, langFromBrowser, localizePath, splitLang } from './utils/i18n'
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '')
 
@@ -16,20 +16,21 @@ function currentAppPath() {
 // Where to send the visitor before rendering, or null to stay.
 function redirectTarget() {
   const saved = getLangPreference()
-  const browserJa = navigator.language?.toLowerCase().startsWith('ja')
+  // The visitor's browser language if we have a translation for it, else null (English).
+  const browserLang = langFromBrowser(navigator.language)
 
   // Old hash URLs (#/fundamentals/set/1) from bookmarks and shared links.
   // They had no language in them, so use the one the visitor would have seen.
   if (window.location.hash.startsWith('#/')) {
     const path = window.location.hash.slice(1).split('?')[0].replace(/\/?$/, '/')
-    const lang = saved ?? (browserJa ? 'ja' : 'en')
+    const lang = saved ?? browserLang ?? 'en'
     return localizePath(path, lang)
   }
 
-  // First visit from a Japanese browser to an English page: show the Japanese page.
+  // First visit from a Japanese or Portuguese browser to an English page: show that language.
   // Once the visitor picks a language with the switcher, that choice wins.
   const { lang, path } = splitLang(currentAppPath())
-  if (lang === 'en' && !saved && browserJa) return localizePath(path, 'ja')
+  if (lang === 'en' && !saved && browserLang) return localizePath(path, browserLang)
 
   return null
 }

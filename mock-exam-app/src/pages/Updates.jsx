@@ -15,6 +15,11 @@ export default function Updates() {
       home: 'ホーム', title: '更新履歴',
       lead: 'GitHub Issue で報告いただいた問題の修正を、新しい順に掲載しています。',
       lastUpdated: '最終更新日', report: 'GitHub で問題を報告する'
+    },
+    pt: {
+      home: 'Início', title: 'Atualizações',
+      lead: 'Correções de problemas reportados em issues do GitHub, das mais recentes para as mais antigas.',
+      lastUpdated: 'Última atualização', report: 'Reportar um problema no GitHub'
     }
   }[lang];
 
