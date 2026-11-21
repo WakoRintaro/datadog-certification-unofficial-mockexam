@@ -14,26 +14,26 @@
           {
             "id": "A",
             "text": {
+              "en": "443",
+              "ja": "443"
+            },
+            "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
               "en": "8125",
               "ja": "8125"
             },
             "isCorrect": false
           },
           {
-            "id": "B",
+            "id": "C",
             "text": {
               "en": "8126",
               "ja": "8126"
             },
             "isCorrect": false
-          },
-          {
-            "id": "C",
-            "text": {
-              "en": "443",
-              "ja": "443"
-            },
-            "isCorrect": true
           },
           {
             "id": "D",
@@ -104,18 +104,18 @@
           {
             "id": "A",
             "text": {
-              "en": "The port used for DogStatsD.",
-              "ja": "DogStatsD に使用されるポート。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "How the Agent determines its hostname.",
               "ja": "エージェントがホスト名を決定する方法。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "The port used for DogStatsD.",
+              "ja": "DogStatsD に使用されるポート。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -194,26 +194,26 @@
           {
             "id": "A",
             "text": {
-              "en": "`{\"series\": [{\"metric\": \"my.metric\", \"points\": [[1625097600, 42]], \"tags\": [\"env:prod\"]}]}`",
-              "ja": "`{\"series\": [{\"metric\": \"my.metric\", \"points\": [[1625097600, 42]], \"tags\": [\"env:prod\"]}]}`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`metric: my.metric, value: 42, tags: [env:prod]`",
               "ja": "`metric: my.metric, value: 42, tags: [env:prod]`"
             },
             "isCorrect": false
           },
           {
-            "id": "C",
+            "id": "B",
             "text": {
               "en": "`<metric name=\"my.metric\" value=\"42\" />`",
               "ja": "`<metric name=\"my.metric\" value=\"42\" />`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`{\"series\": [{\"metric\": \"my.metric\", \"points\": [[1625097600, 42]], \"tags\": [\"env:prod\"]}]}`",
+              "ja": "`{\"series\": [{\"metric\": \"my.metric\", \"points\": [[1625097600, 42]], \"tags\": [\"env:prod\"]}]}`"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -225,8 +225,8 @@
           }
         ],
         "explanation": {
-          "en": "Datadog APIs primarily use JSON. Option A follows the standard structure for the metrics intake API.",
-          "ja": "Datadog API は主に JSON を使用します。オプション A は、メトリック取り込み API の標準構造に従います。"
+          "en": "Datadog APIs primarily use JSON. The `series` payload, with `metric`, `points` (timestamp/value pairs), and `tags`, follows the standard structure for the metrics intake API.",
+          "ja": "Datadog API は主に JSON を使用します。`metric`、`points` (タイムスタンプと値のペア)、`tags` を含む `series` ペイロードが、メトリクス取り込み API の標準構造に従っています。"
         }
       },
       {
@@ -247,26 +247,26 @@
           {
             "id": "B",
             "text": {
-              "en": "`nslookup app.datadoghq.com`",
-              "ja": "「nslookup app.datadoghq.com」"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`curl -X GET https://app.datadoghq.com`",
               "ja": "`curl -X GET https://app.datadoghq.com`"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "`route -n`",
               "ja": "`route -n`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "`nslookup app.datadoghq.com`",
+              "ja": "「nslookup app.datadoghq.com」"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -292,26 +292,26 @@
           {
             "id": "B",
             "text": {
-              "en": "To specify the Datadog region (e.g., US1, EU1, US3) where your data is stored.",
-              "ja": "データが保存されている Datadog リージョン (US1、EU1、US3 など) を指定します。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "To group hosts by department.",
               "ja": "部門ごとにホストをグループ化します。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "To set the timezone for dashboards.",
               "ja": "ダッシュボードのタイムゾーンを設定します。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "To specify the Datadog region (e.g., US1, EU1, US3) where your data is stored.",
+              "ja": "データが保存されている Datadog リージョン (US1、EU1、US3 など) を指定します。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -374,18 +374,18 @@
           {
             "id": "A",
             "text": {
-              "en": "In the `/etc/hosts` file.",
-              "ja": "`/etc/hosts` ファイル内。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "In the `datadog.yaml` configuration file.",
               "ja": "「datadog.yaml」設定ファイル内。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "In the `/etc/hosts` file.",
+              "ja": "`/etc/hosts` ファイル内。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -427,26 +427,26 @@
           {
             "id": "B",
             "text": {
-              "en": "The VM is waiting for CPU resources from the physical host (hypervisor).",
-              "ja": "VM は物理ホスト (ハイパーバイザー) からの CPU リソースを待機しています。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Network latency is high.",
               "ja": "ネットワークの遅延が大きい。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "The Agent is crashing.",
               "ja": "エージェントがクラッシュしています。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "The VM is waiting for CPU resources from the physical host (hypervisor).",
+              "ja": "VM は物理ホスト (ハイパーバイザー) からの CPU リソースを待機しています。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -472,18 +472,18 @@
           {
             "id": "B",
             "text": {
-              "en": "`sudo datadog-agent status`",
-              "ja": "`sudo datadog-agent status`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`sudo datadog-agent config`",
               "ja": "`sudo datadog-agent config`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`sudo datadog-agent status`",
+              "ja": "`sudo datadog-agent status`"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -509,18 +509,18 @@
           {
             "id": "A",
             "text": {
-              "en": "`collect_logs`",
-              "ja": "`collect_logs`"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`logs_enabled`",
               "ja": "`logs_enabled`"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "`collect_logs`",
+              "ja": "`collect_logs`"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -562,18 +562,18 @@
           {
             "id": "B",
             "text": {
-              "en": "`/etc/datadog-agent/conf.d/`",
-              "ja": "`/etc/datadog-agent/conf.d/`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`/var/log/datadog/`",
               "ja": "`/var/log/datadog/`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`/etc/datadog-agent/conf.d/`",
+              "ja": "`/etc/datadog-agent/conf.d/`"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -599,18 +599,18 @@
           {
             "id": "A",
             "text": {
-              "en": "The Agent ignores that line and continues.",
-              "ja": "エージェントはその行を無視して続行します。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "The Agent fails to start because YAML is whitespace-sensitive.",
               "ja": "YAML は空白を区別するため、エージェントは起動に失敗します。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "The Agent ignores that line and continues.",
+              "ja": "エージェントはその行を無視して続行します。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -652,26 +652,26 @@
           {
             "id": "B",
             "text": {
-              "en": "In the `tags` section of `datadog.yaml`.",
-              "ja": "「datadog.yaml」の「tags」セクション内。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "In the Datadog Web UI under \"Infrastructure List\".",
               "ja": "Datadog Web UI の [インフラストラクチャ リスト] の下にあります。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "By renaming the host.",
               "ja": "ホストの名前を変更する。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "In the `tags` section of `datadog.yaml`.",
+              "ja": "「datadog.yaml」の「tags」セクション内。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -697,26 +697,26 @@
           {
             "id": "B",
             "text": {
-              "en": "`sudo datadog-agent flare`",
-              "ja": "`sudo datadog-agent flare`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`sudo datadog-agent debug`",
               "ja": "`sudo datadog-agent debug`"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "`sudo datadog-agent send-logs`",
               "ja": "`sudo datadog-agent send-logs`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "`sudo datadog-agent flare`",
+              "ja": "`sudo datadog-agent flare`"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -787,18 +787,18 @@
           {
             "id": "B",
             "text": {
-              "en": "`sudo datadog-agent check process`",
-              "ja": "`sudo datadog-agent check process`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`sudo systemctl restart datadog-agent`",
               "ja": "`sudo systemctl restart datadog-agent`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`sudo datadog-agent check process`",
+              "ja": "`sudo datadog-agent check process`"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -832,18 +832,18 @@
           {
             "id": "B",
             "text": {
-              "en": "API Key",
-              "ja": "APIキー"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Username and Password",
               "ja": "ユーザー名とパスワード"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "API Key",
+              "ja": "APIキー"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -877,18 +877,18 @@
           {
             "id": "B",
             "text": {
-              "en": "Copy it to `conf.yaml` and edit the copy.",
-              "ja": "それを「conf.yaml」にコピーし、コピーを編集します。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Run `datadog-agent enable python`.",
               "ja": "「datadog-agent Enable Python」を実行します。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Copy it to `conf.yaml` and edit the copy.",
+              "ja": "それを「conf.yaml」にコピーし、コピーを編集します。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -975,18 +975,18 @@
           {
             "id": "C",
             "text": {
-              "en": "The Docker Agent (the Datadog Agent container image running on Docker, containerd, or Podman, often as a DaemonSet).",
-              "ja": "Docker Agent (Docker、containerd、または Podman 上で実行される Datadog Agent のコンテナイメージ。多くの場合 DaemonSet として実行される)。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "D",
-            "text": {
               "en": "The IoT Agent.",
               "ja": "IoTエージェント。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "The Docker Agent (the Datadog Agent container image running on Docker, containerd, or Podman, often as a DaemonSet).",
+              "ja": "Docker Agent (Docker、containerd、または Podman 上で実行される Datadog Agent のコンテナイメージ。多くの場合 DaemonSet として実行される)。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -1057,18 +1057,18 @@
           {
             "id": "B",
             "text": {
-              "en": "Restart the Datadog Agent service.",
-              "ja": "Datadog Agent サービスを再起動します。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Run `datadog-agent config -u`.",
               "ja": "「datadog-agent config -u」を実行します。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Restart the Datadog Agent service.",
+              "ja": "Datadog Agent サービスを再起動します。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -1192,26 +1192,26 @@
           {
             "id": "B",
             "text": {
-              "en": "To identify and authorize the Agent to send data to your Datadog account.",
-              "ja": "エージェントを識別し、Datadog アカウントにデータを送信することを承認します。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "To encrypt the communication between the Agent and your servers.",
               "ja": "エージェントとサーバー間の通信を暗号化します。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "To set the admin password for the Datadog UI.",
               "ja": "Datadog UI の管理者パスワードを設定するには。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "To identify and authorize the Agent to send data to your Datadog account.",
+              "ja": "エージェントを識別し、Datadog アカウントにデータを送信することを承認します。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -1229,18 +1229,18 @@
           {
             "id": "A",
             "text": {
-              "en": "`sudo tail -f /var/log/datadog/agent.log`",
-              "ja": "`sudo tail -f /var/log/datadog/agent.log`"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Checking the `C:\\ProgramData\\Datadog\\logs` folder.",
               "ja": "「C:\\ProgramData\\Datadog\\logs」フォルダーを確認しています。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "`sudo tail -f /var/log/datadog/agent.log`",
+              "ja": "`sudo tail -f /var/log/datadog/agent.log`"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -1282,26 +1282,26 @@
           {
             "id": "B",
             "text": {
-              "en": "Networking/Firewall blocking port 443 outbound.",
-              "ja": "ネットワーク/ファイアウォールが送信ポート 443 をブロックしています。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "The Datadog site is down globally.",
               "ja": "Datadog サイトが世界的にダウンしています。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "YAML syntax error.",
               "ja": "YAML 構文エラー。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "Networking/Firewall blocking port 443 outbound.",
+              "ja": "ネットワーク/ファイアウォールが送信ポート 443 をブロックしています。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -1327,26 +1327,26 @@
           {
             "id": "B",
             "text": {
-              "en": "`host`",
-              "ja": "`host`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`service`",
               "ja": "`service`"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "`project`",
               "ja": "`project`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "`host`",
+              "ja": "`host`"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -1372,18 +1372,18 @@
           {
             "id": "B",
             "text": {
-              "en": "Count",
-              "ja": "カウント"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Histogram",
               "ja": "ヒストグラム"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Count",
+              "ja": "カウント"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -1470,18 +1470,18 @@
           {
             "id": "C",
             "text": {
-              "en": "Set",
-              "ja": "セット"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "D",
-            "text": {
               "en": "Counter",
               "ja": "DogStatsD でヒストグラム メトリクスを使用する利点は何ですか?"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "Set",
+              "ja": "セット"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -1499,18 +1499,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Number of requests per second.",
-              "ja": "パーセンタイル (p50、p95、p99)、平均、およびカウントを自動的に計算します。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Current memory usage percentage.",
               "ja": "これらはタグ付けをサポートする唯一のタイプです。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Number of requests per second.",
+              "ja": "パーセンタイル (p50、p95、p99)、平均、およびカウントを自動的に計算します。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -1544,26 +1544,26 @@
           {
             "id": "A",
             "text": {
+              "en": "15",
+              "ja": "15"
+            },
+            "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
               "en": "5",
               "ja": "5"
             },
             "isCorrect": false
           },
           {
-            "id": "B",
+            "id": "C",
             "text": {
               "en": "10",
               "ja": "10"
             },
             "isCorrect": false
-          },
-          {
-            "id": "C",
-            "text": {
-              "en": "15",
-              "ja": "15"
-            },
-            "isCorrect": true
           },
           {
             "id": "D",
@@ -1597,18 +1597,18 @@
           {
             "id": "B",
             "text": {
-              "en": "They allow for globally accurate percentile calculations across multiple hosts.",
-              "ja": "これらにより、複数のホストにわたってグローバルに正確なパーセンタイル計算が可能になります。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "They do not support tags.",
               "ja": "They do not support tags."
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "They allow for globally accurate percentile calculations across multiple hosts.",
+              "ja": "これらにより、複数のホストにわたってグローバルに正確なパーセンタイル計算が可能になります。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -1732,26 +1732,26 @@
           {
             "id": "B",
             "text": {
-              "en": "Gauge",
-              "ja": "ゲージ"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Group",
               "ja": "グループ"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "Graph",
               "ja": "グラフ"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "Gauge",
+              "ja": "ゲージ"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -1814,26 +1814,26 @@
           {
             "id": "A",
             "text": {
+              "en": "Histogram",
+              "ja": "ヒストグラム"
+            },
+            "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
               "en": "Gauge",
               "ja": "ゲージ"
             },
             "isCorrect": false
           },
           {
-            "id": "B",
+            "id": "C",
             "text": {
               "en": "Increment",
               "ja": "インクリメント"
             },
             "isCorrect": false
-          },
-          {
-            "id": "C",
-            "text": {
-              "en": "Histogram",
-              "ja": "ヒストグラム"
-            },
-            "isCorrect": true
           },
           {
             "id": "D",
@@ -1859,18 +1859,18 @@
           {
             "id": "A",
             "text": {
-              "en": "No, only one tag is allowed.",
-              "ja": "いいえ、許可されるタグは 1 つだけです。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Yes, separated by commas in the tagging section.",
               "ja": "はい、タグ付けセクションではカンマで区切られます。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "No, only one tag is allowed.",
+              "ja": "いいえ、許可されるタグは 1 つだけです。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -1957,26 +1957,26 @@
           {
             "id": "B",
             "text": {
-              "en": "Datadog may reject it as being too old.",
-              "ja": "Datadog は古すぎるとして拒否する可能性があります。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "It is automatically adjusted to the current time.",
               "ja": "現在の時刻に自動的に調整されます。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "It creates a new dashboard.",
               "ja": "新しいダッシュボードが作成されます。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "Datadog may reject it as being too old.",
+              "ja": "Datadog は古すぎるとして拒否する可能性があります。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -2002,26 +2002,26 @@
           {
             "id": "B",
             "text": {
-              "en": "`nc` (netcat)",
-              "ja": "`nc` (ネットキャット)"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`telnet`",
               "ja": "`telnet`"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "`ping`",
               "ja": "`ping`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "`nc` (netcat)",
+              "ja": "`nc` (ネットキャット)"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -2039,18 +2039,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Restart the Agent.",
-              "ja": "エージェントを再起動します。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Verify the credentials and host/port in the integration's `conf.yaml`.",
               "ja": "統合の「conf.yaml」内の認証情報とホスト/ポートを確認します。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Restart the Agent.",
+              "ja": "エージェントを再起動します。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2092,18 +2092,18 @@
           {
             "id": "B",
             "text": {
-              "en": "You are sending too many custom metrics or large log batches at once.",
-              "ja": "一度に送信するカスタム メトリクスまたは大規模なログ バッチが多すぎます。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Your hard drive is full.",
               "ja": "ハードドライブがいっぱいです。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "You are sending too many custom metrics or large log batches at once.",
+              "ja": "一度に送信するカスタム メトリクスまたは大規模なログ バッチが多すぎます。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2129,18 +2129,18 @@
           {
             "id": "A",
             "text": {
-              "en": "`INFO`, in `datadog.yaml`.",
-              "ja": "「datadog.yaml」内の「INFO」。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`DEBUG`, in the console.",
               "ja": "コンソール内の「DEBUG」。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "`INFO`, in `datadog.yaml`.",
+              "ja": "「datadog.yaml」内の「INFO」。"
+            },
+            "isCorrect": true
           },
           {
             "id": "C",
@@ -2182,18 +2182,18 @@
           {
             "id": "B",
             "text": {
-              "en": "`tail -f /var/log/datadog/agent.log` (on Linux)",
-              "ja": "`tail -f /var/log/datadog/agent.log` (Linux の場合)"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`datadog-agent stream`",
               "ja": "`datadog-agent stream`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`tail -f /var/log/datadog/agent.log` (on Linux)",
+              "ja": "`tail -f /var/log/datadog/agent.log` (Linux の場合)"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2219,18 +2219,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Read `datadog.yaml`.",
-              "ja": "「datadog.yaml」を読みます。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Run `datadog-agent config`.",
               "ja": "「datadog-agent config」を実行します。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Read `datadog.yaml`.",
+              "ja": "「datadog.yaml」を読みます。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2264,18 +2264,18 @@
           {
             "id": "A",
             "text": {
-              "en": "The Agent is offline.",
-              "ja": "エージェントはオフラインです。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "The specific integration has encountered an error during execution.",
               "ja": "特定の統合の実行中にエラーが発生しました。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "The Agent is offline.",
+              "ja": "エージェントはオフラインです。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2362,18 +2362,18 @@
           {
             "id": "B",
             "text": {
-              "en": "Look for \"Successfully connected to intake\" in `agent.log`.",
-              "ja": "「agent.log」で「インテークに正常に接続されました」を探してください。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Run `datadog-agent health`.",
               "ja": "「datadog-agent health」を実行します。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Look for \"Successfully connected to intake\" in `agent.log`.",
+              "ja": "「agent.log」で「インテークに正常に接続されました」を探してください。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2489,18 +2489,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Timeseries",
-              "ja": "時系列"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Query Value",
               "ja": "クエリ値"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Timeseries",
+              "ja": "時系列"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2534,18 +2534,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Dashboards are only for metrics.",
-              "ja": "ダッシュボードはメトリクス専用です。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Dashboards have a fixed grid layout; Screenboards have a free-form \"drag and drop\" layout.",
               "ja": "ダッシュボードのグリッド レイアウトは固定されています。スクリーンボードには自由形式の「ドラッグ アンド ドロップ」レイアウトがあります。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Dashboards are only for metrics.",
+              "ja": "ダッシュボードはメトリクス専用です。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2579,18 +2579,18 @@
           {
             "id": "A",
             "text": {
-              "en": "By hardcoding tags into every widget query.",
-              "ja": "すべてのウィジェット クエリにタグをハードコーディングすることによって。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "By defining it in the dashboard settings and using the `$variable_name` syntax in queries.",
               "ja": "ダッシュボード設定で定義し、クエリで `$variable_name` 構文を使用します。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "By hardcoding tags into every widget query.",
+              "ja": "すべてのウィジェット クエリにタグをハードコーディングすることによって。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2669,26 +2669,26 @@
           {
             "id": "A",
             "text": {
-              "en": "Metric Monitor",
-              "ja": "Datadog では現在、主に「ダッシュボード」という用語を使用していますが、「タイムボード」（固定グリッド、同期時間）と「スクリーンボード」（自由形式）の区別は依然として残っています。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Event Monitor",
               "ja": "ダッシュボードはメトリクス専用です。"
             },
             "isCorrect": false
           },
           {
-            "id": "C",
+            "id": "B",
             "text": {
               "en": "Service Check Monitor",
               "ja": "ダッシュボードのグリッド レイアウトは固定されています。スクリーンボードには自由形式の「ドラッグ アンド ドロップ」レイアウトがあります。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Metric Monitor",
+              "ja": "Datadog では現在、主に「ダッシュボード」という用語を使用していますが、「タイムボード」（固定グリッド、同期時間）と「スクリーンボード」（自由形式）の区別は依然として残っています。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2722,18 +2722,18 @@
           {
             "id": "B",
             "text": {
-              "en": "It dynamically inserts the name of the host that triggered the alert into the message.",
-              "ja": "アラートをトリガーしたホストの名前がメッセージに動的に挿入されます。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "It restarts the host.",
               "ja": "ホストが再起動されます。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "It dynamically inserts the name of the host that triggered the alert into the message.",
+              "ja": "アラートをトリガーしたホストの名前がメッセージに動的に挿入されます。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2767,26 +2767,26 @@
           {
             "id": "B",
             "text": {
-              "en": "It triggers a separate alert for each unique value of a specified tag (e.g., each host).",
-              "ja": "指定されたタグ (各ホストなど) の一意の値ごとに個別のアラートをトリガーします。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "It monitor multiple metrics at once.",
               "ja": "複数のメトリクスを一度に監視します。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "It is only available on Enterprise plans.",
               "ja": "Enterprise プランでのみ利用可能です。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "It triggers a separate alert for each unique value of a specified tag (e.g., each host).",
+              "ja": "指定されたタグ (各ホストなど) の一意の値ごとに個別のアラートをトリガーします。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -2857,18 +2857,18 @@
           {
             "id": "B",
             "text": {
-              "en": "Anomaly Monitor",
-              "ja": "異常監視装置"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Forecast Monitor",
               "ja": "予報モニター"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Anomaly Monitor",
+              "ja": "異常監視装置"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2894,18 +2894,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Seeing a geographical map of where your servers are.",
-              "ja": "サーバーがどこにあるかの地理的地図を表示します。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Visualizing your entire infrastructure at a glance, grouped and filtered by tags.",
               "ja": "インフラストラクチャ全体を一目で視覚化し、タグによってグループ化およびフィルタリングします。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Seeing a geographical map of where your servers are.",
+              "ja": "サーバーがどこにあるかの地理的地図を表示します。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -2947,18 +2947,18 @@
           {
             "id": "B",
             "text": {
-              "en": "Use the \"Downtime\" feature to schedule a suppression period for specific tags or monitors.",
-              "ja": "「ダウンタイム」機能を使用して、特定のタグまたはモニターの抑制期間をスケジュールします。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "Turn off the Agent on all hosts.",
               "ja": "すべてのホストでエージェントをオフにします。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "Use the \"Downtime\" feature to schedule a suppression period for specific tags or monitors.",
+              "ja": "「ダウンタイム」機能を使用して、特定のタグまたはモニターの抑制期間をスケジュールします。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -2992,26 +2992,26 @@
           {
             "id": "B",
             "text": {
-              "en": "Filters the data to only include hosts with the `env:prod` tag.",
-              "ja": "データをフィルタリングして、「env:prod」タグを持つホストのみを含めます。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "It is a comment.",
               "ja": "コメントです。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "It sets the average to production-level.",
               "ja": "平均を実稼働レベルに設定します。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "Filters the data to only include hosts with the `env:prod` tag.",
+              "ja": "データをフィルタリングして、「env:prod」タグを持つホストのみを含めます。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -3037,18 +3037,18 @@
           {
             "id": "B",
             "text": {
-              "en": "`sum()`",
-              "ja": "`sum()`"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "`per_second()`",
               "ja": "`per_second()`"
             },
             "isCorrect": true
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`sum()`",
+              "ja": "`sum()`"
+            },
+            "isCorrect": false
           },
           {
             "id": "D",
@@ -3082,26 +3082,26 @@
           {
             "id": "B",
             "text": {
-              "en": "A monitor that predicts when a metric will reach a threshold (e.g., when a disk will be full).",
-              "ja": "メトリックがいつしきい値に達するかを予測するモニター (ディスクがいつ満杯になるかなど)。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "A monitor for stock prices.",
               "ja": "株価を監視するモニターです。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "A dashboard that shows future goals.",
               "ja": "将来の目標を示すダッシュボード。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "A monitor that predicts when a metric will reach a threshold (e.g., when a disk will be full).",
+              "ja": "メトリックがいつしきい値に達するかを予測するモニター (ディスクがいつ満杯になるかなど)。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -3164,18 +3164,18 @@
           {
             "id": "A",
             "text": {
-              "en": "Top List",
-              "ja": "トップリスト"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Timeseries",
               "ja": "時系列"
             },
             "isCorrect": false
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "Top List",
+              "ja": "トップリスト"
+            },
+            "isCorrect": true
           },
           {
             "id": "C",
@@ -3217,26 +3217,26 @@
           {
             "id": "B",
             "text": {
-              "en": "A centralized feed of alerts, deployment notifications, and other system events.",
-              "ja": "アラート、展開通知、その他のシステム イベントの一元化されたフィード。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "An APM feature.",
               "ja": "APM 機能。"
             },
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "A way to send emails to the Agent.",
               "ja": "エージェントに電子メールを送信する方法。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "A centralized feed of alerts, deployment notifications, and other system events.",
+              "ja": "アラート、展開通知、その他のシステム イベントの一元化されたフィード。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -3307,18 +3307,18 @@
           {
             "id": "B",
             "text": {
-              "en": "The historical period of data the monitor looks at to determine if the threshold is met (e.g., \"last 5 minutes\").",
-              "ja": "しきい値が満たされているかどうかを判断するためにモニターが参照するデータの履歴期間 (例: 「過去 5 分間」)。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "The size of the monitor window on the screen.",
               "ja": "画面上のモニター ウィンドウのサイズ。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "The historical period of data the monitor looks at to determine if the threshold is met (e.g., \"last 5 minutes\").",
+              "ja": "しきい値が満たされているかどうかを判断するためにモニターが参照するデータの履歴期間 (例: 「過去 5 分間」)。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -3344,18 +3344,18 @@
           {
             "id": "A",
             "text": {
-              "en": "No, only through the UI.",
-              "ja": "No, only through the UI."
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Yes, by sending a JSON definition to the Dashboards API endpoint.",
               "ja": "Yes, by sending a JSON definition to the Dashboards API endpoint."
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "No, only through the UI.",
+              "ja": "No, only through the UI."
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -3389,26 +3389,26 @@
           {
             "id": "A",
             "text": {
-              "en": "`ls -lt | head -10`",
-              "ja": "`ls -lt | head -10`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`ls -la`",
               "ja": "`ls -la`"
             },
             "isCorrect": false
           },
           {
-            "id": "C",
+            "id": "B",
             "text": {
               "en": "`find . -newer today`",
               "ja": "`find . -newer today`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`ls -lt | head -10`",
+              "ja": "`ls -lt | head -10`"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -3479,18 +3479,18 @@
           {
             "id": "A",
             "text": {
-              "en": "It is when network packets fail to reach their destination; high packet loss causes retransmits, increasing latency and reducing throughput.",
-              "ja": "これは、ネットワーク パケットが宛先に到達できない場合です。パケット損失が大きいと再送信が発生し、遅延が増加し、スループットが低下します。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "It means files are being deleted on the server.",
               "ja": "これは、サーバー上のファイルが削除されていることを意味します。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "It is when network packets fail to reach their destination; high packet loss causes retransmits, increasing latency and reducing throughput.",
+              "ja": "これは、ネットワーク パケットが宛先に到達できない場合です。パケット損失が大きいと再送信が発生し、遅延が増加し、スループットが低下します。"
+            },
+            "isCorrect": true
           },
           {
             "id": "C",
@@ -3569,26 +3569,26 @@
           {
             "id": "A",
             "text": {
-              "en": "`top`, `htop`, `free`, and `vmstat` (each providing different views).",
-              "ja": "`top`、`htop`、`free`、および `vmstat` (それぞれ異なるビューを提供します)。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`free -h`",
               "ja": "`free -h`"
             },
             "isCorrect": false
           },
           {
-            "id": "C",
+            "id": "B",
             "text": {
               "en": "`htop`",
               "ja": "`htop`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`top`, `htop`, `free`, and `vmstat` (each providing different views).",
+              "ja": "`top`、`htop`、`free`、および `vmstat` (それぞれ異なるビューを提供します)。"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -3614,18 +3614,18 @@
           {
             "id": "A",
             "text": {
-              "en": "A virtual filesystem that provides a window into the kernel and process state (e.g., `/proc/cpuinfo`, `/proc/meminfo`).",
-              "ja": "カーネルとプロセスの状態へのウィンドウを提供する仮想ファイルシステム (例: `/proc/cpuinfo`、`/proc/meminfo`)。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "A directory for temporary files.",
               "ja": "一時ファイル用のディレクトリ。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "A virtual filesystem that provides a window into the kernel and process state (e.g., `/proc/cpuinfo`, `/proc/meminfo`).",
+              "ja": "カーネルとプロセスの状態へのウィンドウを提供する仮想ファイルシステム (例: `/proc/cpuinfo`、`/proc/meminfo`)。"
+            },
+            "isCorrect": true
           },
           {
             "id": "C",
@@ -3659,21 +3659,13 @@
           {
             "id": "A",
             "text": {
-              "en": "The maximum rate of data transfer across a network connection, typically measured in bits per second (Mbps/Gbps).",
-              "ja": "ネットワーク接続を介したデータ転送の最大速度。通常はビット/秒 (Mbps/Gbps) で測定されます。"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "The latency of the network.",
               "ja": "ネットワークの遅延。"
             },
             "isCorrect": false
           },
           {
-            "id": "C",
+            "id": "B",
             "text": {
               "en": "The number of servers connected.",
               "ja": "接続されているサーバーの数。"
@@ -3681,12 +3673,20 @@
             "isCorrect": false
           },
           {
-            "id": "D",
+            "id": "C",
             "text": {
               "en": "The weight of the network cables.",
               "ja": "ネットワーク ケーブルの重量。"
             },
             "isCorrect": false
+          },
+          {
+            "id": "D",
+            "text": {
+              "en": "The maximum rate of data transfer across a network connection, typically measured in bits per second (Mbps/Gbps).",
+              "ja": "ネットワーク接続を介したデータ転送の最大速度。通常はビット/秒 (Mbps/Gbps) で測定されます。"
+            },
+            "isCorrect": true
           }
         ],
         "explanation": {
@@ -3704,18 +3704,18 @@
           {
             "id": "A",
             "text": {
-              "en": "UDP (and TCP as a fallback)",
-              "ja": "UDP (およびフォールバックとしての TCP)"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "HTTP",
               "ja": "HTTP"
             },
             "isCorrect": false
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "UDP (and TCP as a fallback)",
+              "ja": "UDP (およびフォールバックとしての TCP)"
+            },
+            "isCorrect": true
           },
           {
             "id": "C",
@@ -3749,26 +3749,26 @@
           {
             "id": "A",
             "text": {
-              "en": "`journalctl -u datadog-agent`",
-              "ja": "`journalctl -u datadog-agent`"
-            },
-            "isCorrect": true
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`cat /var/log/datadog/agent.log`",
               "ja": "`cat /var/log/datadog/agent.log`"
             },
             "isCorrect": false
           },
           {
-            "id": "C",
+            "id": "B",
             "text": {
               "en": "`tail -f /var/log/syslog`",
               "ja": "`tail -f /var/log/syslog`"
             },
             "isCorrect": false
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "`journalctl -u datadog-agent`",
+              "ja": "`journalctl -u datadog-agent`"
+            },
+            "isCorrect": true
           },
           {
             "id": "D",
@@ -3794,18 +3794,18 @@
           {
             "id": "A",
             "text": {
-              "en": "`ps` is interactive; `top` is a snapshot.",
-              "ja": "「ps」は対話型です。`top` はスナップショットです。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "`ps` provides a static snapshot of processes; `top` provides a dynamic, real-time view.",
               "ja": "「ps」はプロセスの静的なスナップショットを提供します。「top」は動的なリアルタイムのビューを提供します。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "`ps` is interactive; `top` is a snapshot.",
+              "ja": "「ps」は対話型です。`top` はスナップショットです。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -3929,26 +3929,26 @@
           {
             "id": "A",
             "text": {
+              "en": "It is a core Unified Service Tagging tag used to separate production, staging, and development environments.",
+              "ja": "これは、実稼働環境、ステージング環境、開発環境を分離するために使用されるコアの統合サービス タグ付けタグです。"
+            },
+            "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
               "en": "It stores local variables.",
               "ja": "ローカル変数を格納します。"
             },
             "isCorrect": false
           },
           {
-            "id": "B",
+            "id": "C",
             "text": {
               "en": "It specifies the environment variable file.",
               "ja": "環境変数ファイルを指定します。"
             },
             "isCorrect": false
-          },
-          {
-            "id": "C",
-            "text": {
-              "en": "It is a core Unified Service Tagging tag used to separate production, staging, and development environments.",
-              "ja": "これは、実稼働環境、ステージング環境、開発環境を分離するために使用されるコアの統合サービス タグ付けタグです。"
-            },
-            "isCorrect": true
           },
           {
             "id": "D",
@@ -3974,18 +3974,18 @@
           {
             "id": "A",
             "text": {
-              "en": "`HTTPS_PROXY` or `DD_PROXY_HTTPS` (env var) only.",
-              "ja": "`HTTPS_PROXY` または `DD_PROXY_HTTPS` (環境変数) のみ。"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "B",
-            "text": {
               "en": "Both `proxy: https:` in `datadog.yaml` and an HTTPS proxy env var (`HTTPS_PROXY`, or the Datadog-specific `DD_PROXY_HTTPS` which takes precedence).",
               "ja": "「datadog.yaml」の「proxy: https:」と、HTTPS プロキシ用の環境変数(`HTTPS_PROXY`、または優先される Datadog 固有の `DD_PROXY_HTTPS`)の両方。"
             },
             "isCorrect": true
+          },
+          {
+            "id": "B",
+            "text": {
+              "en": "`HTTPS_PROXY` or `DD_PROXY_HTTPS` (env var) only.",
+              "ja": "`HTTPS_PROXY` または `DD_PROXY_HTTPS` (環境変数) のみ。"
+            },
+            "isCorrect": false
           },
           {
             "id": "C",
@@ -4027,18 +4027,18 @@
           {
             "id": "B",
             "text": {
-              "en": "The Collector",
-              "ja": "コレクター"
-            },
-            "isCorrect": false
-          },
-          {
-            "id": "C",
-            "text": {
               "en": "The Trace Agent",
               "ja": "トレースエージェント"
             },
             "isCorrect": true
+          },
+          {
+            "id": "C",
+            "text": {
+              "en": "The Collector",
+              "ja": "コレクター"
+            },
+            "isCorrect": false
           },
           {
             "id": "D",
