@@ -2,7 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage, getSavedProgress, saveProgress } from '../utils/context';
 import mockExams from '../data/mockExams.json';
-import { Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award, ChevronDown } from 'lucide-react';
+import { Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award, ChevronDown, ExternalLink } from 'lucide-react';
+import { buildFeedbackUrl } from '../utils/feedback';
 import { trackEvent } from '../utils/analytics';
 import Breadcrumb from '../components/Breadcrumb';
 
@@ -30,6 +31,7 @@ export default function ExamSession() {
       exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Completed", reset: "Reset Progress",
       home: "Home", exams: "Exams", answered: "answered", modeLabel: "Display mode", navLabel: "Questions",
       correctAnswer: "Correct answer", yourAnswer: "Your answer",
+      reportQuestion: "Report a problem with this answer or explanation", opensForm: "(opens a Google Form)",
       confirmReset: "Are you sure you want to reset your progress for this exam?",
       results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam",
       metaDescription: `Practice ${exam.questions.length} questions for the Datadog Fundamentals certification with study and quiz modes.`
@@ -39,6 +41,7 @@ export default function ExamSession() {
       exp: "解説", correct: "正解", incorrect: "不正解", finish: "完了", reset: "進捗をリセット",
       home: "ホーム", exams: "模擬試験一覧", answered: "問解答済み", modeLabel: "表示モード", navLabel: "問題一覧",
       correctAnswer: "正解", yourAnswer: "あなたの解答",
+      reportQuestion: "この問題の正解・解説について報告する", opensForm: "（Google フォームが開きます）",
       confirmReset: "この試験の進捗をリセットしてもよろしいですか？",
       results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する",
       metaDescription: `Datadog Fundamentals認定試験対策の模擬試験。全${exam.questions.length}問を学習モード・クイズモードで演習できます。`
@@ -184,6 +187,17 @@ export default function ExamSession() {
              </p>
              <p className="explanation__heading">{t.exp}</p>
              <div className="explanation__body" dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
+             <p className="explanation__report">
+               <a
+                 href={buildFeedbackUrl({ setId, questionId: q.id, lang })}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 onClick={() => trackEvent('feedback_click', { exam_set_id: setId, question_id: q.id, lang })}
+               >
+                 {t.reportQuestion}
+                 <ExternalLink size={16} className="link-icon" aria-label={t.opensForm} />
+               </a>
+             </p>
           </div>
         )}
       </article>

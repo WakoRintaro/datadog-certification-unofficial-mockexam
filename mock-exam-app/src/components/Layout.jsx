@@ -5,6 +5,7 @@ import { Globe } from 'lucide-react';
 import useGoogleAnalytics from '../utils/useGoogleAnalytics';
 import { setUserProperties } from '../utils/analytics';
 import { updates, formatDate } from '../utils/updates';
+import { buildFeedbackUrl } from '../utils/feedback';
 
 const ISSUES_URL = 'https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues';
 
@@ -21,12 +22,14 @@ export default function Layout() {
       siteSub: 'Unofficial mock exams', exams: 'Exams', updates: 'Updates',
       lastUpdated: 'Last updated',
       report: 'Found a mistake or have a suggestion? Open an issue on GitHub',
+      reportForm: 'Or send a report with a form (no GitHub account needed)',
       note: 'Unofficial mock exam platform for the Datadog Fundamentals certification. Not affiliated with Datadog, Inc.'
     },
     ja: {
       siteSub: '非公式の模擬試験', exams: '模擬試験一覧', updates: '更新履歴',
       lastUpdated: '最終更新日',
       report: '問題の誤りやご要望は GitHub の Issue からお知らせください',
+      reportForm: 'フォームで報告する（GitHub アカウント不要）',
       note: 'Datadog Fundamentals 認定試験の非公式模擬試験です。Datadog, Inc. とは関係ありません。'
     }
   }[lang];
@@ -70,6 +73,7 @@ export default function Layout() {
             <li><Link to="/fundamentals">{t.exams}</Link></li>
             <li><Link to="/updates">{t.updates}</Link></li>
             <li><a href={ISSUES_URL} target="_blank" rel="noopener noreferrer">{t.report}</a></li>
+            <li><a href={buildFeedbackUrl({ lang })} target="_blank" rel="noopener noreferrer">{t.reportForm}</a></li>
           </ul>
           <p className="site-footer__note">
             {t.note}
