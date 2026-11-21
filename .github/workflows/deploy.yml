@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+# Rebuilds the site so the update history (closed issues) stays current.
+on:
+  push:
+    branches: [main]
+  issues:
+    types: [closed, reopened, edited]
+  schedule:
+    - cron: '0 21 * * *' # daily at 06:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: write # push to the gh-pages branch
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mock-exam-app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: mock-exam-app/package-lock.json
+
+      - run: npm ci
+
+      # "prebuild" fetches closed issues into src/data/updates.json
+      - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: mock-exam-app/dist
+          publish_branch: gh-pages

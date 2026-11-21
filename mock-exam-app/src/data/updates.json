@@ -1,0 +1,27 @@
+{
+  "repository": "https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam",
+  "lastUpdated": "2026-11-21T04:30:36Z",
+  "items": [
+    {
+      "number": 5,
+      "title": "Fix errors in and clarify the lowest-accuracy questions",
+      "summary": "I reviewed the 10 questions with the lowest accuracy in the GA4 answer data (2026-09-20 to 2026-11-20, questions with at least 20 answers). Five of them have errors in the question itself: more than one correct answer,…",
+      "closedAt": "2026-11-21T04:30:36Z",
+      "url": "https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues/5"
+    },
+    {
+      "number": 1,
+      "title": "Set 1: correct answers are heavily skewed toward option B",
+      "summary": "In Mock Exam - Set 1, the correct answer is option B for 62 out of 90 questions (~69%). Test-takers can notice the pattern and pick B without really knowing the answer, which makes the exam less useful as practice.",
+      "closedAt": "2026-11-21T04:21:05Z",
+      "url": "https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues/1"
+    },
+    {
+      "number": 2,
+      "title": "Incorrect answer keys (Set 2 Q85, Set 3 Q70/Q78/Q88) and 49 questions missing answer options (Sets 3–7)",
+      "summary": "Four questions in Sets 2 and 3 mark the wrong option as correct, and 49 questions across Sets 3–7 are missing answer options (see the last section). In two of them (Set 3 Q78 and Q88), the question's own explanation…",
+      "closedAt": "2026-11-21T04:13:46Z",
+      "url": "https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues/2"
+    }
+  ]
+}
