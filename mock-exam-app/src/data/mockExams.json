@@ -30565,7 +30565,7 @@
             "id": "B",
             "text": {
               "en": "A value that the metric must fall *below* (or rise above) before a monitor considers the condition resolved and transitions out of ALERT status.",
-              "ja": "モニターが状態が解決されたとみなして ALERT ステータスから移行する前に、メトリックが * 以下* になる (または上回る) 必要がある値。",
+              "ja": "モニターが状態が解決されたとみなして ALERT ステータスから移行する前に、メトリックが *以下* になる (または上回る) 必要がある値。",
               "pt": "Um valor que a metric deve ficar *abaixo* (ou subir acima) para que o monitor considere a condição resolvida e saia do status ALERT."
             },
             "isCorrect": true
