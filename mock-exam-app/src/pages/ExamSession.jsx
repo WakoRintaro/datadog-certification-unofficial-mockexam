@@ -1,83 +1,70 @@
-import { useState, useEffect, useMemo } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useLanguage, getSavedProgress, saveProgress } from '../utils/context';
+import { useState, useMemo } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useLanguage } from '../utils/i18n';
+import { useSavedProgress, saveProgress } from '../utils/progress';
 import mockExams from '../data/mockExams.json';
 import { Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award, ChevronDown, ExternalLink } from 'lucide-react';
 import { buildFeedbackUrl } from '../utils/feedback';
 import { trackEvent } from '../utils/analytics';
 import Breadcrumb from '../components/Breadcrumb';
+import NotFound from './NotFound';
 
-export default function ExamSession() {
+// mode comes from the URL: /fundamentals/set/:setId/ is quiz mode, .../study/ is study mode.
+export default function ExamSessionRoute({ mode }) {
   const { setId } = useParams();
-  const navigate = useNavigate();
-  const { lang } = useLanguage();
+  const exam = mockExams.find(e => e.setId === String(setId));
+  if (!exam) return <NotFound />;
+  // A fresh session per set and mode, so the current question starts over.
+  return <ExamSession key={`${setId}-${mode}`} exam={exam} mode={mode} />;
+}
 
-  const exam = useMemo(() => mockExams.find(e => e.setId === String(setId)), [setId]);
-  
-  if (!exam) {
-    return (
-        <div className="container container--narrow">
-            <h1 className="heading-1">{lang === 'ja' ? '試験が見つかりません' : 'Exam Not Found'}</h1>
-            <p className="section__footer">
-              <Link to="/fundamentals">{lang === 'ja' ? '模擬試験の一覧へ戻る' : 'Back to Exams'}</Link>
-            </p>
-        </div>
-    );
-  }
+function ExamSession({ exam, mode }) {
+  const { setId } = exam;
+  const { lang, localize } = useLanguage();
+  const { answers, completed } = useSavedProgress(setId);
 
-  const t = {
-    en: {
-      back: "Back", study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous",
-      exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Completed", reset: "Reset Progress",
-      home: "Home", exams: "Exams", answered: "answered", modeLabel: "Display mode", navLabel: "Questions",
-      correctAnswer: "Correct answer", yourAnswer: "Your answer",
-      reportQuestion: "Report a problem with this answer or explanation", opensForm: "(opens a Google Form)",
-      confirmReset: "Are you sure you want to reset your progress for this exam?",
-      results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam",
-      metaDescription: `Practice ${exam.questions.length} questions for the Datadog Fundamentals certification with study and quiz modes.`
-    },
-    ja: {
-      back: "戻る", study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ",
-      exp: "解説", correct: "正解", incorrect: "不正解", finish: "完了", reset: "進捗をリセット",
-      home: "ホーム", exams: "模擬試験一覧", answered: "問解答済み", modeLabel: "表示モード", navLabel: "問題一覧",
-      correctAnswer: "正解", yourAnswer: "あなたの解答",
-      reportQuestion: "この問題の正解・解説について報告する", opensForm: "（Google フォームが開きます）",
-      confirmReset: "この試験の進捗をリセットしてもよろしいですか？",
-      results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する",
-      metaDescription: `Datadog Fundamentals認定試験対策の模擬試験。全${exam.questions.length}問を学習モード・クイズモードで演習できます。`
-    }
-  }[lang];
-
-  const [mode, setMode] = useState('quiz'); // 'quiz' | 'study'
   // The question grid is long, so it starts collapsed.
   const [navOpen, setNavOpen] = useState(false);
-  const [currentQIndex, setCurrentQIndex] = useState(0);
-  const [answers, setAnswers] = useState({}); // { qId: { selectedId: string, isCorrect: boolean } }
-  const [completed, setCompleted] = useState(false);
-  
+  // null until the visitor moves: quiz mode then opens at the first unanswered question.
+  const [chosenQIndex, setChosenQIndex] = useState(null);
+
   const correctCount = useMemo(() => {
     return Object.values(answers).filter(a => a.isCorrect).length;
   }, [answers]);
 
-  // Load progress
-  useEffect(() => {
-    const saved = getSavedProgress(setId);
-    if (saved.answers) {
-      setAnswers(saved.answers);
-      // Auto-advance to first unanswered question in quiz mode
-      if (mode === 'quiz' && Object.keys(saved.answers).length > 0) {
-          const firstUnanswered = exam.questions.findIndex(q => !saved.answers[q.id]);
-          if (firstUnanswered !== -1) setCurrentQIndex(firstUnanswered);
-      }
+  const t = {
+    en: {
+      study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous",
+      exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Completed", reset: "Reset Progress",
+      home: "Home", exams: "Exams", answered: "answered", modeLabel: "Display mode", navLabel: "Questions",
+      correctAnswer: "Correct answer", yourAnswer: "Your answer", showAnswer: "Show the answer and explanation",
+      reportQuestion: "Report a problem with this answer or explanation", opensForm: "(opens a Google Form)",
+      confirmReset: "Are you sure you want to reset your progress for this exam?",
+      results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam"
+    },
+    ja: {
+      study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ",
+      exp: "解説", correct: "正解", incorrect: "不正解", finish: "完了", reset: "進捗をリセット",
+      home: "ホーム", exams: "模擬試験一覧", answered: "問解答済み", modeLabel: "表示モード", navLabel: "問題一覧",
+      correctAnswer: "正解", yourAnswer: "あなたの解答", showAnswer: "正解と解説を見る",
+      reportQuestion: "この問題の正解・解説について報告する", opensForm: "（Google フォームが開きます）",
+      confirmReset: "この試験の進捗をリセットしてもよろしいですか？",
+      results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する"
     }
-    setCompleted(!!saved.completed);
-  }, [setId, exam, mode]);
+  }[lang];
+
+  const total = exam.questions.length;
+  const answeredCount = Object.keys(answers).length;
+  const firstUnanswered = exam.questions.findIndex(q => !answers[q.id]);
+  const currentQIndex = chosenQIndex ?? (mode === 'quiz' && firstUnanswered > 0 ? firstUnanswered : 0);
 
   const handleSelectOption = (qId, optionId, isCorrect) => {
     if (answers[qId]) return; // Already answered
 
+    // Stay on this question to show its explanation.
+    if (chosenQIndex === null) setChosenQIndex(currentQIndex);
+
     const newAnswers = { ...answers, [qId]: { selectedId: optionId, isCorrect } };
-    setAnswers(newAnswers);
 
     trackEvent('answer_question', {
       exam_set_id: setId,
@@ -87,16 +74,15 @@ export default function ExamSession() {
       mode
     });
 
-    const isNowComplete = Object.keys(newAnswers).length === exam.questions.length;
+    const isNowComplete = Object.keys(newAnswers).length === total;
     if (isNowComplete) {
-      setCompleted(true);
       const score = Object.values(newAnswers).filter(a => a.isCorrect).length;
       trackEvent('exam_complete', {
         exam_set_id: setId,
         exam_title: exam.title,
         score,
-        total_questions: exam.questions.length,
-        score_percent: Math.round(score / exam.questions.length * 100)
+        total_questions: total,
+        score_percent: Math.round(score / total * 100)
       });
     }
 
@@ -107,19 +93,17 @@ export default function ExamSession() {
     if (window.confirm(t.confirmReset)) {
         trackEvent('exam_reset', {
           exam_set_id: setId,
-          questions_answered_before_reset: Object.keys(answers).length
+          questions_answered_before_reset: answeredCount
         });
-        setAnswers({});
-        setCompleted(false);
-        setCurrentQIndex(0);
+        setChosenQIndex(0);
         saveProgress(setId, { answers: {}, completed: false });
     }
   };
 
-  const handleModeChange = (toMode) => {
-    if (toMode === mode) return;
-    trackEvent('mode_change', { exam_set_id: setId, from_mode: mode, to_mode: toMode });
-    setMode(toMode);
+  const quizPath = localize(`/fundamentals/set/${setId}/`);
+  const studyPath = localize(`/fundamentals/set/${setId}/study/`);
+  const trackModeChange = (toMode) => {
+    if (toMode !== mode) trackEvent('mode_change', { exam_set_id: setId, from_mode: mode, to_mode: toMode });
   };
 
   const handleQuestionNavigate = (direction, toIndex) => {
@@ -129,10 +113,24 @@ export default function ExamSession() {
       from_index: currentQIndex,
       to_index: toIndex
     });
-    setCurrentQIndex(toIndex);
+    setChosenQIndex(toIndex);
     // On phones, close the grid after jumping so the question is right below.
     if (direction === 'jump' && !window.matchMedia('(min-width: 768px)').matches) setNavOpen(false);
   };
+
+  const renderReportLink = (q) => (
+    <p className="explanation__report">
+      <a
+        href={buildFeedbackUrl({ setId, questionId: q.id, lang })}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackEvent('feedback_click', { exam_set_id: setId, question_id: q.id, lang })}
+      >
+        {t.reportQuestion}
+        <ExternalLink size={16} className="link-icon" aria-label={t.opensForm} />
+      </a>
+    </p>
+  );
 
   const renderQuestion = (q, index) => {
     const hasAnswered = !!answers[q.id];
@@ -187,32 +185,36 @@ export default function ExamSession() {
              </p>
              <p className="explanation__heading">{t.exp}</p>
              <div className="explanation__body" dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
-             <p className="explanation__report">
-               <a
-                 href={buildFeedbackUrl({ setId, questionId: q.id, lang })}
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 onClick={() => trackEvent('feedback_click', { exam_set_id: setId, question_id: q.id, lang })}
-               >
-                 {t.reportQuestion}
-                 <ExternalLink size={16} className="link-icon" aria-label={t.opensForm} />
-               </a>
-             </p>
+             {renderReportLink(q)}
           </div>
+        )}
+
+        {/* Study mode: the answer is in the page (and in the prerendered HTML) but folded away
+            until the reader asks for it, so it doesn't give the answer away. */}
+        {!hasAnswered && mode === 'study' && (
+          <details className="answer-reveal">
+            <summary className="answer-reveal__summary">
+              <ChevronDown size={20} className="answer-reveal__icon" aria-hidden="true" />
+              {t.showAnswer}
+            </summary>
+            <div className="answer-reveal__body">
+              <p className="explanation__heading">{t.correctAnswer}</p>
+              {q.options.filter(opt => opt.isCorrect).map(opt => (
+                <p key={opt.id}>{opt.id}. {opt.text[lang]}</p>
+              ))}
+              <p className="explanation__heading">{t.exp}</p>
+              <div className="explanation__body" dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
+              {renderReportLink(q)}
+            </div>
+          </details>
         )}
       </article>
     );
   };
 
-  const answeredCount = Object.keys(answers).length;
-  const total = exam.questions.length;
-
   return (
     <div className="container container--narrow">
-        <title>{`${exam.title} | Datadog Fundamentals Mock Exams`}</title>
-        <meta name="description" content={t.metaDescription} />
-
-        <Breadcrumb items={[{ label: t.home, to: '/' }, { label: t.exams, to: '/fundamentals' }, { label: exam.title }]} />
+        <Breadcrumb items={[{ label: t.home, to: '/' }, { label: t.exams, to: '/fundamentals/' }, { label: exam.title }]} />
 
         <header className="page-header">
             <h1 className="heading-1">{exam.title}</h1>
@@ -220,14 +222,14 @@ export default function ExamSession() {
 
         {/* Toolbar */}
         <div className="toolbar">
-            <div className="segmented" role="group" aria-label={t.modeLabel}>
-                <button type="button" className="segmented__button" aria-pressed={mode === 'quiz'} onClick={() => handleModeChange('quiz')}>
+            <nav className="segmented" aria-label={t.modeLabel}>
+                <Link to={quizPath} className="segmented__button" aria-current={mode === 'quiz' ? 'page' : undefined} onClick={() => trackModeChange('quiz')}>
                     {t.quiz}
-                </button>
-                <button type="button" className="segmented__button" aria-pressed={mode === 'study'} onClick={() => handleModeChange('study')}>
+                </Link>
+                <Link to={studyPath} className="segmented__button" aria-current={mode === 'study' ? 'page' : undefined} onClick={() => trackModeChange('study')}>
                     <Layers size={18} aria-hidden="true" /> {t.study}
-                </button>
-            </div>
+                </Link>
+            </nav>
             <button type="button" onClick={handleReset} className="button button--sm button--tertiary">
                 <RefreshCw size={16} aria-hidden="true" /> {t.reset}
             </button>
@@ -265,9 +267,9 @@ export default function ExamSession() {
                     <button type="button" className="button button--secondary" onClick={handleReset}>
                         <RefreshCw size={18} aria-hidden="true" /> {t.restart}
                     </button>
-                    <button type="button" className="button button--primary" onClick={() => handleModeChange('study')}>
+                    <Link to={studyPath} className="button button--primary" onClick={() => trackModeChange('study')}>
                         <Layers size={18} aria-hidden="true" /> {t.reviewStudy}
-                    </button>
+                    </Link>
                 </div>
             </section>
         )}

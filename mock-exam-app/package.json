@@ -7,7 +7,7 @@
     "dev": "vite",
     "updates": "node scripts/fetch-updates.js",
     "prebuild": "node scripts/fetch-updates.js",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",

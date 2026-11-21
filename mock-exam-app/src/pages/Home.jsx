@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../utils/context';
+import { useLanguage } from '../utils/i18n';
 import { ArrowRight } from 'lucide-react';
 import { trackEvent } from '../utils/analytics';
 import UpdateList from '../components/UpdateList';
@@ -8,15 +8,13 @@ import { updates, formatDate } from '../utils/updates';
 const RECENT_COUNT = 3;
 
 export default function Home() {
-  const { lang } = useLanguage();
+  const { lang, localize } = useLanguage();
 
   const content = {
     en: {
       label: "Datadog Fundamentals",
       title: "Datadog Fundamentals certification mock exams",
       subtitle: "Practice questions for the Datadog Fundamentals exam, with an explanation for every answer. Free, no sign-up required. Your progress is saved in this browser.",
-      metaTitle: "Datadog Fundamentals Mock Exams | Free Certification Prep",
-      metaDescription: "Free mock exams for the Datadog Fundamentals certification. 7 sets, 90 questions with study mode and detailed explanations.",
       cta: "See the exam list",
       factsLabel: "Overview",
       facts: [
@@ -39,8 +37,6 @@ export default function Home() {
       label: "Datadog Fundamentals",
       title: "Datadog Fundamentals 認定試験の模擬試験",
       subtitle: "Datadog Fundamentals 試験の練習問題です。すべての問題に解説が付いています。無料・登録不要で、解答の進捗はお使いのブラウザに保存されます。",
-      metaTitle: "Datadog Fundamentals 模擬試験 | 無料の認定試験対策",
-      metaDescription: "Datadog Fundamentals認定試験対策のための無料模擬試験。7セット・全90問を学習モード/クイズモードで演習、詳細な解説付き。",
       cta: "模擬試験の一覧を見る",
       factsLabel: "概要",
       facts: [
@@ -65,16 +61,13 @@ export default function Home() {
 
   return (
     <div className="container">
-      <title>{t.metaTitle}</title>
-      <meta name="description" content={t.metaDescription} />
-
       <section className="intro" aria-labelledby="intro-title">
         <div>
           <p className="intro__label">{t.label}</p>
           <h1 id="intro-title" className="heading-1 intro__title">{t.title}</h1>
           <p className="lead intro__lead">{t.subtitle}</p>
           <Link
-            to="/fundamentals"
+            to={localize('/fundamentals/')}
             className="button button--lg button--primary"
             onClick={() => trackEvent('home_cta_click', { destination: '/fundamentals' })}
           >
@@ -116,7 +109,7 @@ export default function Home() {
         </div>
         <UpdateList items={updates.items.slice(0, RECENT_COUNT)} />
         <p className="section__footer">
-          <Link to="/updates">{t.updatesAll}</Link>
+          <Link to={localize('/updates/')}>{t.updatesAll}</Link>
         </p>
       </section>
     </div>

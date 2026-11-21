@@ -219,7 +219,7 @@ a.site-name:any-link {
 }
 
 .site-nav__link:any-link,
-.lang-button {
+a.lang-button:any-link {
   white-space: nowrap;
 }
 
@@ -234,29 +234,28 @@ a.site-name:any-link {
   }
 
   .site-nav__link:any-link,
-  .lang-button {
+  .site-nav a.lang-button:any-link {
     padding: 0 0.5rem;
   }
 }
 
-.lang-button {
+a.lang-button:any-link {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   min-height: 2.75rem;
   padding: 0 0.75rem;
-  border: 0;
   border-radius: var(--border-radius-6);
-  background: transparent;
   color: var(--text-body);
-  font: inherit;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 @media (hover: hover) {
-  .lang-button:hover {
+  a.lang-button:any-link:hover {
+    color: var(--text-body);
     background-color: var(--bg-subtle);
     text-decoration: underline;
+    text-decoration-thickness: calc(1 / 16 * 1rem);
     text-underline-offset: calc(3 / 16 * 1rem);
   }
 }
@@ -756,7 +755,8 @@ a.exam-card:any-link:focus-visible {
   overflow: hidden;
 }
 
-.segmented__button {
+.segmented__button,
+a.segmented__button:any-link {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -769,6 +769,7 @@ a.exam-card:any-link:focus-visible {
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-700);
   letter-spacing: 0.02em;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -776,16 +777,17 @@ a.exam-card:any-link:focus-visible {
   border-left: 1px solid var(--color-key-900);
 }
 
-.segmented__button[aria-pressed='true'] {
+a.segmented__button[aria-current='page'] {
   background-color: var(--color-key-900);
   color: var(--color-neutral-white);
 }
 
 @media (hover: hover) {
-  .segmented__button[aria-pressed='false']:hover {
+  a.segmented__button:any-link:not([aria-current='page']):hover {
     background-color: var(--color-key-200);
     color: var(--color-key-1000);
     text-decoration: underline;
+    text-decoration-thickness: calc(1 / 16 * 1rem);
     text-underline-offset: calc(3 / 16 * 1rem);
   }
 }
@@ -1062,6 +1064,54 @@ a.exam-card:any-link:focus-visible {
 .explanation__report {
   margin-top: 1rem;
   font-size: var(--font-size-14);
+}
+
+.answer-reveal {
+  margin-top: 1.5rem;
+  border: 1px solid var(--border-default);
+  border-radius: var(--border-radius-8);
+}
+
+.answer-reveal__summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-8);
+  font-weight: var(--font-weight-700);
+  color: var(--text-heading);
+  cursor: pointer;
+  list-style: none;
+}
+
+.answer-reveal__summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (hover: hover) {
+  .answer-reveal__summary:hover {
+    background-color: var(--bg-subtle);
+    text-decoration: underline;
+    text-underline-offset: calc(3 / 16 * 1rem);
+  }
+}
+
+.answer-reveal__icon {
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+
+.answer-reveal[open] .answer-reveal__icon {
+  transform: rotate(180deg);
+}
+
+.answer-reveal__body {
+  padding: 0 1rem 1rem;
+}
+
+.answer-reveal__body > .explanation__heading:first-child {
+  margin-top: 0;
 }
 
 .results {

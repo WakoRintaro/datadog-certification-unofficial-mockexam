@@ -9,7 +9,7 @@ Datadog, Inc. とは関係のない非公式サイトです。
 
 ## 構成
 
-アプリ本体は `mock-exam-app/` にあります。React + Vite のシングルページアプリで、GitHub Pages で公開しています。
+アプリ本体は `mock-exam-app/` にあります。React + Vite のアプリで、GitHub Pages で公開しています。検索エンジンが中身を読めるように、ビルド時に全ページの HTML を書き出しています（プリレンダリング）。ブラウザでは、その HTML の上で React が動きます。
 
 | パス | 内容 |
 |---|---|
@@ -18,10 +18,28 @@ Datadog, Inc. とは関係のない非公式サイトです。
 | `mock-exam-app/src/pages/` | 画面（トップ、試験一覧、解答画面、更新履歴） |
 | `mock-exam-app/src/index.css` | スタイル。デジタル庁デザインシステムのトークンを使っています |
 | `mock-exam-app/scripts/fetch-updates.js` | クローズ済み Issue を取得して `updates.json` を書き出すスクリプト |
-| `mock-exam-app/scripts/seo-updates-plugin.js` | ビルド時に `/updates/` の静的ページと `sitemap.xml` を書き出す Vite プラグイン |
+| `mock-exam-app/src/seo/meta.js` | ページごとの title、description、canonical、hreflang、OGP。ページを増やしたときはここにも追加します |
+| `mock-exam-app/src/entry-server.jsx` | プリレンダリング用の入口（ビルド時だけ使う） |
+| `mock-exam-app/scripts/prerender.js` | ビルド後に全ページの HTML、`404.html`、`sitemap.xml` を `dist/` に書き出すスクリプト |
 | `.github/workflows/deploy.yml` | 自動デプロイのワークフロー |
 
 `mock-exam-app/build-data.js` と `mock-exam-app/translate.js` は、最初に Markdown から問題データを作ったときのスクリプトです。元の Markdown はリポジトリに含まれていないため、今は使いません。
+
+### URL
+
+英語のページはルート、日本語のページは `/ja/` の下にあります。
+
+| ページ | 英語 | 日本語 |
+|---|---|---|
+| ホーム | `/` | `/ja/` |
+| 試験一覧 | `/fundamentals/` | `/ja/fundamentals/` |
+| クイズモード | `/fundamentals/set/1/` | `/ja/fundamentals/set/1/` |
+| 学習モード（全問の正解と解説を折りたたみで掲載） | `/fundamentals/set/1/study/` | `/ja/fundamentals/set/1/study/` |
+| 更新履歴 | `/updates/` | `/ja/updates/` |
+
+- ヘッダーの言語切替は、反対の言語の同じページへのリンクです。選んだ言語はブラウザに保存されます。
+- 言語を選んだことがなく、ブラウザが日本語の人が英語のページを開くと、日本語のページに移動します。
+- 以前の `#/fundamentals/set/1` 形式の URL は、新しい URL に自動で転送されます。
 
 ## ローカルで動かす
 
@@ -33,10 +51,10 @@ npm install
 npm run dev        # 開発サーバー（http://localhost:5173/datadog-certification-unofficial-mockexam/）
 ```
 
-本番と同じ内容で確認する場合は、ビルドしてからプレビューします。`/updates/` の静的ページとサイトマップはビルドしたときだけ作られます。
+本番と同じ内容で確認する場合は、ビルドしてからプレビューします。各ページの HTML、`404.html`、サイトマップはビルドしたときだけ作られます。開発サーバーでは、ページの中身はブラウザで描画されます。
 
 ```sh
-npm run build      # Issue の取得（prebuild）→ ビルド。結果は dist/ に出力
+npm run build      # Issue の取得（prebuild）→ ビルド → プリレンダリング。結果は dist/ に出力
 npx vite preview   # http://localhost:4173/datadog-certification-unofficial-mockexam/
 ```
 
