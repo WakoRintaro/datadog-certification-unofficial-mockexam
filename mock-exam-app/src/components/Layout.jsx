@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, NavLink } from 'react-router-dom';
 import { useLanguage } from '../utils/context';
-import { Globe, BookOpen } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import useGoogleAnalytics from '../utils/useGoogleAnalytics';
 import { setUserProperties } from '../utils/analytics';
+import { updates, formatDate } from '../utils/updates';
+
+const ISSUES_URL = 'https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues';
 
 export default function Layout() {
   const { lang, toggleLanguage } = useLanguage();
@@ -13,51 +16,65 @@ export default function Layout() {
     setUserProperties({ interface_language: lang });
   }, [lang]);
 
+  const t = {
+    en: {
+      siteSub: 'Unofficial mock exams', exams: 'Exams', updates: 'Updates',
+      lastUpdated: 'Last updated',
+      report: 'Found a mistake or have a suggestion? Open an issue on GitHub',
+      note: 'Unofficial mock exam platform for the Datadog Fundamentals certification. Not affiliated with Datadog, Inc.'
+    },
+    ja: {
+      siteSub: '非公式の模擬試験', exams: '模擬試験一覧', updates: '更新履歴',
+      lastUpdated: '最終更新日',
+      report: '問題の誤りやご要望は GitHub の Issue からお知らせください',
+      note: 'Datadog Fundamentals 認定試験の非公式模擬試験です。Datadog, Inc. とは関係ありません。'
+    }
+  }[lang];
+
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Navbar */}
-      <header style={{ 
-        backgroundColor: '#fff', 
-        borderBottom: '1px solid var(--color-border)',
-        position: 'sticky', top: 0, zIndex: 10
-      }}>
-        <div className="container flex items-center justify-between" style={{ height: '64px' }}>
-          <Link to="/" className="flex items-center gap-2" style={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: '1.25rem' }}>
-            <BookOpen size={24} color="var(--color-primary)" />
-            <span>Datadog Mock Exams</span>
+    <div className="site">
+      <header className="site-header">
+        <div className="container site-header__inner">
+          <Link to="/" className="site-name">
+            <span className="site-name__main">Datadog Fundamentals Mock Exams</span>
+            <span className="site-name__sub">{t.siteSub}</span>
           </Link>
-          
-          <div className="flex items-center gap-4">
-            <Link to="/fundamentals" style={{ fontWeight: 500, color: 'var(--color-text)' }} className="btn btn-secondary">
-              Exams
-            </Link>
-            
-            <button onClick={toggleLanguage} className="btn btn-outline" style={{ padding: '0.4rem 0.8rem' }}>
-              <Globe size={18} />
-              {lang === 'en' ? 'EN' : '日本語'}
+
+          <nav className="site-nav" aria-label={lang === 'ja' ? 'メインメニュー' : 'Main'}>
+            <NavLink to="/fundamentals" className="site-nav__link">{t.exams}</NavLink>
+            <NavLink to="/updates" className="site-nav__link site-nav__link--optional">{t.updates}</NavLink>
+            {/* Show the language to switch to, written in that language, so that
+                readers who can't read the current language can still find it. */}
+            <button
+              type="button"
+              onClick={toggleLanguage}
+              className="lang-button"
+              lang={lang === 'ja' ? 'en' : 'ja'}
+              aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替える'}
+            >
+              <Globe size={20} aria-hidden="true" />
+              {lang === 'ja' ? 'English' : '日本語'}
             </button>
-          </div>
+          </nav>
         </div>
       </header>
-      
-      {/* Main Content */}
-      <main style={{ flex: 1, padding: '2rem 0' }}>
+
+      <main className="site-main">
         <Outlet />
       </main>
-      
-      {/* Footer */}
-      <footer style={{ backgroundColor: '#2B2C34', color: '#fff', padding: '2rem 0' }}>
-        <div className="container text-center">
-          <p style={{ opacity: 0.7, fontSize: '0.9rem' }}>
-            Unofficial Mock Exam Platform for Datadog Fundamentals Certification.
-            <br /> Not affiliated with Datadog, Inc.
-          </p>
-          <p style={{ marginTop: '1rem', opacity: 0.8, fontSize: '0.85rem' }}>
-            {lang === 'en' ? (
-              <>Found a mistake or have a suggestion? <a href="https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues" target="_blank" rel="noopener noreferrer" style={{color: '#a97cd5', textDecoration: 'underline'}}>Open an Issue on GitHub</a></>
-            ) : (
-              <>問題の不備やご要望をお見かけの際は、<a href="https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues" target="_blank" rel="noopener noreferrer" style={{color: '#a97cd5', textDecoration: 'underline'}}>GitHubのIssue</a>からご報告ください。</>
-            )}
+
+      <footer className="site-footer">
+        <div className="container site-footer__inner">
+          <p className="site-footer__name">Datadog Fundamentals Mock Exams</p>
+          <ul className="site-footer__links">
+            <li><Link to="/fundamentals">{t.exams}</Link></li>
+            <li><Link to="/updates">{t.updates}</Link></li>
+            <li><a href={ISSUES_URL} target="_blank" rel="noopener noreferrer">{t.report}</a></li>
+          </ul>
+          <p className="site-footer__note">
+            {t.note}
+            <br />
+            {t.lastUpdated}: <time dateTime={updates.lastUpdated ?? undefined}>{formatDate(updates.lastUpdated, lang)}</time>
           </p>
         </div>
       </footer>

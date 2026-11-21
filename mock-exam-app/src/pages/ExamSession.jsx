@@ -2,8 +2,9 @@ import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage, getSavedProgress, saveProgress } from '../utils/context';
 import mockExams from '../data/mockExams.json';
-import { ChevronLeft, Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award } from 'lucide-react';
+import { Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award, ChevronDown } from 'lucide-react';
 import { trackEvent } from '../utils/analytics';
+import Breadcrumb from '../components/Breadcrumb';
 
 export default function ExamSession() {
   const { setId } = useParams();
@@ -14,9 +15,11 @@ export default function ExamSession() {
   
   if (!exam) {
     return (
-        <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
-            <h1 className="page-title">Exam Not Found</h1>
-            <Link to="/fundamentals" className="btn btn-primary mt-4">Back to Exams</Link>
+        <div className="container container--narrow">
+            <h1 className="heading-1">{lang === 'ja' ? '試験が見つかりません' : 'Exam Not Found'}</h1>
+            <p className="section__footer">
+              <Link to="/fundamentals">{lang === 'ja' ? '模擬試験の一覧へ戻る' : 'Back to Exams'}</Link>
+            </p>
         </div>
     );
   }
@@ -24,19 +27,27 @@ export default function ExamSession() {
   const t = {
     en: {
       back: "Back", study: "Study Mode", quiz: "Quiz Mode", q: "Question", next: "Next", prev: "Previous",
-      exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Finish Exam", reset: "Reset Progress",
+      exp: "Explanation", correct: "Correct", incorrect: "Incorrect", finish: "Completed", reset: "Reset Progress",
+      home: "Home", exams: "Exams", answered: "answered", modeLabel: "Display mode", navLabel: "Questions",
+      correctAnswer: "Correct answer", yourAnswer: "Your answer",
+      confirmReset: "Are you sure you want to reset your progress for this exam?",
       results: "Exam Results", score: "Your Score", pct: "Score percentage", reviewStudy: "Review in Study Mode", restart: "Restart Exam",
       metaDescription: `Practice ${exam.questions.length} questions for the Datadog Fundamentals certification with study and quiz modes.`
     },
     ja: {
       back: "戻る", study: "学習モード", quiz: "クイズモード", q: "問題", next: "次へ", prev: "前へ",
-      exp: "解説", correct: "正解！", incorrect: "不正解", finish: "試験を完了する", reset: "進捗をリセット",
+      exp: "解説", correct: "正解", incorrect: "不正解", finish: "完了", reset: "進捗をリセット",
+      home: "ホーム", exams: "模擬試験一覧", answered: "問解答済み", modeLabel: "表示モード", navLabel: "問題一覧",
+      correctAnswer: "正解", yourAnswer: "あなたの解答",
+      confirmReset: "この試験の進捗をリセットしてもよろしいですか？",
       results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する",
       metaDescription: `Datadog Fundamentals認定試験対策の模擬試験。全${exam.questions.length}問を学習モード・クイズモードで演習できます。`
     }
   }[lang];
 
   const [mode, setMode] = useState('quiz'); // 'quiz' | 'study'
+  // The question grid is long, so it starts collapsed.
+  const [navOpen, setNavOpen] = useState(false);
   const [currentQIndex, setCurrentQIndex] = useState(0);
   const [answers, setAnswers] = useState({}); // { qId: { selectedId: string, isCorrect: boolean } }
   const [completed, setCompleted] = useState(false);
@@ -90,7 +101,7 @@ export default function ExamSession() {
   };
 
   const handleReset = () => {
-    if (window.confirm("Are you sure you want to reset your progress for this exam?")) {
+    if (window.confirm(t.confirmReset)) {
         trackEvent('exam_reset', {
           exam_set_id: setId,
           questions_answered_before_reset: Object.keys(answers).length
@@ -116,200 +127,198 @@ export default function ExamSession() {
       to_index: toIndex
     });
     setCurrentQIndex(toIndex);
+    // On phones, close the grid after jumping so the question is right below.
+    if (direction === 'jump' && !window.matchMedia('(min-width: 768px)').matches) setNavOpen(false);
   };
 
-  const renderQuestion = (q, index, isStudyMode) => {
+  const renderQuestion = (q, index) => {
     const hasAnswered = !!answers[q.id];
     const userAnswer = answers[q.id];
 
     return (
-      <div key={q.id} className="card" style={{ marginBottom: isStudyMode ? '2rem' : 0 }}>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--color-primary-dark)' }}>
+      <article key={q.id} className="question" aria-labelledby={`q-${q.id}`}>
+        <h2 id={`q-${q.id}`} className="question__number">
           {t.q} {index + 1}
         </h2>
-        
-        <div style={{ marginBottom: '1.5rem', fontSize: '1.1rem', whiteSpace: 'pre-wrap' }}>
+
+        <div className="question__text">
             {q.question[lang]}
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="options">
           {q.options.map(opt => {
             let stateClass = "";
             if (hasAnswered) {
-                if (opt.isCorrect) stateClass = "correct";
-                else if (userAnswer.selectedId === opt.id) stateClass = "incorrect";
+                if (opt.isCorrect) stateClass = "is-correct";
+                else if (userAnswer.selectedId === opt.id) stateClass = "is-incorrect";
             }
+            const isSelected = hasAnswered && userAnswer.selectedId === opt.id;
 
             return (
               <button
+                type="button"
                 key={opt.id}
-                className={`option-btn ${stateClass}`}
+                className={`option ${stateClass}`}
                 disabled={hasAnswered}
                 onClick={() => handleSelectOption(q.id, opt.id, opt.isCorrect)}
               >
-                <span className="option-label">{opt.id}</span>
-                <span style={{flex: 1}}>{opt.text[lang]}</span>
-                {stateClass === 'correct' && <Check size={20} />}
-                {stateClass === 'incorrect' && <X size={20} />}
+                <span className="option__label">{opt.id}</span>
+                <span className="option__text">{opt.text[lang]}</span>
+                {(stateClass || isSelected) && (
+                  <span className="option__status">
+                    {stateClass === 'is-correct' && <Check size={18} aria-hidden="true" />}
+                    {stateClass === 'is-incorrect' && <X size={18} aria-hidden="true" />}
+                    {[opt.isCorrect && t.correctAnswer, isSelected && t.yourAnswer].filter(Boolean).join(' / ')}
+                  </span>
+                )}
               </button>
             );
           })}
         </div>
 
         {hasAnswered && (
-          <div style={{ marginTop: '1.5rem', padding: '1.5rem', backgroundColor: 'var(--color-bg)', borderRadius: '8px', borderLeft: '4px solid var(--color-primary)' }}>
-             <h4 style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', color: userAnswer.isCorrect ? 'var(--color-success)' : 'var(--color-error)' }}>
-                {userAnswer.isCorrect ? <Check size={20} /> : <X size={20} />}
+          <div className={`notice explanation ${userAnswer.isCorrect ? 'notice--success' : 'notice--error'}`}>
+             <p className="notice__title">
+                {userAnswer.isCorrect ? <Check size={20} aria-hidden="true" /> : <X size={20} aria-hidden="true" />}
                 {userAnswer.isCorrect ? t.correct : t.incorrect}
-             </h4>
-             <div style={{ fontWeight: 600, color: 'var(--color-text-muted)', marginBottom: '0.5rem' }}>{t.exp}:</div>
-             <div style={{ whiteSpace: 'pre-wrap', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
+             </p>
+             <p className="explanation__heading">{t.exp}</p>
+             <div className="explanation__body" dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
           </div>
         )}
-      </div>
+      </article>
     );
   };
 
+  const answeredCount = Object.keys(answers).length;
+  const total = exam.questions.length;
+
   return (
-    <div className="container" style={{ maxWidth: '800px' }}>
+    <div className="container container--narrow">
         <title>{`${exam.title} | Datadog Fundamentals Mock Exams`}</title>
         <meta name="description" content={t.metaDescription} />
 
-        {/* Header toolbar */}
-        <div className="flex items-center justify-between mb-8 pb-4" style={{ borderBottom: '1px solid var(--color-border)' }}>
-            <Link to="/fundamentals" className="flex items-center gap-2" style={{ color: 'var(--color-text-muted)', fontWeight: 500 }}>
-                <ChevronLeft size={20} /> {t.back}
-            </Link>
-            
-            <div className="flex items-center gap-4">
-                <button onClick={handleReset} className="flex items-center gap-2" style={{ background: 'none', border: 'none', color: 'var(--color-text-muted)', cursor: 'pointer', fontSize: '0.9rem' }}>
-                    <RefreshCw size={16} /> {t.reset}
+        <Breadcrumb items={[{ label: t.home, to: '/' }, { label: t.exams, to: '/fundamentals' }, { label: exam.title }]} />
+
+        <header className="page-header">
+            <h1 className="heading-1">{exam.title}</h1>
+        </header>
+
+        {/* Toolbar */}
+        <div className="toolbar">
+            <div className="segmented" role="group" aria-label={t.modeLabel}>
+                <button type="button" className="segmented__button" aria-pressed={mode === 'quiz'} onClick={() => handleModeChange('quiz')}>
+                    {t.quiz}
                 </button>
-                <div style={{ display: 'flex', backgroundColor: 'var(--color-bg)', padding: '4px', borderRadius: '8px' }}>
-                    <button 
-                        className="btn" 
-                        style={{ padding: '0.4rem 1rem', border: 'none', backgroundColor: mode === 'quiz' ? 'var(--color-surface)' : 'transparent', color: mode === 'quiz' ? 'var(--color-primary)' : 'var(--color-text-muted)', boxShadow: mode === 'quiz' ? 'var(--box-shadow)' : 'none' }}
-                        onClick={() => handleModeChange('quiz')}
-                    >
-                        {t.quiz}
-                    </button>
-                    <button 
-                        className="btn" 
-                        style={{ padding: '0.4rem 1rem', border: 'none', backgroundColor: mode === 'study' ? 'var(--color-surface)' : 'transparent', color: mode === 'study' ? 'var(--color-primary)' : 'var(--color-text-muted)', boxShadow: mode === 'study' ? 'var(--box-shadow)' : 'none' }}
-                        onClick={() => handleModeChange('study')}
-                    >
-                        <Layers size={16} style={{marginRight: '0.25rem'}} /> {t.study}
-                    </button>
-                </div>
+                <button type="button" className="segmented__button" aria-pressed={mode === 'study'} onClick={() => handleModeChange('study')}>
+                    <Layers size={18} aria-hidden="true" /> {t.study}
+                </button>
             </div>
+            <button type="button" onClick={handleReset} className="button button--sm button--tertiary">
+                <RefreshCw size={16} aria-hidden="true" /> {t.reset}
+            </button>
         </div>
 
-        <h1 className="page-title">{exam.title}</h1>
-
-        <div style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ color: 'var(--color-text-muted)' }}>
-                {Object.keys(answers).length} / {exam.questions.length} answered
-            </div>
+        <div className="progress-summary">
+            <p className="text-description">
+                {lang === 'ja' ? `${total}問中 ${answeredCount}${t.answered}` : `${answeredCount} / ${total} ${t.answered}`}
+            </p>
             {completed && (
-                <div style={{ color: 'var(--color-success)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Award size={20} /> {t.finish}
-                </div>
+                <span className="chip chip--success">
+                    <Award size={16} aria-hidden="true" /> {t.finish}
+                </span>
             )}
         </div>
+        <div className="progress-bar" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={answeredCount} aria-label={t.answered}>
+            <div className="progress-bar__value" style={{ width: `${answeredCount / total * 100}%` }} />
+        </div>
 
-        {/* Results Summary Card */}
+        {/* Results Summary */}
         {completed && mode === 'quiz' && (
-            <div className="card" style={{ marginBottom: '2rem', border: '2px solid var(--color-success)', backgroundColor: 'var(--color-success-light)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: 'var(--color-success)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Award size={28} />
+            <section className="results" aria-labelledby="results-title">
+                <h2 id="results-title" className="heading-2">{t.results}</h2>
+                <dl className="score-list">
+                    <div className="score-list__item">
+                        <dt className="score-list__label">{t.score}</dt>
+                        <dd className="score-list__value">{correctCount} / {total}</dd>
                     </div>
-                    <div>
-                        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, margin: 0 }}>{t.results}</h2>
-                        <div style={{ color: 'var(--color-success)', fontWeight: 600 }}>{t.finish}</div>
+                    <div className="score-list__item">
+                        <dt className="score-list__label">{t.pct}</dt>
+                        <dd className="score-list__value">{Math.round(correctCount / total * 100)}%</dd>
                     </div>
-                </div>
-                
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
-                    <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
-                        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t.score}</div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-primary)' }}>{correctCount} / {exam.questions.length}</div>
-                    </div>
-                    <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
-                        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>{t.pct}</div>
-                        <div style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--color-primary)' }}>{Math.round(correctCount / exam.questions.length * 100)}%</div>
-                    </div>
-                </div>
-
-                <div className="flex gap-4">
-                    <button 
-                        className="btn btn-primary"
-                        style={{ flex: 1 }}
-                        onClick={() => handleModeChange('study')}
-                    >
-                        <Layers size={18} /> {t.reviewStudy}
+                </dl>
+                <div className="button-row">
+                    <button type="button" className="button button--secondary" onClick={handleReset}>
+                        <RefreshCw size={18} aria-hidden="true" /> {t.restart}
                     </button>
-                    <button 
-                        className="btn btn-secondary"
-                        onClick={handleReset}
-                    >
-                        <RefreshCw size={18} /> {t.restart}
+                    <button type="button" className="button button--primary" onClick={() => handleModeChange('study')}>
+                        <Layers size={18} aria-hidden="true" /> {t.reviewStudy}
                     </button>
                 </div>
-            </div>
+            </section>
         )}
 
         {/* Content */}
         {mode === 'study' ? (
             <div>
-                {exam.questions.map((q, i) => renderQuestion(q, i, true))}
+                {exam.questions.map((q, i) => renderQuestion(q, i))}
             </div>
         ) : (
             <div>
-                {/* Quiz Mode Pagination Header */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '2rem' }}>
-                    {exam.questions.map((q, i) => {
-                        const isAns = !!answers[q.id];
-                        let bg = 'var(--color-bg)';
-                        let col = 'var(--color-text-muted)';
-                        if (currentQIndex === i) {
-                            bg = 'var(--color-primary)'; col = '#fff';
-                        } else if (isAns) {
-                            bg = answers[q.id].isCorrect ? 'var(--color-success-light)' : 'var(--color-error-light)';
-                            col = answers[q.id].isCorrect ? 'var(--color-success)' : 'var(--color-error)';
-                        }
-                        return (
-                            <button
-                                key={q.id}
-                                onClick={() => handleQuestionNavigate('jump', i)}
-                                style={{
-                                    width: '32px', height: '32px', borderRadius: '4px', border: 'none',
-                                    backgroundColor: bg, color: col, fontWeight: 600, cursor: 'pointer',
-                                    boxShadow: currentQIndex === i ? '0 0 0 2px var(--color-primary-light)' : 'none'
-                                }}
-                            >
-                                {i + 1}
-                            </button>
-                        );
-                    })}
-                </div>
+                <details
+                    className="question-nav-panel"
+                    open={navOpen}
+                    onToggle={(e) => setNavOpen(e.currentTarget.open)}
+                >
+                    <summary className="question-nav-panel__summary">
+                        <ChevronDown size={20} className="question-nav-panel__icon" aria-hidden="true" />
+                        <span>{t.navLabel}</span>
+                        <span className="question-nav-panel__counts">
+                            {t.correct} {correctCount} ・ {t.incorrect} {answeredCount - correctCount}
+                        </span>
+                    </summary>
+                <nav aria-label={t.navLabel}>
+                    <ol className="question-nav">
+                        {exam.questions.map((q, i) => {
+                            const ans = answers[q.id];
+                            const stateClass = ans ? (ans.isCorrect ? 'is-correct' : 'is-incorrect') : '';
+                            const stateText = ans ? (ans.isCorrect ? t.correct : t.incorrect) : '';
+                            return (
+                                <li key={q.id}>
+                                    <button
+                                        type="button"
+                                        className={`question-nav__button ${stateClass}`}
+                                        aria-current={currentQIndex === i ? 'step' : undefined}
+                                        aria-label={`${t.q} ${i + 1}${stateText ? ` (${stateText})` : ''}`}
+                                        onClick={() => handleQuestionNavigate('jump', i)}
+                                    >
+                                        {i + 1}
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ol>
+                </nav>
+                </details>
 
-                {renderQuestion(exam.questions[currentQIndex], currentQIndex, false)}
-                
-                <div className="flex items-center justify-between mt-8">
-                    <button 
-                       className="btn btn-secondary"
+                {renderQuestion(exam.questions[currentQIndex], currentQIndex)}
+
+                <div className="button-row session-nav">
+                    <button
+                       type="button"
+                       className="button button--secondary"
                        onClick={() => handleQuestionNavigate('prev', Math.max(0, currentQIndex - 1))}
                        disabled={currentQIndex === 0}
                     >
-                        <ArrowLeft size={20} /> {t.prev}
+                        <ArrowLeft size={20} aria-hidden="true" /> {t.prev}
                     </button>
                     <button
-                       className="btn btn-primary"
-                       onClick={() => handleQuestionNavigate('next', Math.min(exam.questions.length - 1, currentQIndex + 1))}
-                       disabled={currentQIndex === exam.questions.length - 1}
+                       type="button"
+                       className="button button--primary"
+                       onClick={() => handleQuestionNavigate('next', Math.min(total - 1, currentQIndex + 1))}
+                       disabled={currentQIndex === total - 1}
                     >
-                        {t.next} <ArrowRight size={20} />
+                        {t.next} <ArrowRight size={20} aria-hidden="true" />
                     </button>
                 </div>
             </div>
