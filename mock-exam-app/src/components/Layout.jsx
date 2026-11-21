@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { Outlet, Link, NavLink } from 'react-router-dom';
-import { useLanguage } from '../utils/context';
+import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
+import { useLanguage, alternatePath, saveLangPreference } from '../utils/i18n';
 import { Globe } from 'lucide-react';
+import useDocumentHead from '../seo/useDocumentHead';
 import useGoogleAnalytics from '../utils/useGoogleAnalytics';
 import { setUserProperties } from '../utils/analytics';
 import { updates, formatDate } from '../utils/updates';
@@ -10,7 +11,11 @@ import { buildFeedbackUrl } from '../utils/feedback';
 const ISSUES_URL = 'https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues';
 
 export default function Layout() {
-  const { lang, toggleLanguage } = useLanguage();
+  const { lang, localize } = useLanguage();
+  const { pathname } = useLocation();
+  const otherLang = lang === 'ja' ? 'en' : 'ja';
+  // Update the head first so the page_view below reports the new page title.
+  useDocumentHead();
   useGoogleAnalytics();
 
   useEffect(() => {
@@ -38,26 +43,28 @@ export default function Layout() {
     <div className="site">
       <header className="site-header">
         <div className="container site-header__inner">
-          <Link to="/" className="site-name">
+          <Link to={localize('/')} className="site-name">
             <span className="site-name__main">Datadog Fundamentals Mock Exams</span>
             <span className="site-name__sub">{t.siteSub}</span>
           </Link>
 
           <nav className="site-nav" aria-label={lang === 'ja' ? 'メインメニュー' : 'Main'}>
-            <NavLink to="/fundamentals" className="site-nav__link">{t.exams}</NavLink>
-            <NavLink to="/updates" className="site-nav__link site-nav__link--optional">{t.updates}</NavLink>
+            <NavLink to={localize('/fundamentals/')} className="site-nav__link">{t.exams}</NavLink>
+            <NavLink to={localize('/updates/')} className="site-nav__link site-nav__link--optional">{t.updates}</NavLink>
             {/* Show the language to switch to, written in that language, so that
                 readers who can't read the current language can still find it. */}
-            <button
-              type="button"
-              onClick={toggleLanguage}
+            {/* A link to the same page in the other language, so crawlers can follow it too. */}
+            <Link
+              to={alternatePath(pathname)}
+              onClick={() => saveLangPreference(otherLang)}
               className="lang-button"
-              lang={lang === 'ja' ? 'en' : 'ja'}
+              lang={otherLang}
+              hrefLang={otherLang}
               aria-label={lang === 'ja' ? 'Switch to English' : '日本語に切り替える'}
             >
               <Globe size={20} aria-hidden="true" />
               {lang === 'ja' ? 'English' : '日本語'}
-            </button>
+            </Link>
           </nav>
         </div>
       </header>
@@ -70,8 +77,8 @@ export default function Layout() {
         <div className="container site-footer__inner">
           <p className="site-footer__name">Datadog Fundamentals Mock Exams</p>
           <ul className="site-footer__links">
-            <li><Link to="/fundamentals">{t.exams}</Link></li>
-            <li><Link to="/updates">{t.updates}</Link></li>
+            <li><Link to={localize('/fundamentals/')}>{t.exams}</Link></li>
+            <li><Link to={localize('/updates/')}>{t.updates}</Link></li>
             <li><a href={ISSUES_URL} target="_blank" rel="noopener noreferrer">{t.report}</a></li>
             <li><a href={buildFeedbackUrl({ lang })} target="_blank" rel="noopener noreferrer">{t.reportForm}</a></li>
           </ul>

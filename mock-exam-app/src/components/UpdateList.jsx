@@ -1,5 +1,5 @@
 import { ExternalLink } from 'lucide-react';
-import { useLanguage } from '../utils/context';
+import { useLanguage } from '../utils/i18n';
 import { formatDate } from '../utils/updates';
 
 export default function UpdateList({ items, headingLevel = 3 }) {
