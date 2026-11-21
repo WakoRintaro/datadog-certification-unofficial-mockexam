@@ -5,7 +5,8 @@ export default function NotFound() {
   const { lang, localize } = useLanguage();
   const t = {
     en: { title: 'Page not found', lead: 'The page you were looking for does not exist or has moved.', home: 'Go to the home page', exams: 'See the exam list' },
-    ja: { title: 'ページが見つかりません', lead: 'お探しのページは存在しないか、移動した可能性があります。', home: 'ホームへ', exams: '模擬試験の一覧へ' }
+    ja: { title: 'ページが見つかりません', lead: 'お探しのページは存在しないか、移動した可能性があります。', home: 'ホームへ', exams: '模擬試験の一覧へ' },
+    pt: { title: 'Página não encontrada', lead: 'A página que você procurava não existe ou foi movida.', home: 'Ir para a página inicial', exams: 'Ver a lista de simulados' }
   }[lang];
 
   return (

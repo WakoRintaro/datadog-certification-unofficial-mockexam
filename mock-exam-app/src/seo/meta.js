@@ -2,14 +2,14 @@
 // HTML) and by useDocumentHead (kept up to date on client-side navigation).
 import mockExams from '../data/mockExams.json';
 import updates from '../data/updates.json';
-import { splitLang, localizePath } from '../utils/i18n';
+import { splitLang, localizePath, LANGS, HTML_LANG, OG_LOCALE } from '../utils/i18n';
 
 export const SITE_ORIGIN = 'https://wakorintaro.github.io';
 // Base path from vite.config.js `base`, without the trailing slash.
 export const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, '');
 const SITE_URL = `${SITE_ORIGIN}${BASE_PATH}`;
 const OG_IMAGE = `${SITE_URL}/og-image.png`;
-const SITE_NAME = { en: 'Datadog Fundamentals Mock Exams', ja: 'Datadog Fundamentals 模擬試験' };
+const SITE_NAME = { en: 'Datadog Fundamentals Mock Exams', ja: 'Datadog Fundamentals 模擬試験', pt: 'Simulados Datadog Fundamentals' };
 
 const TOTAL_QUESTIONS = mockExams.reduce((n, exam) => n + exam.questions.length, 0);
 const QUESTIONS_PER_SET = mockExams[0]?.questions.length ?? 0;
@@ -23,10 +23,11 @@ export function getAllPaths() {
     paths.push(`/fundamentals/set/${exam.setId}/`, `/fundamentals/set/${exam.setId}/study/`);
   }
   paths.push('/updates/');
-  return ['en', 'ja'].flatMap((lang) => paths.map((p) => localizePath(p, lang)));
+  return LANGS.flatMap((lang) => paths.map((p) => localizePath(p, lang)));
 }
 
 function pageText(path, lang) {
+  if (lang === 'pt') return pageTextPt(path);
   const ja = lang === 'ja';
 
   if (path === '/') {
@@ -94,6 +95,50 @@ function pageText(path, lang) {
   return null;
 }
 
+// Brazilian Portuguese. Product and feature names stay in English, as in the exam.
+function pageTextPt(path) {
+  const name = SITE_NAME.pt;
+
+  if (path === '/') {
+    return {
+      title: 'Simulados Datadog Fundamentals | Preparação gratuita para a certificação (não oficial)',
+      description: `Simulados gratuitos e não oficiais para a certificação Datadog Fundamentals: ${mockExams.length} sets de ${QUESTIONS_PER_SET} questões (${TOTAL_QUESTIONS} no total), com Quiz mode, Study mode e explicação para cada resposta. Sem cadastro.`,
+    };
+  }
+
+  if (path === '/fundamentals/') {
+    return {
+      title: `Lista de simulados (${mockExams.length} sets) | ${name}`,
+      description: `Escolha entre ${mockExams.length} sets de simulados Datadog Fundamentals, com ${QUESTIONS_PER_SET} questões cada, e comece a praticar de graça.`,
+    };
+  }
+
+  const set = path.match(/^\/fundamentals\/set\/([^/]+)\/(study\/)?$/);
+  const exam = set && mockExams.find((e) => e.setId === set[1]);
+  if (exam) {
+    const n = exam.questions.length;
+    if (set[2]) {
+      return {
+        title: `Mock Exam Set ${exam.setId}: todas as ${n} questões com respostas e explicações | ${name}`,
+        description: `Study mode do simulado Datadog Fundamentals set ${exam.setId}: todas as ${n} questões em uma única página, cada uma com a resposta correta e uma explicação.`,
+      };
+    }
+    return {
+      title: `Mock Exam Set ${exam.setId} (${n} questões) | ${name}`,
+      description: `Simulado Datadog Fundamentals set ${exam.setId}: responda ${n} questões uma por vez e veja o resultado e a explicação na hora. Grátis e sem cadastro.`,
+    };
+  }
+
+  if (path === '/updates/') {
+    return {
+      title: `Atualizações | ${name}`,
+      description: 'Histórico de atualizações dos simulados não oficiais Datadog Fundamentals: correções de problemas reportados no GitHub, das mais recentes para as mais antigas.',
+    };
+  }
+
+  return null;
+}
+
 // pathname: app path, e.g. '/ja/fundamentals/set/1/'
 export function getPageMeta(pathname) {
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
@@ -103,7 +148,7 @@ export function getPageMeta(pathname) {
   if (!text) {
     return {
       lang,
-      title: lang === 'ja' ? `ページが見つかりません | ${SITE_NAME.ja}` : `Page Not Found | ${SITE_NAME.en}`,
+      title: { en: `Page Not Found | ${SITE_NAME.en}`, ja: `ページが見つかりません | ${SITE_NAME.ja}`, pt: `Página não encontrada | ${SITE_NAME.pt}` }[lang],
       description: '',
       noindex: true,
     };
@@ -111,9 +156,11 @@ export function getPageMeta(pathname) {
 
   const meta = {
     lang,
+    htmlLang: HTML_LANG[lang],
     ...text,
     canonical: absoluteUrl(normalized),
-    alternates: { en: absoluteUrl(localizePath(path, 'en')), ja: absoluteUrl(localizePath(path, 'ja')) },
+    alternates: Object.fromEntries(LANGS.map((l) => [l, absoluteUrl(localizePath(path, l))])),
+    hreflangs: HTML_LANG,
   };
 
   if (path === '/') {
@@ -123,7 +170,7 @@ export function getPageMeta(pathname) {
       name: SITE_NAME[lang],
       url: meta.canonical,
       description: text.description,
-      inLanguage: lang,
+      inLanguage: HTML_LANG[lang],
       ...(updates.lastUpdated ? { dateModified: updates.lastUpdated } : {}),
     };
   }
@@ -142,13 +189,11 @@ export function getHeadTags(meta) {
     return tags;
   }
 
-  const locale = { en: 'en_US', ja: 'ja_JP' };
-  const other = meta.lang === 'ja' ? 'en' : 'ja';
+  const others = LANGS.filter((l) => l !== meta.lang);
 
   metaTag({ name: 'description', content: meta.description });
   linkTag({ rel: 'canonical', href: meta.canonical });
-  linkTag({ rel: 'alternate', hreflang: 'en', href: meta.alternates.en });
-  linkTag({ rel: 'alternate', hreflang: 'ja', href: meta.alternates.ja });
+  for (const l of LANGS) linkTag({ rel: 'alternate', hreflang: HTML_LANG[l], href: meta.alternates[l] });
   linkTag({ rel: 'alternate', hreflang: 'x-default', href: meta.alternates.en });
 
   metaTag({ property: 'og:type', content: 'website' });
@@ -157,8 +202,8 @@ export function getHeadTags(meta) {
   metaTag({ property: 'og:title', content: meta.title });
   metaTag({ property: 'og:description', content: meta.description });
   metaTag({ property: 'og:image', content: OG_IMAGE });
-  metaTag({ property: 'og:locale', content: locale[meta.lang] });
-  metaTag({ property: 'og:locale:alternate', content: locale[other] });
+  metaTag({ property: 'og:locale', content: OG_LOCALE[meta.lang] });
+  for (const l of others) metaTag({ property: 'og:locale:alternate', content: OG_LOCALE[l] });
 
   metaTag({ name: 'twitter:card', content: 'summary_large_image' });
   metaTag({ name: 'twitter:title', content: meta.title });

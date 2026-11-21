@@ -13,7 +13,7 @@ Datadog, Inc. とは関係のない非公式サイトです。
 
 | パス | 内容 |
 |---|---|
-| `mock-exam-app/src/data/mockExams.json` | 問題データ（英語・日本語）。問題の修正はこのファイルを直接編集します |
+| `mock-exam-app/src/data/mockExams.json` | 問題データ（英語・日本語・ブラジルポルトガル語）。問題の修正はこのファイルを直接編集します |
 | `mock-exam-app/src/data/updates.json` | 更新履歴のデータ。ビルド時に自動生成されます（手で編集しない） |
 | `mock-exam-app/src/pages/` | 画面（トップ、試験一覧、解答画面、更新履歴） |
 | `mock-exam-app/src/index.css` | スタイル。デジタル庁デザインシステムのトークンを使っています |
@@ -27,18 +27,19 @@ Datadog, Inc. とは関係のない非公式サイトです。
 
 ### URL
 
-英語のページはルート、日本語のページは `/ja/` の下にあります。
+英語のページはルート、日本語のページは `/ja/`、ブラジルポルトガル語のページは `/pt/` の下にあります。
 
-| ページ | 英語 | 日本語 |
-|---|---|---|
-| ホーム | `/` | `/ja/` |
-| 試験一覧 | `/fundamentals/` | `/ja/fundamentals/` |
-| クイズモード | `/fundamentals/set/1/` | `/ja/fundamentals/set/1/` |
-| 学習モード（全問の正解と解説を折りたたみで掲載） | `/fundamentals/set/1/study/` | `/ja/fundamentals/set/1/study/` |
-| 更新履歴 | `/updates/` | `/ja/updates/` |
+| ページ | 英語 | 日本語 | ポルトガル語（ブラジル） |
+|---|---|---|---|
+| ホーム | `/` | `/ja/` | `/pt/` |
+| 試験一覧 | `/fundamentals/` | `/ja/fundamentals/` | `/pt/fundamentals/` |
+| クイズモード | `/fundamentals/set/1/` | `/ja/fundamentals/set/1/` | `/pt/fundamentals/set/1/` |
+| 学習モード（全問の正解と解説を折りたたみで掲載） | `/fundamentals/set/1/study/` | `/ja/fundamentals/set/1/study/` | `/pt/fundamentals/set/1/study/` |
+| 更新履歴 | `/updates/` | `/ja/updates/` | `/pt/updates/` |
 
-- ヘッダーの言語切替は、反対の言語の同じページへのリンクです。選んだ言語はブラウザに保存されます。
-- 言語を選んだことがなく、ブラウザが日本語の人が英語のページを開くと、日本語のページに移動します。
+- ヘッダーの言語切替は、ほかの言語の同じページへのリンクです。選んだ言語はブラウザに保存されます。
+- 言語を選んだことがなく、ブラウザが日本語またはポルトガル語の人が英語のページを開くと、その言語のページに移動します。
+- ポルトガル語版でも、Datadog の製品名・機能名・コマンドは公式試験と同じ体験になるよう英語のままにしています（日本語版と同じ方針）。
 - 以前の `#/fundamentals/set/1` 形式の URL は、新しい URL に自動で転送されます。
 
 ## ローカルで動かす

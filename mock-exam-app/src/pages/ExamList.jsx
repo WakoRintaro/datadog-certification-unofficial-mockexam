@@ -14,6 +14,10 @@ const labels = {
   ja: {
     home: "ホーム", title: "模擬試験 一覧", subtitle: "練習を始める試験セットを選択してください。", questions: "問", start: "試験を開始",
     resume: "続きから", completed: "完了", inProgress: "解答中", review: "見直す"
+  },
+  pt: {
+    home: "Início", title: "Simulados Fundamentals", subtitle: "Selecione um simulado para começar a praticar.", questions: "questões", start: "Iniciar simulado",
+    resume: "Continuar", completed: "Concluído", inProgress: "Em andamento", review: "Revisar"
   }
 };
 

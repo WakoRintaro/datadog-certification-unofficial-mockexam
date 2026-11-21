@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useLanguage } from '../utils/i18n';
+import { useLanguage, pick } from '../utils/i18n';
 import { useSavedProgress, saveProgress } from '../utils/progress';
 import mockExams from '../data/mockExams.json';
 import { Check, X, ArrowRight, ArrowLeft, RefreshCw, Layers, Award, ChevronDown, ExternalLink } from 'lucide-react';
@@ -50,6 +50,15 @@ function ExamSession({ exam, mode }) {
       reportQuestion: "この問題の正解・解説について報告する", opensForm: "（Google フォームが開きます）",
       confirmReset: "この試験の進捗をリセットしてもよろしいですか？",
       results: "試験結果", score: "スコア", pct: "正解率", reviewStudy: "学習モードで全問見直す", restart: "もう一度挑戦する"
+    },
+    pt: {
+      study: "Study Mode", quiz: "Quiz Mode", q: "Questão", next: "Próxima", prev: "Anterior",
+      exp: "Explicação", correct: "Correta", incorrect: "Incorreta", finish: "Concluído", reset: "Zerar progresso",
+      home: "Início", exams: "Simulados", answered: "respondidas", modeLabel: "Modo de exibição", navLabel: "Questões",
+      correctAnswer: "Resposta correta", yourAnswer: "Sua resposta", showAnswer: "Mostrar a resposta e a explicação",
+      reportQuestion: "Reportar um problema com esta resposta ou explicação", opensForm: "(abre um Google Forms)",
+      confirmReset: "Tem certeza de que deseja zerar seu progresso neste simulado?",
+      results: "Resultado do simulado", score: "Sua pontuação", pct: "Percentual de acertos", reviewStudy: "Revisar no Study Mode", restart: "Refazer o simulado"
     }
   }[lang];
 
@@ -143,7 +152,7 @@ function ExamSession({ exam, mode }) {
         </h2>
 
         <div className="question__text">
-            {q.question[lang]}
+            {pick(q.question, lang)}
         </div>
 
         <div className="options">
@@ -164,7 +173,7 @@ function ExamSession({ exam, mode }) {
                 onClick={() => handleSelectOption(q.id, opt.id, opt.isCorrect)}
               >
                 <span className="option__label">{opt.id}</span>
-                <span className="option__text">{opt.text[lang]}</span>
+                <span className="option__text">{pick(opt.text, lang)}</span>
                 {(stateClass || isSelected) && (
                   <span className="option__status">
                     {stateClass === 'is-correct' && <Check size={18} aria-hidden="true" />}
@@ -184,7 +193,7 @@ function ExamSession({ exam, mode }) {
                 {userAnswer.isCorrect ? t.correct : t.incorrect}
              </p>
              <p className="explanation__heading">{t.exp}</p>
-             <div className="explanation__body" dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
+             <div className="explanation__body" dangerouslySetInnerHTML={{ __html: pick(q.explanation, lang) }} />
              {renderReportLink(q)}
           </div>
         )}
@@ -200,10 +209,10 @@ function ExamSession({ exam, mode }) {
             <div className="answer-reveal__body">
               <p className="explanation__heading">{t.correctAnswer}</p>
               {q.options.filter(opt => opt.isCorrect).map(opt => (
-                <p key={opt.id}>{opt.id}. {opt.text[lang]}</p>
+                <p key={opt.id}>{opt.id}. {pick(opt.text, lang)}</p>
               ))}
               <p className="explanation__heading">{t.exp}</p>
-              <div className="explanation__body" dangerouslySetInnerHTML={{ __html: q.explanation[lang] }} />
+              <div className="explanation__body" dangerouslySetInnerHTML={{ __html: pick(q.explanation, lang) }} />
               {renderReportLink(q)}
             </div>
           </details>
