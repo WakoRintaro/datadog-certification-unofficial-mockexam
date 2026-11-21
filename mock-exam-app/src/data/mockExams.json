@@ -90,8 +90,8 @@
           }
         ],
         "explanation": {
-          "en": "`top` or `htop` are standard Linux commands to monitor process resource usage. While `datadog-agent status` provides operational status, it doesn't give real-time system resource consumption.",
-          "ja": "`top` または `htop` は、プロセス リソースの使用状況を監視するための標準 Linux コマンドです。「datadog-agent status」は動作ステータスを提供しますが、リアルタイムのシステム リソース消費量は提供しません。"
+          "en": "`top` or `htop` show live CPU and memory usage per process, so you can find the Agent's processes (such as `agent`, `trace-agent`, and `process-agent`) and see their `%CPU` and memory. `datadog-agent status` reports the state of the Agent's components and checks, not a live view of the process's CPU and RAM. `datadog-agent info` was an Agent v5 command and does not exist in Agent v6/v7. `df -h` shows disk usage per filesystem, not per process.",
+          "ja": "`top` や `htop` はプロセスごとの CPU とメモリの使用状況をリアルタイムに表示するため、Agent のプロセス (`agent`、`trace-agent`、`process-agent` など) を見つけて `%CPU` やメモリを確認できます。`datadog-agent status` は Agent のコンポーネントやチェックの状態を報告するもので、プロセスの CPU や RAM をリアルタイムに表示するものではありません。`datadog-agent info` は Agent v5 のコマンドで、Agent v6/v7 にはありません。`df -h` はファイルシステムごとのディスク使用量を表示し、プロセス単位の情報ではありません。"
         }
       },
       {
@@ -1312,8 +1312,8 @@
       {
         "id": "30",
         "question": {
-          "en": "Which tag is *reserved* by Datadog and should not be used for custom tags?",
-          "ja": "Datadog によって *予約* されており、カスタム タグに使用すべきではないタグはどれですか?"
+          "en": "Which of the following is *not* one of Datadog's reserved tag keys?",
+          "ja": "次のうち、Datadog の予約タグキーでは*ない*ものはどれですか?"
         },
         "options": [
           {
@@ -1335,23 +1335,23 @@
           {
             "id": "C",
             "text": {
-              "en": "`project`",
-              "ja": "`project`"
+              "en": "`host`",
+              "ja": "`host`"
             },
             "isCorrect": false
           },
           {
             "id": "D",
             "text": {
-              "en": "`host`",
-              "ja": "`host`"
+              "en": "`project`",
+              "ja": "`project`"
             },
             "isCorrect": true
           }
         ],
         "explanation": {
-          "en": "`host` is a reserved tag name used by Datadog to identify the source host of the data.",
-          "ja": "「host」は、データのソース ホストを識別するために Datadog によって使用される予約されたタグ名です。"
+          "en": "Datadog reserves the tag keys `host`, `device`, `source`, `service`, `env`, and `version` and uses them to correlate metrics, traces, and logs. For example, `env`, `service`, and `version` power Unified Service Tagging. `project` has no special meaning and is an ordinary custom tag key.",
+          "ja": "Datadog は `host`、`device`、`source`、`service`、`env`、`version` をタグキーとして予約しており、メトリクス、トレース、ログの関連付けに使います。たとえば `env`、`service`、`version` は統合サービスタグ付けの基盤です。`project` には特別な意味はなく、通常のカスタムタグキーです。"
         }
       },
       {
@@ -1530,15 +1530,15 @@
           }
         ],
         "explanation": {
-          "en": "Gauges represent a \"snapshot\" of a value at a specific point in time (like a thermometer).",
-          "ja": "必要な保管スペースが少なくなります。"
+          "en": "A GAUGE records a snapshot of a value at a point in time, like a thermometer reading. Current memory usage is a level that goes up and down, so it is a gauge. Requests per second and errors in the last hour count events, so they are COUNT (or RATE) metrics. Function execution time is a set of measurements whose distribution matters, so it fits a HISTOGRAM or DISTRIBUTION.",
+          "ja": "GAUGE は、温度計の読み取り値のように、ある時点での値のスナップショットを記録します。現在のメモリ使用率は上下する「水準」なので GAUGE です。毎秒のリクエスト数や過去 1 時間のエラー数はイベントの回数なので COUNT (または RATE) のメトリクスです。関数の実行時間は分布が重要な計測値の集まりなので、HISTOGRAM や DISTRIBUTION が適しています。"
         }
       },
       {
         "id": "35",
         "question": {
-          "en": "If you send a Count metric with a value of 5 and then 10 within the same 10-second flush interval, what value will appear in Datadog?",
-          "ja": "`Set` は、一意の出現をカウントするために使用されます。"
+          "en": "Your application calls DogStatsD `increment` with a value of 5 and then 10 within the same 10-second flush interval. What total does the Agent aggregate for that interval before submitting it?",
+          "ja": "アプリケーションが、同じ 10 秒のフラッシュ間隔内で DogStatsD の `increment` を値 5、続いて値 10 で呼び出しました。Agent が送信前にその間隔について集約する合計値はいくつですか?"
         },
         "options": [
           {
@@ -1575,8 +1575,8 @@
           }
         ],
         "explanation": {
-          "en": "Count metrics are aggregated (summed) by the Agent within the flush interval.",
-          "ja": "カウンター"
+          "en": "The Agent adds up all COUNT values received in one flush interval, so it aggregates 5 + 10 = 15. Note that a COUNT submitted through DogStatsD is stored in Datadog as a RATE: each value is normalized per second over the flush interval, so a graph shows 15 / 10 s = 1.5. To see raw totals, apply a function such as Cumulative Sum or Integral.",
+          "ja": "Agent は 1 回のフラッシュ間隔内に受信した COUNT の値をすべて合計するため、5 + 10 = 15 に集約します。なお、DogStatsD で送信した COUNT は Datadog では RATE として保存されます。各値はフラッシュ間隔で 1 秒あたりに正規化されるため、グラフには 15 / 10 秒 = 1.5 と表示されます。生の合計を見るには、Cumulative Sum や Integral などの関数を適用します。"
         }
       },
       {
@@ -1845,8 +1845,8 @@
           }
         ],
         "explanation": {
-          "en": "Histograms are ideal for timing data (latency/execution time).",
-          "ja": "ヒストグラムは、タイミング データ (レイテンシ/実行時間) に最適です。"
+          "en": "A HISTOGRAM (or a TIMER, which is a histogram for timing data) is designed for values such as query execution time. From the samples in each flush interval, the Agent computes `avg`, `median`, `max`, `count`, and the `95percentile`, so you can see both typical and slow queries. A GAUGE keeps only the last value in the interval, so most samples are lost. \"Increment\" is a COUNT operation for counting events, not for measuring durations. A SET counts unique values. If you need accurate percentiles across many hosts, a DISTRIBUTION is also a good choice.",
+          "ja": "HISTOGRAM (またはタイミングデータ用のヒストグラムである TIMER) は、クエリの実行時間のような値のためのメトリクスタイプです。Agent はフラッシュ間隔ごとのサンプルから `avg`、`median`、`max`、`count`、`95percentile` を計算するため、典型的な値と遅いクエリの両方を把握できます。GAUGE は間隔内の最後の値しか保持しないため、ほとんどのサンプルが失われます。「Increment」はイベントを数える COUNT の操作で、時間の計測には向きません。SET は一意な値の数を数えます。多数のホストにまたがって正確なパーセンタイルが必要な場合は、DISTRIBUTION も適しています。"
         }
       },
       {
@@ -2025,8 +2025,8 @@
           }
         ],
         "explanation": {
-          "en": "`nc -u` is a classic tool for testing UDP connectivity and sending test strings.",
-          "ja": "「nc -u」は、UDP 接続をテストし、テスト文字列を送信するための古典的なツールです。"
+          "en": "DogStatsD listens on UDP port 8125, and `nc -u` (netcat) can send a raw UDP datagram, for example `echo -n \"custom.metric.name:1|c\" | nc -4u -w1 localhost 8125`. `telnet` only opens TCP connections, `curl` speaks protocols such as HTTP over TCP, and `ping` sends ICMP echo requests, so none of them can send a UDP packet to port 8125.",
+          "ja": "DogStatsD は UDP ポート 8125 で待ち受けており、`nc -u` (netcat) で UDP データグラムを直接送信できます。例: `echo -n \"custom.metric.name:1|c\" | nc -4u -w1 localhost 8125`。`telnet` は TCP 接続しか開けず、`curl` は HTTP などの TCP 上のプロトコルを扱い、`ping` は ICMP エコー要求を送るため、いずれもポート 8125 に UDP パケットを送ることはできません。"
         }
       },
       {
@@ -2347,8 +2347,8 @@
       {
         "id": "53",
         "question": {
-          "en": "How do you verify if the Agent is successfully resolving the \"site\" URL?",
-          "ja": "エージェントが「サイト」URL を正常に解決しているかどうかをどのように確認しますか?"
+          "en": "How can you check that the Agent can reach the Datadog endpoints for its configured `site`?",
+          "ja": "設定した `site` の Datadog エンドポイントに Agent が到達できるかを確認するにはどうしますか?"
         },
         "options": [
           {
@@ -2370,8 +2370,8 @@
           {
             "id": "C",
             "text": {
-              "en": "Look for \"Successfully connected to intake\" in `agent.log`.",
-              "ja": "「agent.log」で「インテークに正常に接続されました」を探してください。"
+              "en": "Run `datadog-agent diagnose` (its connectivity suites test the Datadog endpoints).",
+              "ja": "`datadog-agent diagnose` を実行する (接続性のスイートが Datadog エンドポイントをテストする)。"
             },
             "isCorrect": true
           },
@@ -2385,8 +2385,8 @@
           }
         ],
         "explanation": {
-          "en": "The logs explicitly mention successful connections to the Datadog backend.",
-          "ja": "ログには、Datadog バックエンドへの接続が成功したことが明示的に記載されています。"
+          "en": "`datadog-agent diagnose` runs the Agent's self-diagnostic suites, including `connectivity-datadog-core-endpoints`, which tests connections to the Datadog intake endpoints for your `site` and reports failures. You can also look for `Successfully posted payload to ...` lines in `agent.log`. `ping 8.8.8.8` only checks general internet reachability, `datadog-agent health` reports the health of the Agent's internal components, and `/etc/resolv.conf` only shows which DNS servers are configured.",
+          "ja": "`datadog-agent diagnose` は Agent の自己診断スイートを実行します。その中の `connectivity-datadog-core-endpoints` は、設定した `site` の Datadog インテークエンドポイントへの接続をテストし、失敗を報告します。`agent.log` に `Successfully posted payload to ...` という行が出ているかでも確認できます。`ping 8.8.8.8` は一般的なインターネット接続しか確認できず、`datadog-agent health` は Agent 内部コンポーネントの状態を報告するもので、`/etc/resolv.conf` は設定されている DNS サーバーを示すだけです。"
         }
       },
       {
@@ -4971,8 +4971,8 @@
           {
             "id": "A",
             "text": {
-              "en": "`container_exclude`",
-              "ja": "`container_exclude`"
+              "en": "`exclude_containers`",
+              "ja": "`exclude_containers`"
             },
             "isCorrect": false
           },
@@ -4987,8 +4987,8 @@
           {
             "id": "C",
             "text": {
-              "en": "`ac_exclude`",
-              "ja": "`ac_exclude`"
+              "en": "`container_exclude`",
+              "ja": "`container_exclude`"
             },
             "isCorrect": true
           },
@@ -5002,8 +5002,8 @@
           }
         ],
         "explanation": {
-          "en": "`ac_exclude` (Autodiscovery Exclude) is used to tell the Agent to ignore specific containers based on their name or image.",
-          "ja": "`ac_exclude` (Autodiscovery Exclude) は、名前またはイメージに基づいて特定のコンテナを無視するようにエージェントに指示するために使用されます。"
+          "en": "`container_exclude` (environment variable `DD_CONTAINER_EXCLUDE`, Agent v7.20+) excludes containers by image name, container name, or Kubernetes namespace, for example `container_exclude: [\"image:nginx\", \"name:redis-.*\"]`. Use `container_exclude_metrics` or `container_exclude_logs` to exclude a container from only metrics or only logs. The older `ac_exclude` setting is still read for backward compatibility, but the documentation uses `container_exclude`.",
+          "ja": "`container_exclude` (環境変数は `DD_CONTAINER_EXCLUDE`、Agent v7.20 以降) は、イメージ名、コンテナ名、Kubernetes の名前空間でコンテナを除外します。例: `container_exclude: [\"image:nginx\", \"name:redis-.*\"]`。メトリクスだけ、またはログだけを除外する場合は `container_exclude_metrics` や `container_exclude_logs` を使います。古い `ac_exclude` も後方互換のため読み込まれますが、ドキュメントでは `container_exclude` が案内されています。"
         }
       },
       {
@@ -5189,8 +5189,8 @@
       {
         "id": "26",
         "question": {
-          "en": "Which command allows you to verify the YAML syntax of your `datadog.yaml` file without starting the Agent?",
-          "ja": "エージェントを起動せずに「datadog.yaml」ファイルの YAML 構文を検証できるコマンドはどれですか?"
+          "en": "Which command prints the runtime configuration of a running Agent (the result of merging `datadog.yaml`, environment variables, and defaults)?",
+          "ja": "実行中の Agent のランタイム設定 (`datadog.yaml`、環境変数、デフォルト値をマージした結果) を表示するコマンドはどれですか?"
         },
         "options": [
           {
@@ -5204,8 +5204,8 @@
           {
             "id": "B",
             "text": {
-              "en": "There is no such command; you must start the Agent.",
-              "ja": "そのようなコマンドはありません。エージェントを起動する必要があります。"
+              "en": "`datadog-agent configcheck`",
+              "ja": "`datadog-agent configcheck`"
             },
             "isCorrect": false
           },
@@ -5227,8 +5227,8 @@
           }
         ],
         "explanation": {
-          "en": "`datadog-agent config` parses the config and would reveal parsing errors, though `status` is also commonly used to find errors in loaded files.",
-          "ja": "「datadog-agent config」は設定を解析し、解析エラーを明らかにしますが、「status」はロードされたファイル内のエラーを見つけるためにもよく使用されます。"
+          "en": "`datadog-agent config` prints the runtime configuration of a running Agent, so you can confirm which values are actually in effect after environment variables and defaults are applied. `datadog-agent configcheck` shows the loaded integration (check) configurations instead, and `datadog-agent status` shows the state of the Agent and its checks. There is no `yaml-check` subcommand. Because `config` asks the running Agent, it cannot be used to validate `datadog.yaml` before the Agent starts; YAML errors appear in `agent.log` when the Agent starts.",
+          "ja": "`datadog-agent config` は実行中の Agent のランタイム設定を表示するので、環境変数やデフォルト値が適用された後に実際に有効になっている値を確認できます。`datadog-agent configcheck` は読み込まれたインテグレーション (チェック) の設定を、`datadog-agent status` は Agent とチェックの状態を表示します。`yaml-check` というサブコマンドはありません。`config` は実行中の Agent に問い合わせるため、Agent の起動前に `datadog.yaml` を検証する用途には使えません。YAML のエラーは Agent の起動時に `agent.log` に出力されます。"
         }
       },
       {
@@ -5587,8 +5587,8 @@
           }
         ],
         "explanation": {
-          "en": "You should increment a counter every time an error occurs. Datadog will then allow you to view this as a \"rate per second.\"",
-          "ja": "エラーが発生するたびにカウンターをインクリメントする必要があります。Datadog では、これを「1 秒あたりのレート」として表示できるようになります。"
+          "en": "Count errors by calling `increment` each time one occurs. A COUNT submitted through DogStatsD is stored in Datadog as a RATE, normalized per second over the flush interval, so you get errors per second directly. A GAUGE would keep only the last value reported in each interval, so it cannot count events. A HISTOGRAM describes the distribution of values such as durations, and a SET counts unique values (such as unique users).",
+          "ja": "エラーが発生するたびに `increment` を呼び出して数えます。DogStatsD で送信した COUNT は Datadog では RATE として保存され、フラッシュ間隔で 1 秒あたりに正規化されるため、そのまま毎秒のエラー数になります。GAUGE は各間隔で最後に報告された値しか保持しないため、イベントを数えることはできません。HISTOGRAM は処理時間などの値の分布を表すもので、SET は一意な値 (ユニークユーザーなど) の数を数えます。"
         }
       },
       {
