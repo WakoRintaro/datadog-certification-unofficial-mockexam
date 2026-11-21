@@ -165,6 +165,8 @@ a:any-link:focus-visible {
 a.site-name:any-link {
   display: inline-flex;
   flex-direction: column;
+  /* Takes the width the navigation leaves, so the name wraps at most onto a second line. */
+  min-width: 0;
   color: var(--text-heading);
   text-decoration: none;
   line-height: var(--line-height-130);
@@ -190,6 +192,7 @@ a.site-name:any-link {
 
 .site-nav {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 0.25rem;
 }
@@ -218,8 +221,7 @@ a.site-name:any-link {
   text-decoration-thickness: calc(3 / 16 * 1rem);
 }
 
-.site-nav__link:any-link,
-a.lang-button:any-link {
+.site-nav__link:any-link {
   white-space: nowrap;
 }
 
@@ -229,35 +231,108 @@ a.lang-button:any-link {
     display: none;
   }
 
-  .site-name__main {
-    font-size: var(--font-size-16);
+  .site-header__inner {
+    gap: 0.5rem;
+    padding-block: 0.25rem;
   }
 
-  .site-nav__link:any-link,
-  .site-nav a.lang-button:any-link {
+  .site-name__main {
+    font-size: var(--font-size-16);
+    /* Wrap between words only; "Fundamentals" must not be split. */
+    overflow-wrap: normal;
+  }
+
+  .site-nav {
+    gap: 0;
+  }
+
+  .site-nav__link:any-link {
     padding: 0 0.5rem;
   }
 
-  /* Two language links share the header on phones; the text is enough. */
-  .lang-button svg {
+  .lang-menu__button {
+    padding: 0 0.25rem;
+  }
+
+  /* On phones the button shows only the globe; its accessible name still says the language. */
+  .lang-menu__current {
     display: none;
   }
 }
 
-a.lang-button:any-link {
+/* Language menu: a button that opens a list of the languages. */
+.lang-menu {
+  position: relative;
+}
+
+.lang-menu__button {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
   min-height: 2.75rem;
+  min-width: 2.75rem;
   padding: 0 0.75rem;
+  border: 0;
   border-radius: var(--border-radius-6);
+  background: none;
   color: var(--text-body);
-  text-decoration: none;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.lang-menu__button[aria-expanded='true'] {
+  background-color: var(--bg-subtle);
+}
+
+.lang-menu__button[aria-expanded='true'] .lang-menu__chevron {
+  transform: rotate(180deg);
 }
 
 @media (hover: hover) {
-  a.lang-button:any-link:hover {
-    color: var(--text-body);
+  .lang-menu__button:hover {
+    background-color: var(--bg-subtle);
+    text-decoration: underline;
+    text-decoration-thickness: calc(1 / 16 * 1rem);
+    text-underline-offset: calc(3 / 16 * 1rem);
+  }
+}
+
+.lang-menu__list {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  right: 0;
+  z-index: 20;
+  min-width: 12rem;
+  padding: 0.25rem 0;
+  background-color: var(--color-neutral-white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--border-radius-8);
+  box-shadow: var(--elevation-2);
+}
+
+.lang-menu__list[hidden] {
+  display: none;
+}
+
+a.lang-menu__link:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  color: var(--text-body);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+a.lang-menu__link[aria-current='true'] {
+  font-weight: var(--font-weight-700);
+}
+
+@media (hover: hover) {
+  a.lang-menu__link:any-link:hover {
     background-color: var(--bg-subtle);
     text-decoration: underline;
     text-decoration-thickness: calc(1 / 16 * 1rem);
