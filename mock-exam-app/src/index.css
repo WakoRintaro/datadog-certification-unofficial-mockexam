@@ -1044,6 +1044,11 @@ a.exam-card:any-link:focus-visible {
   white-space: pre-wrap;
 }
 
+.explanation__report {
+  margin-top: 1rem;
+  font-size: var(--font-size-14);
+}
+
 .results {
   margin-bottom: 2rem;
   padding: 1.5rem;
