@@ -1006,6 +1006,21 @@ a.exam-card:any-link:focus-visible {
   font-weight: var(--font-weight-700);
 }
 
+/* On narrow screens, move the status onto its own line under the option text
+   so it doesn't squeeze the text into a tall, narrow column. */
+@media (max-width: 767px) {
+  .option {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+  }
+
+  .option__status {
+    flex-basis: 100%;
+    padding-top: 0;
+    padding-left: 3rem; /* label width (2rem) + gap (1rem) */
+  }
+}
+
 .option.is-correct {
   border: 2px solid var(--success-border);
   background-color: var(--success-bg);
