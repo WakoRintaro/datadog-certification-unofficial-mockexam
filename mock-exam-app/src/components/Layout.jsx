@@ -9,6 +9,8 @@ import { updates, formatDate } from '../utils/updates';
 import { buildFeedbackUrl } from '../utils/feedback';
 
 const ISSUES_URL = 'https://github.com/WakoRintaro/datadog-certification-unofficial-mockexam/issues';
+// Tip page (e.g. 'https://ko-fi.com/your-id'). The footer link is hidden while this is empty.
+const SUPPORT_URL = 'https://ko-fi.com/wakorintaro';
 
 export default function Layout() {
   const { lang, localize } = useLanguage();
@@ -28,6 +30,7 @@ export default function Layout() {
       lastUpdated: 'Last updated',
       report: 'Found a mistake or have a suggestion? Open an issue on GitHub',
       reportForm: 'Or send a report with a form (no GitHub account needed)',
+      support: 'Find this site useful? Buy me a coffee',
       note: 'Unofficial mock exam platform for the Datadog Fundamentals certification. Not affiliated with Datadog, Inc.'
     },
     ja: {
@@ -35,6 +38,7 @@ export default function Layout() {
       lastUpdated: '最終更新日',
       report: '問題の誤りやご要望は GitHub の Issue からお知らせください',
       reportForm: 'フォームで報告する（GitHub アカウント不要）',
+      support: '役に立ったら、コーヒー1杯分の支援をお願いします',
       note: 'Datadog Fundamentals 認定試験の非公式模擬試験です。Datadog, Inc. とは関係ありません。'
     }
   }[lang];
@@ -81,6 +85,9 @@ export default function Layout() {
             <li><Link to={localize('/updates/')}>{t.updates}</Link></li>
             <li><a href={ISSUES_URL} target="_blank" rel="noopener noreferrer">{t.report}</a></li>
             <li><a href={buildFeedbackUrl({ lang })} target="_blank" rel="noopener noreferrer">{t.reportForm}</a></li>
+            {SUPPORT_URL && (
+              <li><a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">{t.support}</a></li>
+            )}
           </ul>
           <p className="site-footer__note">
             {t.note}
